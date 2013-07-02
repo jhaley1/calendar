@@ -4,16 +4,20 @@ window.Cal = {
   Views: {},
   Routers: {},
   
-  initialize: function() {
-    var Cal.events = new Cal.Collections.Events ();
+  initialize: function () {
+    Cal.events = new Cal.Collections.Events ();
     
     Cal.events.fetch({
-      new Cal.Routers.Events ();
-      Backbone.history.start();
+      success: function () {
+        new Cal.Routers.Events ({
+          $rootEl: $("#content")
+        });
+        Backbone.history.start (); 
+      }
     });
   }
 };
 
-$(function(){
+$(function (){
   Cal.initialize();
 });

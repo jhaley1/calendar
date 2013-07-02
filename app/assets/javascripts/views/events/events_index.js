@@ -3,19 +3,16 @@ Cal.Views.EventsIndex = Backbone.View.extend({
   template: JST['events/index'],
   
   render: function () {
-    var monthNames = [ "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December" ];
-    
-    var currentDate = Date.now();
-    var currentMonth = currentDate.getMonth();
-    var currentYear = currentDate.getYear();
-    var dayOfWeek: currentDate.getDay(currentDate);
+    var _currentDate = new Date ();
+    var _currentMonth = _currentDate.getMonth();
+    var _currentYear = _currentDate.getFullYear();
+    var _dayOfWeek = _currentDate.getDay(_currentDate);
     
     var renderedContent = this.template({
       events: this.collection,
-      month: monthNames[currentMonth],
-      today: currentDate,
-      dayOfWeek: dayOfWeek
+      today: _currentDate,
+      month: Cal._monthNames[_currentMonth],
+      dayOfWeek: Cal._weekNames[_dayOfWeek]
     })
     
     this.$el.html(renderedContent);

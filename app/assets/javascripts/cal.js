@@ -7,12 +7,24 @@ window.Cal = {
   initialize: function () {
     Cal.events = new Cal.Collections.Events ();
     
+    Cal._monthNames = [ 
+      "January", "February", "March", 
+      "April", "May", "June",
+      "July", "August", "September", 
+      "October", "November", "December" 
+      ];
+    Cal._weekNames = [ 
+      "Sunday", "Monday", "Tuesday", 
+      "Wednesday", "Thursday",
+      "Friday", "Saturday" 
+      ];
+    
     Cal.events.fetch({
       success: function () {
         new Cal.Routers.Events ({
           $rootEl: $("#content")
         });
-        Backbone.history.start (); 
+        Backbone.history.start(); 
       }
     });
   }

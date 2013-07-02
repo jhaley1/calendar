@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     
     if @event.save
-      redirect_to calendar_url
+      render :index
     else
       flash[:notice] = @event.errors.full_messages
       render :new
@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
   
   def index
-    @calendar = current_user.events
+    @events = current_user.events
   end
   
   def new
@@ -38,7 +38,7 @@ class EventsController < ApplicationController
     
     if @event.update_attributes
       @event.save
-      redirect_to calendar_url
+      render :json
     else
       flash[:notice] = @event.errors.full_messages
       render :edit

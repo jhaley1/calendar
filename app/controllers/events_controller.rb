@@ -21,6 +21,10 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
   end
   
+  def index
+    @calendar = current_user.events
+  end
+  
   def new
     @event = Event.new
   end

@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<!-- start header bar -->
+  <%# if current_user %>
+    <%#= form_for @user, :url => session_url do |f| %>
+      <!--button class="logout-button">Log out</button-->
+    <%# end %>
+  <%# else %>
+    <%#= render :partial => "./sessions/new" %>
+  <%# end %>
+<!-- end header bar -->
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

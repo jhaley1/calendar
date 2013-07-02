@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :password
 
+  has_many :calendars
+
   validates :email, :password_digest, :presence => true
 
   def password=(password)
@@ -17,4 +19,5 @@ class User < ActiveRecord::Base
     
     self.session_token
   end
+
 end

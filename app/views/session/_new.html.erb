@@ -1,0 +1,7 @@
+<!-- app/views/session/new.html.erb -->
+
+<%= form_for @user do |f| %>
+  <%= f.text_field :email, :placeholder => "email" %>
+  <%= f.password_field :password, :placeholder => "password" %>
+  <%= f.submit :value => "Log In" %>
+<% end %>

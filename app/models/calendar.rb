@@ -1,5 +1,5 @@
 class Calendar < ActiveRecord::Base
-  has_many :days
+  has_many :events
   belongs_to :user
   
 end

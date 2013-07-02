@@ -6,19 +6,23 @@
   <br>
   
   <%= f.label :description %>
+  <br>
   <%= f.text_area :description %>
   <br>
   
-  <input type="datetime-local" name="date">
-  
+  <input type="datetime-local" name="event[datetime]">
+  <br>
+
   <input type="radio" 
     id="event_recurring_true" 
     name="event[recurring]"
     value="true">
+  <label for="event_recurring_true">Recurring</label>
   <input type="radio" 
-    id="event_recurring_true" 
+    id="event_recurring_false" 
     name="event[recurring]"
     value="false">
+  <label for="event_recurring_false">One time</label>
   <br>
   
   <%= f.submit %>

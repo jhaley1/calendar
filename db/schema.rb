@@ -18,11 +18,6 @@ ActiveRecord::Schema.define(:version => 20130702170157) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "days", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "events", :force => true do |t|
     t.string   "title"
     t.text     "description"

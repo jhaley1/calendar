@@ -16,6 +16,12 @@
     <%#= render :partial => "./sessions/new" %>
   <%# end %>
 <!-- end header bar -->
+  
+<!-- start error display -->
+  <% flash.each do |name, msg| -%>
+    <%= content_tag :div, msg, class: name %>
+  <% end -%>
+<!-- end error display -->
 
   <%= yield %>
 

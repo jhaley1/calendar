@@ -12,7 +12,7 @@ Cal.Views.EventsIndex = Backbone.View.extend({
       events: this.collection,
       today: _currentDate,
       month: Cal._monthNames[_currentMonth],
-      dayOfWeek: Cal._weekNames[_dayOfWeek]
+      dayOfWeek: Cal._dayNames[_dayOfWeek]
     })
     
     this.$el.html(renderedContent);

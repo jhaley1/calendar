@@ -13,7 +13,7 @@ window.Cal = {
       "July", "August", "September", 
       "October", "November", "December" 
       ];
-    Cal._weekNames = [ 
+    Cal._dayNames = [ 
       "Sunday", "Monday", "Tuesday", 
       "Wednesday", "Thursday",
       "Friday", "Saturday" 

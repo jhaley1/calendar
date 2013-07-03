@@ -1,5 +1,9 @@
 <!-- app/assets/templates/events/index.jst.ejs -->
 
+<% Cal._dayNames.each(function (dayName) { %>
+  <div class="day-name"><%= dayName %></div>
+<% }); %>
+
 <% events.each(function (event) { %>
 
 

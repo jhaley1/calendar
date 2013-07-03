@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130702220233) do
+ActiveRecord::Schema.define(:version => 20130702235442) do
 
   create_table "calendars", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130702220233) do
     t.string   "end_date"
     t.string   "start_time"
     t.string   "end_time"
+    t.integer  "creator_id"
   end
 
   create_table "recurring_events", :force => true do |t|

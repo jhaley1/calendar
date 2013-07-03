@@ -6,12 +6,14 @@ Cal.Views.EventsIndex = Backbone.View.extend({
     var _currentDate = new Date ();
     var _currentMonth = _currentDate.getMonth();
     var _currentYear = _currentDate.getFullYear();
-    var _dayOfWeek = _currentDate.getDay(_currentDate);
-    var _lastDay = new Date(_currentYear, _currentMonth + 1, 0);
-    var _daysInMonth = _lastDay.getDate();
+    var _firstOfMonth = new Date(_currentYear, _currentMonth, 1);
+    var _dayOfWeek = _firstOfMonth.getDay();
+    var _lastOfMonth = new Date(_currentYear, _currentMonth + 1, 0);
+    var _lastDayOfWeek = _lastOfMonth.getDay();
+    var _daysInMonth = _lastOfMonth.getDate();
     
     var _daysArr = [];
-    
+
     for (var i = 0; i < _daysInMonth; i++) {
       _daysArr.push(i + 1);
     }
@@ -21,7 +23,9 @@ Cal.Views.EventsIndex = Backbone.View.extend({
       today: _currentDate,
       month: Cal._monthNames[_currentMonth],
       dayOfWeek: Cal._dayNames[_dayOfWeek],
-      daysInMonth: _daysArr
+      daysInMonth: _daysArr,
+      lastWeekday: Cal._dayNames[_lastDayOfWeek],
+      lastDayOfMonth: _daysInMonth
     });
     
     this.$el.html(renderedContent);

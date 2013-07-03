@@ -3,10 +3,16 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .calendar-day-box {
-  height: 12%;
-  width: 12%;
+  height: 120px;
+  width: 120px;
 }
 
 .day-name {
+  height: 30px;
+  width: 120px;
   float: left;
+  padding: 5px;
+  text-align: center;
+  
+  border: 1px solid black;
 }

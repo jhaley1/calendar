@@ -1,11 +1,9 @@
 <!-- app/assets/templates/events/index.jst.ejs -->
 
-<% Cal._dayNames.each(function (dayName) { %>
+<% _(Cal._dayNames).each(function (dayName) { %>
   <div class="day-name"><%= dayName %></div>
 <% }); %>
 
 <% events.each(function (event) { %>
-
-
-
+  <div class="event"><%= event.escape("title") %></div>
 <% }); %>

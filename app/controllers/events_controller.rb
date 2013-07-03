@@ -3,7 +3,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
     
     if @event.save
-      render :index
+      render :json => @event
     else
       flash[:notice] = @event.errors.full_messages
       render :new
@@ -14,23 +14,27 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     
-    redirect_to calendar_url
+    render :json => nil
   end
   
   def edit
     @event = Event.find(params[:id])
+    render :json => @event
   end
   
   def index
     @events = current_user.events
+    render :json => @events
   end
   
   def new
     @event = Event.new
+    render :json => @event
   end
   
   def show
     @event = Event.find(params[:id])
+    render :json => @event
   end
   
   def update
@@ -38,10 +42,10 @@ class EventsController < ApplicationController
     
     if @event.update_attributes
       @event.save
-      render :json
+      render :json => @event
     else
       flash[:notice] = @event.errors.full_messages
-      render :edit
+      render :json => @event
     end
   end
 

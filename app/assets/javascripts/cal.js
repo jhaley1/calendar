@@ -18,12 +18,13 @@ window.Cal = {
       "Wednesday", "Thursday",
       "Friday", "Saturday" 
       ];
-    
+
     Cal.events.fetch({
       success: function () {
         new Cal.Routers.Events ({
           $rootEl: $("#content")
         });
+
         Backbone.history.start(); 
       }
     });

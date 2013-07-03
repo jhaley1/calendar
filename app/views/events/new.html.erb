@@ -9,11 +9,12 @@
   <br>
   <%= f.text_area :description %>
   <br>
-  
-  <input type="datetime-local" name="event[datetime]">
+
+  <label for="event_start_date">Start</label>
+  <input id="event_start_date" name="event[start_date]" type="datetime-local" />
+  <label for="event_end_date">End</label>
+  <input id="event_end_date" name="event[end_date]" type="datetime-local" />
   <br>
-  
-  <%= date_select @event, :date %>
 
   <input type="radio" 
     id="event_recurring_true" 

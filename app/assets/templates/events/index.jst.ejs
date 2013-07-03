@@ -3,7 +3,27 @@
 <% _(Cal._dayNames).each(function (dayName) { %>
   <div class="day-name"><%= dayName %></div>
 <% }); %>
+<br><br><br><br>
 
-<% events.each(function (event) { %>
-  <div class="event"><%= event.escape("title") %></div>
+<% _(daysInMonth).each(function (day) { %>
+  <% if (day === 1) { %>
+    <% _(Cal.dayNames).forEach(function (dayName, index) { %>
+      
+    <% }); %>
+  <% } %>
+  
+  <div class="calendar-day">
+    <font id="day-num"><%= day %></font>
+    
+    <% events.each(function (event) { %>
+      <div class="event">
+        <% var eventDate = new Date (event.get("start_date")); %>
+        <% var eventDay = eventDate.getDate(); %>
+        
+        <% if (eventDay === day) { %>
+          <%= event.escape("title") %>
+        <% } %>
+      </div>
+    <% }); %>
+  </div>
 <% }); %>

@@ -5,6 +5,7 @@ Cal.Views.EventsIndex = Backbone.View.extend({
   events: {
     "click button#last-month": "lastMonth",
     "click button#next-month": "nextMonth",
+    "click button#new-event": "newEvent",
   },
   
   initialize: function () {
@@ -50,6 +51,10 @@ Cal.Views.EventsIndex = Backbone.View.extend({
   nextMonth: function () {
     Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
     this.render();
+  },
+  
+  newEvent: function () {
+    Cal.router.navigate("events/new", { trigger: true })
   }
 
 });

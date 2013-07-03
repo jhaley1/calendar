@@ -22,7 +22,7 @@ window.Cal = {
 
     Cal.events.fetch({
       success: function () {
-        new Cal.Routers.Events ({
+        Cal.router = new Cal.Routers.Events ({
           $rootEl: $("#content")
         });
 

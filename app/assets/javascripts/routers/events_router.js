@@ -17,8 +17,14 @@ Cal.Routers.Events = Backbone.Router.extend({
     this.$rootEl.html(indexView.render().$el);
   },
   
-  eventNew: function () {
+  eventNew: function (id) {
+    var model = Cal.events.get(id);
     
+    var newView = new Cal.Views.EventsNew ({
+      model: model
+    });
+    
+    this.$rootEl.html(newView.render().$el);
   },
   
   eventShow: function () {

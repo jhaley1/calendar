@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   
   def new
     @event = Event.new
-    # render :json => @event
+    render :json => @event
   end
   
   def show

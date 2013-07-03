@@ -88,3 +88,21 @@
 #next-month:hover {
   background-color: #9933CC;
 }
+
+#new-event {
+  background-color: #AA66CC;
+  color: white;
+  font-style: bold;
+
+  border: none;
+  text-align: center;
+  width: 70px;
+  height: 30px;
+  padding: 2px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+#new-event:hover {
+  background-color: #9933CC;
+}

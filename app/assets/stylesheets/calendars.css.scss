@@ -5,7 +5,7 @@
 #content {
   padding: 2%;
   align: center;
-  max-width: 70%;
+  max-width: 80%;
 }
 
 .calendar-day {
@@ -13,14 +13,38 @@
   width: 12%;
   float: left;
   padding: 5px;
+  
   text-align: left;
   font-size: 12px;
-  
-  border: 1px solid black;
+  border: 1px solid white;
   
   #day-num {
     font-size: 18px;
   }
+  
+  #event {
+    background-color: #AA66CC;
+    
+    text-indent: 5%;
+    width: 98%;
+    padding: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+  }
+  
+  #event:hover {
+    background-color: #9933CC;
+  }
+  
+  #event-link {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.calendar-day:hover {
+  background-color: #E6E8FA;
+  border: 1px solid #CDCDCD;
 }
 
 .day-name {
@@ -29,6 +53,38 @@
   float: left;
   padding: 5px;
   text-align: center;
+}
+
+#last-month {
+  border: none;
+  height: 30px;
+  width: 30px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
   
-  border: 1px solid black;
+  background-color: #AA66CC;
+  color: white;
+  font-size: 14px;
+  font-style: bold;
+}
+
+#last-month:hover {
+  background-color: #9933CC;
+}
+
+#next-month {
+  border: none;
+  height: 30px;
+  width: 30px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  
+  background-color: #AA66CC;
+  color: white;
+  font-size: 14px;
+  font-style: bold;
+}
+
+#next-month:hover {
+  background-color: #9933CC;
 }

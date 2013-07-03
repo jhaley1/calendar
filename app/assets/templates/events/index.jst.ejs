@@ -1,6 +1,10 @@
 <!-- app/assets/templates/events/index.jst.ejs -->
 
-<h1><%= month %></h1>
+<h1>
+  <button id="last-month"><</button>
+  <button id="next-month">></button>
+  <%= month %>
+</h1>
 
 <% _(Cal._dayNames).each(function (dayName) { %>
   <div class="day-name"><%= dayName %></div>
@@ -10,6 +14,7 @@
 <% _(daysInMonth).each(function (day) { %>
   <% if (day === 1) { %>
     <% var index = Cal._dayNames.indexOf(dayOfWeek); %>
+    
     <% for (var i = index; i > 0; i--) { %>
       <div class="calendar-day"></div>
     <% } %>
@@ -23,16 +28,18 @@
       <div class="event">
         <% var eventDate = new Date (event.get("start_date")); %>
         <% var eventDay = eventDate.getDate(); %>
+        <% var eventMonthNum = eventDate.getMonth(); %>
+        <% var eventMonth = Cal._monthNames[eventMonthNum] %>
+        <% var eventYear = eventDate.getFullYear(); %>
         
-        <% if (eventDay === day) { %>
-          <%= event.escape("title") %>
+        <% if ((eventDay === day) && (eventMonth == month) && (eventYear == year)) { %>
+          <a href="#/event/<%= event.escape("id") %>"
+            id="event-link">
+            <div id="event"><%= event.escape("title") %></div></a>
         <% } %>
       </div>
     <% }); %>
   </div>
-  
-  
-  <% console.log(lastDayOfMonth) %>
   
   <% if (day === lastDayOfMonth) { %>
     <% var index = Cal._dayNames.indexOf(lastWeekday) + 1; %>
@@ -41,4 +48,5 @@
       <div class="calendar-day"></div>
     <% } %>
   <% } %>
+  
 <% }); %>

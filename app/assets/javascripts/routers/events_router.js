@@ -1,6 +1,7 @@
 Cal.Routers.Events = Backbone.Router.extend({
   routes: {
     "": "index",
+    "events/new": "eventNew",
     "events/:id": "eventShow",
   },
   
@@ -14,6 +15,10 @@ Cal.Routers.Events = Backbone.Router.extend({
     });
 
     this.$rootEl.html(indexView.render().$el);
+  },
+  
+  eventNew: function () {
+    
   },
   
   eventShow: function () {

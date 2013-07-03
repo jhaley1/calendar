@@ -18,6 +18,7 @@ window.Cal = {
       "Wednesday", "Thursday",
       "Friday", "Saturday" 
       ];
+    Cal._currentDate = new Date ();
 
     Cal.events.fetch({
       success: function () {

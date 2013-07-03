@@ -2,10 +2,18 @@ Cal.Views.EventsIndex = Backbone.View.extend({
 
   template: JST['events/index'],
   
+  events: {
+    "click button#last-month": "lastMonth",
+    "click button#next-month": "nextMonth",
+  },
+  
+  initialize: function () {
+    this.listenTo(this.collection, "change:Cal._currentDate", this.render);
+  },
+  
   render: function () {
-    var _currentDate = new Date ();
-    var _currentMonth = _currentDate.getMonth();
-    var _currentYear = _currentDate.getFullYear();
+    var _currentMonth = Cal._currentDate.getMonth();
+    var _currentYear = Cal._currentDate.getFullYear();
     var _firstOfMonth = new Date(_currentYear, _currentMonth, 1);
     var _dayOfWeek = _firstOfMonth.getDay();
     var _lastOfMonth = new Date(_currentYear, _currentMonth + 1, 0);
@@ -20,8 +28,9 @@ Cal.Views.EventsIndex = Backbone.View.extend({
     
     var renderedContent = this.template({
       events: this.collection,
-      today: _currentDate,
+      today: Cal._currentDate,
       month: Cal._monthNames[_currentMonth],
+      year: _currentYear,
       dayOfWeek: Cal._dayNames[_dayOfWeek],
       daysInMonth: _daysArr,
       lastWeekday: Cal._dayNames[_lastDayOfWeek],
@@ -31,6 +40,16 @@ Cal.Views.EventsIndex = Backbone.View.extend({
     this.$el.html(renderedContent);
     
     return this;
+  },
+  
+  lastMonth: function () {
+    Cal._currentDate.setMonth(Cal._currentDate.getMonth() - 1);
+    this.render();
+  },
+  
+  nextMonth: function () {
+    Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
+    this.render();
   }
 
 });

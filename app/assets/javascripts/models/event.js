@@ -1,3 +1,5 @@
-Cal.Models.Event = Backbone.Model.extend({
+Cal.Models.Event = Backbone.RelationalModel.extend({
+
   jsonROOT: "event"
+
 });

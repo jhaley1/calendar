@@ -4,6 +4,8 @@ gem 'rails', '3.2.13'
 
 gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
+gem 'compass-rails'
+gem 'bootstrap-sass'
 gem 'debugger'
 gem 'jquery-rails'
 gem 'oj'

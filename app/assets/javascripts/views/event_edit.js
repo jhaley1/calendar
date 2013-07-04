@@ -1,4 +1,4 @@
-Cal.Views.EventsForm = Backbone.View.extend({
+Cal.Views.EventEdit = Backbone.View.extend({
 
   template: JST['events/form'],
   
@@ -10,8 +10,7 @@ Cal.Views.EventsForm = Backbone.View.extend({
   
   render: function () {
     var renderedContent = this.template({
-      event: this.model,
-      events: this.collection
+      event: this.model
     });
     
     this.$el.html(renderedContent);

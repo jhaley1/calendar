@@ -2,10 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// CALENDAR - EVENTS INDEX PAGE
+
 #content {
   padding: 2%;
   align: center;
-  max-width: 80%;
+  max-width: 90%;
 }
 
 .calendar-day {
@@ -16,7 +18,7 @@
   
   text-align: left;
   font-size: 12px;
-  border: 1px solid white;
+  border: 1px solid #CDCDCD;
   
   #day-num {
     font-size: 18px;
@@ -55,7 +57,7 @@
   text-align: center;
 }
 
-#last-month {
+#last-month, #next-month {
   border: none;
   height: 30px;
   width: 30px;
@@ -68,24 +70,7 @@
   font-style: bold;
 }
 
-#last-month:hover {
-  background-color: #9933CC;
-}
-
-#next-month {
-  border: none;
-  height: 30px;
-  width: 30px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  
-  background-color: #AA66CC;
-  color: white;
-  font-size: 14px;
-  font-style: bold;
-}
-
-#next-month:hover {
+#last-month:hover, #next-month:hover {
   background-color: #9933CC;
 }
 
@@ -105,4 +90,29 @@
 
 #new-event:hover {
   background-color: #9933CC;
+}
+
+
+// NEW EVENTS PAGE
+
+button#back-to-cal, button#discard, #save {
+  background-color: #AA66CC;
+  color: white;
+  font-style: bold;
+
+  border: none;
+  text-align: center;
+  width: 70px;
+  height: 30px;
+  padding: 2px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+button#back-to-cal:hover, button#discard:hover, #save:hover {
+  background-color: #9933CC;
+}
+
+.accepts-data {
+  border: 1px solid #CDCDCD;
 }

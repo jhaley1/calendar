@@ -1,0 +1,48 @@
+<form class="event-form">
+  <label for="event_title">Title</label>
+  <input type="text" 
+    id="event_title" 
+    name="event[title]" 
+    placeholder="Untitled event"
+    size="60"
+    class="accepts-data">
+  <br>
+
+  <label for="event_start_date">Start</label>
+  <input id="event_start_date" 
+    name="event[start_date]" 
+    type="datetime-local" 
+    class="accepts-data" />
+  <label for="event_end_date">End</label>
+  <input id="event_end_date" 
+    name="event[end_date]" 
+    type="datetime-local" 
+    class="accepts-data" />
+  <br>
+  
+  <label for="event_description">Description</label>
+  <br>
+  <textarea id="event_description" 
+    name="event[description]" 
+    placeholder="Describe the event..."
+    rows="10"
+    cols="40" 
+    class="accepts-data"></textarea>
+  <br>
+
+  <input type="radio" 
+    id="event_recurring_true" 
+    name="event[recurring]"
+    value="true">
+  <label for="event_recurring_true">Recurring</label>
+  <input type="radio" 
+    id="event_recurring_false" 
+    name="event[recurring]"
+    value="false">
+  <label for="event_recurring_false">One time</label>
+  <br>
+  
+  <button id="back-to-cal"><</button>
+  <input type="submit" id="save" value="SAVE">
+  <button id="discard">Discard</button>
+</form>

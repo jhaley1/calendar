@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def create
-    @event = Event.new(params[:event])
+    @event = current_user.events.build(params[:event])
     
     if @event.save
       render :json => @event

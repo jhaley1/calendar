@@ -1,3 +1,17 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+button #cancel {
+  background-color: #AA66CC;
+  color: white;
+  font-style: bold;
+
+  border: none;
+  text-align: center;
+  width: 70px;
+  height: 30px;
+  padding: 2px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}

@@ -11,11 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703164341) do
+ActiveRecord::Schema.define(:version => 20130704161134) do
 
   create_table "calendars", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+    t.string   "name"
   end
 
   create_table "events", :force => true do |t|
@@ -24,9 +26,9 @@ ActiveRecord::Schema.define(:version => 20130703164341) do
     t.boolean  "recurring"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "user_id"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.integer  "calendar_id"
   end
 
   create_table "recurring_events", :force => true do |t|

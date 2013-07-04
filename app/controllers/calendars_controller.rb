@@ -11,11 +11,20 @@ class CalendarsController < ApplicationController
   end
   
   def destroy
+    @calendar = Calendar.find(params[:id])
+    @calendar.destroy
     
+    render :json => nil
   end
   
   def edit
-    
+    @calendar = Calendar.find(params[:id])
+    render :json => @calendar
+  end
+  
+  def index
+    @calendars = current_user.calendars
+    render :index
   end
   
   def new
@@ -23,11 +32,20 @@ class CalendarsController < ApplicationController
   end
   
   def show
-    @calendar = Calendar.find(params[:calendar])
+    @calendar = current_user.calendars.find(params[:calendar])
+    render :show
   end
   
   def update
+    @calendar = Calendar.find(params[:id])
     
+    if @calendar.update_attributes(params[:event])
+      @calendar.save
+      render :json => @calendar
+    else
+      flash[:notice] = @calendar.errors.full_messages
+      render :json => @calendar
+    end
   end
 
 end

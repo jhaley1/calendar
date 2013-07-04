@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :password
 
-  has_many :events
+  has_many :calendars
 
   validates :email, :password_digest, :presence => true
 

@@ -2,12 +2,83 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// TOP MENU BAR
+
+#top-menu {
+  background-color: #611d54;
+  font-family: georgia;
+  font-size: 30px;
+  
+  line-height:2em;
+  width: 100%;
+  padding: 0px;
+  
+  #search {
+    border: none;
+    line-height: 30px;
+    width: 400px;
+    margin-right: 40px;
+    float: right;
+  }
+  
+  .char1 {
+    padding-left: 10px;
+    color: #fcf6fb;
+  }
+  .char2 {
+    color: #efcbe8;
+  }
+  .char3 {
+    color: #e19cd4;
+  }
+  .char4 {
+    color: #f3d7ed;
+  }
+  .char5 {
+    color: #d980c8;
+  }
+  .char6 {
+    color: #efcbe8;
+  }
+  .char7 {
+    color: #eab7e0;
+  }
+  .char8 {
+    color: #fcf6fb;
+  }
+  .char9 {
+    color: #efcbe8;
+  }
+  .char10 {
+    color: #e19cd4;
+  }
+  .char11 {
+    color: #f3d7ed;
+  }
+  .char12 {
+    color: #d980c8;
+  }
+  .char13 {
+    color: #efcbe8;
+  }
+  .char14 {
+    color: #eab7e0;
+  }
+  .char15 {
+    color: #fcf6fb;
+  }
+  .char16 {
+    color: #efcbe8;
+  }
+}
+
 // CALENDAR - EVENTS INDEX PAGE
 
 #content {
   padding: 2%;
   align: center;
   max-width: 90%;
+  height: 60%;
 }
 
 .calendar-day {

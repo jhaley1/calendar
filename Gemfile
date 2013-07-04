@@ -6,7 +6,9 @@ gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'debugger'
 gem 'jquery-rails'
+gem 'oj'
 gem 'pg'
+gem 'rabl'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

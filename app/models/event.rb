@@ -2,8 +2,8 @@ class Event < ActiveRecord::Base
   attr_accessible :description, :title,
     :start_date, :end_date, 
     :start_time, :end_time,
-    :user_id, :recurring
+    :calendar_id, :recurring
 
-  belongs_to :user
+  belongs_to :calendar
 
 end

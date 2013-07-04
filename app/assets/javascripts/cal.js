@@ -5,7 +5,7 @@ window.Cal = {
   Routers: {},
   
   initialize: function () {
-    Cal.events = new Cal.Collections.Events ();
+    Cal.calendars = new Cal.Collections.Calendars ();
     
     Cal._monthNames = [ 
       "January", "February", "March", 
@@ -20,9 +20,9 @@ window.Cal = {
       ];
     Cal._currentDate = new Date ();
 
-    Cal.events.fetch({
+    Cal.calendars.fetch({
       success: function () {
-        Cal.router = new Cal.Routers.Events ({
+        Cal.router = new Cal.Routers.Calendars ({
           $rootEl: $("#content")
         });
 
@@ -35,3 +35,16 @@ window.Cal = {
 $(function (){
   Cal.initialize();
 });
+
+
+
+    // Cal.events = new Cal.Collections.Events ();
+    // Cal.events.fetch({
+  //     success: function () {
+  //       Cal.router = new Cal.Routers.Events ({
+  //         $rootEl: $("#content")
+  //       });
+  // 
+  //       Backbone.history.start(); 
+  //     }
+  //   });

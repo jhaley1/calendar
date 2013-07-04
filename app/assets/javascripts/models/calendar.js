@@ -3,7 +3,7 @@ Cal.Models.Calendar = Backbone.RelationalModel.extend({
   relations: [{
     type: Backbone.HasMany,
     key: "events",
-    relatedModel: "Cal.RelationalModel.Event",
+    relatedModel: "Cal.Models.Event",
     collectionType: "Cal.Collections.Events"
   }]
 

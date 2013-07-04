@@ -44,6 +44,3 @@ Cal.Routers.Calendars = Backbone.Router.extend({
   }
   
 });
-
-
-

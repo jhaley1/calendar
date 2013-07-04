@@ -24,12 +24,11 @@
   
   
   <div class="calendar-day">
-    <font id="day-num"><%= day %></font>
-    
+    <font id="day-num"><%= day %></font>    
     <% calendars.each(function (calendar) { %>
-      <% calendar.events.each(function (event) { %>
+      <% calendar.get("events").each(function (event) { %>
         <div class="event">
-          <% var eventDate = new Date (event.start_date); %>
+          <% var eventDate = new Date (event.get("start_date")); %>
           <% var eventDay = eventDate.getDate(); %>
           <% var eventMonthNum = eventDate.getMonth(); %>
           <% var eventMonth = Cal._monthNames[eventMonthNum] %>
@@ -38,10 +37,9 @@
           <% if ((eventDay === day) 
             && (eventMonth == month) 
             && (eventYear == year)) { %>
-              <% console.log("hi") %>
-            <a href="#/events/<%= event.event.id %>/edit"
+            <a href="#/events/<%= event.escape("id") %>/edit"
               id="event-link">
-              <div id="event"><%= event.event.title %></div></a>
+              <div id="event"><%= event.escape("title") %></div></a>
           <% } %>
         </div>
       <% }); %>

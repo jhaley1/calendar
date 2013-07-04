@@ -1,7 +1,8 @@
 class SessionsController < ApplicationController
   def create
-    @user = User.new(params[:user])
-    if @user.save
+    @user = User.find_by_email(params[:user][:email])
+ 
+    if @user && @user.correct_password?(params[:user][:password])
       login!(@user)
       redirect_to root_url
     else
@@ -17,7 +18,6 @@ class SessionsController < ApplicationController
   end
   
   def new
-    @user = User.new
   end
 
 end

@@ -1,23 +1,31 @@
 <form class="event-form">
+  <input
+    type="hidden"
+    name="event[id]"
+    value="<%= event.id %>">
+  
   <label for="event_title">Title</label>
   <input type="text" 
     id="event_title" 
     name="event[title]" 
     placeholder="Untitled event"
     size="60"
-    class="accepts-data">
+    class="accepts-data"
+    value="<%= event.escape("title") %>">
   <br>
 
   <label for="event_start_date">Start</label>
   <input id="event_start_date" 
     name="event[start_date]" 
     type="datetime-local" 
-    class="accepts-data" />
+    class="accepts-data" 
+    value="<%= event.escape("start_date") %>" />
   <label for="event_end_date">End</label>
   <input id="event_end_date" 
     name="event[end_date]" 
     type="datetime-local" 
-    class="accepts-data" />
+    class="accepts-data" 
+    value="<%= event.escape("end_date") %>" />
   <br>
   
   <label for="event_description">Description</label>
@@ -27,7 +35,8 @@
     placeholder="Describe the event..."
     rows="10"
     cols="40" 
-    class="accepts-data"></textarea>
+    class="accepts-data">
+<%= event.escape("title") %></textarea>
   <br>
 
   <input type="radio" 

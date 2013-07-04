@@ -37,7 +37,7 @@
         <% if ((eventDay === day) 
           && (eventMonth == month) 
           && (eventYear == year)) { %>
-          <a href="#/event/<%= event.escape("id") %>/edit"
+          <a href="#/events/<%= event.escape("id") %>/edit"
             id="event-link">
             <div id="event"><%= event.escape("title") %></div></a>
         <% } %>

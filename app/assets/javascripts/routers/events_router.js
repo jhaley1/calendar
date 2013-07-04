@@ -1,7 +1,7 @@
 Cal.Routers.Events = Backbone.Router.extend({
   routes: {
     "": "index",
-    "events/edit": "eventEdit",
+    "events/:id/edit": "eventEdit",
     "events/new": "eventNew",
     "events/:id": "eventShow",
   },

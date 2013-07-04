@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   def update
     @event = Event.find(params[:id])
     
-    if @event.update_attributes
+    if @event.update_attributes(params[:event])
       @event.save
       render :json => @event
     else

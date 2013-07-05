@@ -4,6 +4,12 @@
 
 @import "bootstrap";
 
+// ALL
+
+button {
+  font-weight: bold;
+}
+
 // TOP MENU BAR
 
 #title {
@@ -122,7 +128,7 @@
   border: 1px solid #CDCDCD;
   
   #day-num {
-    font-size: 18px;
+    font-size: 14px;
   }
   
   // single event
@@ -234,8 +240,8 @@
   border: none;
   height: 30px;
   width: 30px;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
   
   background-color: #AA66CC;
   color: white;
@@ -247,6 +253,7 @@
   background-color: #9933CC;
 }
 
+
 // SIDEBAR
 
 #new-event {
@@ -256,7 +263,7 @@
 
   border: none;
   text-align: center;
-  width: 70px;
+  width: 80%;
   height: 30px;
   padding: 2px;
   -moz-border-radius: 3px;
@@ -273,11 +280,21 @@
 
   border: none;
   text-align: center;
-  width: 70px;
+  width: 80%;
   height: 30px;
   padding: 2px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+}
+
+
+ul#actions
+{
+  display:none;
+}
+.actions:hover ul#actions
+{
+  display: block;
 }
 
 
@@ -286,7 +303,7 @@
 button#back-to-cal, button#discard, #save {
   background-color: #AA66CC;
   color: white;
-  font-style: bold;
+  font-weight: bold;
 
   border: none;
   text-align: center;

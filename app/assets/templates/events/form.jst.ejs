@@ -30,7 +30,8 @@
     value="<%= event.escape("end_date") %>" />
   <br>
   
-  <select name="event[calendar_id]">
+  <label for="event_calendar_id"><h4>Calendar</h4></label>
+  <select name="event[calendar_id]" id="event_calendar_id">
     <% Cal.calendars.each(function (calendar) { %>
       <option value="<%= calendar.get("id") %>">
         <%= calendar.escape("name") %></option>

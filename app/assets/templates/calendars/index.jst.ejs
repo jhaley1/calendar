@@ -6,7 +6,7 @@
 </h1>
 
 <% _(Cal._dayNames).each(function (dayName) { %>
-  <div class="day-name"><%= dayName %></div>
+  <div class="day-name"><h4><%= dayName %></h4></div>
 <% }); %>
 <br><br><br>
 
@@ -21,7 +21,8 @@
   
   
   <div class="calendar-day">
-    <font id="day-num"><%= day %></font>    
+    <font id="day-num"><strong><%= day %></strong></font>
+    
     <% calendars.each(function (calendar) { %>
       <% calendar.get("events").each(function (event) { %>
         <div class="event">

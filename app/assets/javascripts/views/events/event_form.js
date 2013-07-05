@@ -8,6 +8,16 @@ Cal.Views.EventsForm = Backbone.View.extend({
     "click #save": "save",
   },
   
+  initialize: function () {
+    var that = this;
+    
+    $(document).keydown(function (event) {
+      if (event.target.nodeName.toLowerCase() !== 'input') {
+        that.whichKey(event);
+      }     
+    });
+  },
+  
   render: function () {
     var renderedContent = this.template({
       event: this.model
@@ -54,6 +64,14 @@ Cal.Views.EventsForm = Backbone.View.extend({
       this.model.save({}, options);
     } else {
       this.model.save({}, options);
+    }
+  },
+  
+  whichKey: function (event) {
+    switch (event.keyCode) {
+      case 66:
+        Backbone.history.navigate("#/", { trigger: true });
+        break;
     }
   }
 });

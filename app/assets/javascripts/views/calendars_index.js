@@ -1,12 +1,16 @@
 Cal.Views.CalendarsIndex = Backbone.View.extend({
 
   template: JST['calendars/index'],
+  currentView: "month",
   
   events: {
     "click button#last-month": "lastMonth",
     "click button#next-month": "nextMonth",
     "click button#new-event": "newEvent",
     "click button#show-cal": "toggleCal",
+    "click button#month-view": "monthView",
+    "click button#week-view": "weekView",
+    "click button#day-view": "dayView",
   },
   
   initialize: function () {
@@ -14,7 +18,9 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     
     $(document).keydown(function (event) {
-      that.whichKey(event);
+      if (event.target.nodeName.toLowerCase() !== 'input') {
+        that.whichKey(event);
+      }     
     });
   },
   
@@ -49,13 +55,31 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     return this;
   },
   
+  dayView: function () {
+    this.template = JST["calendars/days"];
+    this.currentView = "day";
+    this.render();
+  },
+  
   lastMonth: function () {
     Cal._currentDate.setMonth(Cal._currentDate.getMonth() - 1);
     this.render();
   },
   
+  monthView: function () {
+    this.template = JST["calendars/index"];
+    this.currentView = "month";
+    this.render();
+  },
+  
   nextMonth: function () {
-    Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
+    if (this.currentView == "month") {
+      Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
+    } else if (this.currentView == "week") {
+      Cal._currentDate.setDate(Cal._currentDate.getDate() + 7);
+    } else if (this.currentView == "day") {
+      Cal._currentDate.setDate(Cal._currentDate.getDate() + 1);
+    }
     this.render();
   },
   
@@ -72,14 +96,17 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     el.is(":hidden") ? el.show() : el.hide()
   },
   
+  weekView: function () {
+    this.template = JST["calendars/weeks"];
+    this.render();
+  },
+  
   whichKey: function (event) {
     switch (event.keyCode) {
       case 74: // j
-        console.log("J");
         this.lastMonth();
         break;
       case 75: // k
-        console.log("K");
         this.nextMonth();
         break;
     }

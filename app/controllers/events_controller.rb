@@ -1,12 +1,13 @@
 class EventsController < ApplicationController
   def create
-    @event = current_user.events.build(params[:event])
+    @calendar = Calendar.find(params[:event][:calendar_id])
+    @event = @calendar.events.build(params[:event])
     
     if @event.save
       render :json => @event
     else
       flash[:notice] = @event.errors.full_messages
-      render :new
+      render :json => @event.errors.full_messages, :status => 422
     end
   end
   
@@ -45,7 +46,7 @@ class EventsController < ApplicationController
       render :json => @event
     else
       flash[:notice] = @event.errors.full_messages
-      render :json => @event
+      render :json => @event.errors.full_messages, :status => 422
     end
   end
 

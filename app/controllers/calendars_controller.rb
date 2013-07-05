@@ -6,7 +6,7 @@ class CalendarsController < ApplicationController
       redirect_to @calendar
     else
       flash[:notice] = @calendar.errors.full_messages
-      render :new
+      render :json => @calendar.errors.full_messages, :status => 422
     end
   end
   

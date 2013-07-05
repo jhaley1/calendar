@@ -4,7 +4,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
     "calendars/:id/edit": "calendarEdit",
     "calendars/new": "calendarNew",
     "calendars/:id": "calendarShow",
-    "calendars/:id/events/new": "eventNew",
+    "calendars/:id/events/:id/edit": "eventEdit",
   },
   
   initialize: function (options) {
@@ -40,19 +40,16 @@ Cal.Routers.Calendars = Backbone.Router.extend({
     this.$rootEl.html(newView.render().$el);
   },
   
-  calendarShow: function (id) {
+  eventEdit: function (calId, id) {
+    var _calendar = Cal.calendars.get(calId);
+    var _event = _calendar.get("events").get(id);
     
-  },
-  
-  eventNew: function (id) {
-    var _event = new Cal.Models.Event ();
-    
-    var newView = new Cal.Views.EventsForm ({
-      collection: Cal.calendars,
-      model: _event
+    var editView = new Cal.Views.EventsForm ({
+      model: _event,
+      collection: _calendar
     });
     
-    this.$rootEl.html(newView.render().$el);
+    this.$rootEl.html(editView.render().$el);
   }
   
 });

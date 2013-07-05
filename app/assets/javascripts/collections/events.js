@@ -1,5 +1,6 @@
 Cal.Collections.Events = Backbone.Collection.extend({
 
-  model: Cal.Models.Event
+  model: Cal.Models.Event,
+  url: "/events"
 
 });

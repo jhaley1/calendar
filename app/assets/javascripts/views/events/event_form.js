@@ -24,8 +24,16 @@ Cal.Views.EventsForm = Backbone.View.extend({
     Cal.router.navigate("#/", { trigger: true });
   },
   
-  discard: function () {
-    
+  discard: function (event) {
+    event.preventDefault();
+
+    var options = {
+      success: function () {
+        Backbone.history.navigate("#/", { trigger: true });
+      }
+    };
+
+    this.model.destroy(options);
   },
   
   save: function (event) {
@@ -37,17 +45,16 @@ Cal.Views.EventsForm = Backbone.View.extend({
         Backbone.history.navigate("#/", { trigger: true });
       }
     };
-    
+
+    var calendar = Cal.calendars.get(attrs.event.calendar_id);
     this.model.set(attrs);
-    console.log(typeof this.model)
-    
-    Cal.Models.Event.findOrCreate(attrs, {create: true} );
-    
-    // if (this.model.isNew()) {
-//       this.collection.create(this.model, options);
-//     } else {
-//       this.model.save({}, options);
-//     }
+
+    if (this.model.isNew()) {
+      calendar.get("events").add(this.model);
+      this.model.save({}, options);
+    } else {
+      this.model.save({}, options);
+    }
   }
 });
 

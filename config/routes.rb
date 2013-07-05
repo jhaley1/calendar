@@ -2,7 +2,7 @@ Cal::Application.routes.draw do
   root :to => "root#root"
   
   resources :calendars do
-    resources :events, :only => [:create, :index, :new]
+    resources :events, :only => [:edit]
   end
   
   resources :events

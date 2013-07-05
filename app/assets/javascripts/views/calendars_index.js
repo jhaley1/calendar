@@ -6,6 +6,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#last-month": "lastMonth",
     "click button#next-month": "nextMonth",
     "click button#new-event": "newEvent",
+    "click button#show-cal": "toggleCal",
   },
   
   initialize: function () {
@@ -55,6 +56,15 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   
   newEvent: function () {
     Cal.router.navigate("events/new", { trigger: true })
+  },
+  
+  toggleCal: function (event) {
+    event.preventDefault();
+    var calId = $(event.currentTarget).attr("data-id");
+    var cal = Cal.calendars.get(calId);
+    var el = $(".cal-" + calId);
+    
+    el.is(":hidden") ? el.show() : el.hide()
   }
 
 });

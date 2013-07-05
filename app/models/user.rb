@@ -1,3 +1,5 @@
+################### use has_secure_password ######################
+
 class User < ActiveRecord::Base
   attr_accessible :email, :password
 

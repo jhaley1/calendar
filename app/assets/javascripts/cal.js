@@ -25,6 +25,10 @@ window.Cal = {
         Cal.router = new Cal.Routers.Calendars ({
           $rootEl: $("#content")
         });
+        
+        Cal.eventsRouter = new Cal.Routers.Events ({
+          $rootEl: $("#content")
+        });
 
         Backbone.history.start(); 
       }

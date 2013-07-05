@@ -54,7 +54,7 @@ Cal.Views.EventsIndex = Backbone.View.extend({
   },
   
   newEvent: function () {
-    Cal.router.navigate("events/new", { trigger: true })
+    Cal.router.navigate("calendars/:id/events/new", { trigger: true })
   }
 
 });

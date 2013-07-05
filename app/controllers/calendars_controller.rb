@@ -25,7 +25,6 @@ class CalendarsController < ApplicationController
   def index
     @calendars = current_user.calendars
     render :index
-    # render :json => @calendars.to_json(:include => :events)
   end
   
   def new

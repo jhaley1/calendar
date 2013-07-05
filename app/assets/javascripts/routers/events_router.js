@@ -1,6 +1,6 @@
 Cal.Routers.Events = Backbone.Router.extend({
   routes: {
-    "": "index",
+    "events": "index",
     "events/:id/edit": "eventEdit",
     "events/new": "eventNew",
     "events/:id": "eventShow",
@@ -32,7 +32,7 @@ Cal.Routers.Events = Backbone.Router.extend({
     var _event = new Cal.Models.Event ();
     
     var newView = new Cal.Views.EventsForm ({
-      collection: Cal.events,
+      collection: Cal.calendars,
       model: _event
     });
     

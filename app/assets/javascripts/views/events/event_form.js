@@ -18,7 +18,9 @@ Cal.Views.EventsForm = Backbone.View.extend({
     return this;
   },
   
-  backToCal: function () {
+  backToCal: function (event) {
+    event.preventDefault();
+    
     Cal.router.navigate("#/", { trigger: true });
   },
   
@@ -37,11 +39,15 @@ Cal.Views.EventsForm = Backbone.View.extend({
     };
     
     this.model.set(attrs);
-    if (this.model.isNew()) {
-      this.collection.create(this.model, options);
-    } else {
-      this.model.save({}, options);
-    }
+    console.log(typeof this.model)
+    
+    Cal.Models.Event.findOrCreate(attrs, {create: true} );
+    
+    // if (this.model.isNew()) {
+//       this.collection.create(this.model, options);
+//     } else {
+//       this.model.save({}, options);
+//     }
   }
 });
 

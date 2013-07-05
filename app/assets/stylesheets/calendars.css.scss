@@ -13,9 +13,10 @@
   
   line-height:2em;
   width: 100%;
-  padding: 0px;
+  vertical-align: middle;
   
   #search {
+    margin-top: 15px;
     border: none;
     line-height: 30px;
     width: 400px;
@@ -99,6 +100,8 @@
   height: 100%;
 }
 
+// calendar day square
+
 .calendar-day {
   height: 120px;
   width: 12%;
@@ -113,9 +116,9 @@
     font-size: 18px;
   }
   
+  // single event
+  
   #event {
-    background-color: #AA66CC;
-    
     margin-top: 1px;
     text-indent: 5%;
     width: 98%;
@@ -123,21 +126,100 @@
     -moz-border-radius: 2px;
     -webkit-border-radius: 2px;
   }
-  
-  #event:hover {
-    background-color: #9933CC;
-  }
-  
+
   #event-link {
     color: white;
     text-decoration: none;
   }
+  
+  .cal-1 {
+    background-color: #FFBB33;
+  }
+
+  .cal-1:hover {
+    background-color: #FF8800;
+  }
+
+  .cal-2 {
+    background-color: #AA66CC;
+  }
+
+  .cal-2:hover {
+    background-color: #9933CC;
+  }
+
+  .cal-3 {
+    background-color: #33B5E5;
+  }
+
+  .cal-3:hover {
+    background-color: #0099CC;
+  }
+
+  .cal-4 {
+    background-color: #FF4444;
+  }
+
+  .cal-4:hover {
+    background-color: #CC0000;
+  }
+
+  .cal-5 {
+    background-color: #99CC00;
+  }
+
+  .cal-5:hover {
+    background-color: #669900;
+  }
 }
+
+.cal-button-1 {
+  background-color: #FFBB33;
+}
+
+.cal-button-1:hover {
+  background-color: #FF8800;
+}
+
+.cal-button-2 {
+  background-color: #AA66CC;
+}
+
+.cal-button-2:hover {
+  background-color: #9933CC;
+}
+
+.cal-button-3 {
+  background-color: #33B5E5;
+}
+
+.cal-button-3:hover {
+  background-color: #0099CC;
+}
+
+.cal-button-4 {
+  background-color: #FF4444;
+}
+
+.cal-button-4:hover {
+  background-color: #CC0000;
+}
+
+.cal-button-5 {
+  background-color: #99CC00;
+}
+
+.cal-button-5:hover {
+  background-color: #669900;
+}
+
 
 .calendar-day:hover {
   background-color: #E6E8FA;
   border: 1px solid #CDCDCD;
 }
+
+// calendar days of week header
 
 .day-name {
   height: 30px;
@@ -146,6 +228,8 @@
   padding: 5px;
   text-align: center;
 }
+
+// calendar page buttons
 
 #last-month, #next-month {
   border: none;
@@ -180,6 +264,19 @@
 
 #new-event:hover {
   background-color: #9933CC;
+}
+
+.display-cal-button {
+  color: white;
+  font-style: bold;
+
+  border: none;
+  text-align: center;
+  width: 70px;
+  height: 30px;
+  padding: 2px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 
 

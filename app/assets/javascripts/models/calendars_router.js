@@ -9,6 +9,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
   
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
+    this.$sidebarEl = options.$sidebarEl;
   },
   
   index: function () {
@@ -16,6 +17,11 @@ Cal.Routers.Calendars = Backbone.Router.extend({
       collection: Cal.calendars
     });
 
+    var sidebarView = new Cal.Views.Sidebar ({
+      collection: Cal.calendars
+    });
+    
+    this.$sidebarEl.html(sidebarView.render().$el);
     this.$rootEl.html(indexView.render().$el);
   },
   

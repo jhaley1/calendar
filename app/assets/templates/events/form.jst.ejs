@@ -1,10 +1,12 @@
+<h1>Create a new event</h1>
+
 <form class="event-form">
   <input
     type="hidden"
     name="event[id]"
     value="<%= event.id %>">
   
-  <label for="event_title">Title</label>
+  <label for="event_title"><h4>Title</h4></label>
   <input type="text" 
     id="event_title" 
     name="event[title]" 
@@ -14,13 +16,13 @@
     value="<%= event.escape("title") %>">
   <br>
 
-  <label for="event_start_date">Start</label>
+  <label for="event_start_date"><h4>Start</h4></label>
   <input id="event_start_date" 
     name="event[start_date]" 
     type="datetime-local" 
     class="accepts-data" 
     value="<%= event.escape("start_date") %>" />
-  <label for="event_end_date">End</label>
+  <label for="event_end_date"><h4>End</h4></label>
   <input id="event_end_date" 
     name="event[end_date]" 
     type="datetime-local" 
@@ -35,7 +37,7 @@
     <% }); %>
   <br>
   
-  <label for="event_description">Description</label>
+  <label for="event_description"><h4>Description</h4></label>
   <br>
   <textarea id="event_description" 
     name="event[description]" 
@@ -50,12 +52,12 @@
     id="event_recurring_true" 
     name="event[recurring]"
     value="true">
-  <label for="event_recurring_true">Recurring</label>
+  <label for="event_recurring_true"><h4>Recurring</h4></label>
   <input type="radio" 
     id="event_recurring_false" 
     name="event[recurring]"
     value="false">
-  <label for="event_recurring_false">One time</label>
+  <label for="event_recurring_false"><h4>One time</h4></label>
   <br>
   
   <button id="back-to-cal"><</button>

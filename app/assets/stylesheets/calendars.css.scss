@@ -6,27 +6,26 @@
 
 // TOP MENU BAR
 
-#top-menu {
-  background-color: #611d54;
+#title {
+//  background-color: #611d54;
   font-family: georgia;
-  font-size: 30px;
+  font-size: 22px;
   
-  line-height:2em;
   width: 100%;
-  vertical-align: middle;
+  position: absolute;
+  bottom: 0;
   
-  #search {
-    margin-top: 15px;
-    border: none;
-    line-height: 30px;
-    width: 400px;
-    margin-right: 40px;
-    float: right;
-  }
+//  #search {
+//    margin-top: 15px;
+//    border: none;
+//    line-height: 30px;
+//    width: 400px;
+//    margin-right: 40px;
+//    float: right;
+//  }
   
   .char1 {
-    padding-left: 10px;
-    color: #fcf6fb;
+    color: #d980c8;
     font-weight: bold;
   }
   .char2 {
@@ -54,7 +53,7 @@
     font-weight: bold;
   }
   .char8 {
-    color: #fcf6fb;
+    color: #eab7e0;
     font-weight: bold;
   }
   .char9 {
@@ -82,7 +81,7 @@
     font-weight: bold;
   }
   .char15 {
-    color: #fcf6fb;
+    color: #d980c8;
     font-weight: bold;
   }
   .char16 {
@@ -94,10 +93,20 @@
 // CALENDAR - EVENTS INDEX PAGE
 
 #content {
-  padding: 2%;
+  padding: 0%;
   align: center;
   max-width: 100%;
   height: 100%;
+}
+
+// calendar days of week header
+
+.day-name {
+  height: 30px;
+  width: 12%;
+  float: left;
+  padding: 5px;
+  text-align: center;
 }
 
 // calendar day square
@@ -219,16 +228,6 @@
   border: 1px solid #CDCDCD;
 }
 
-// calendar days of week header
-
-.day-name {
-  height: 30px;
-  width: 12%;
-  float: left;
-  padding: 5px;
-  text-align: center;
-}
-
 // calendar page buttons
 
 #last-month, #next-month {
@@ -247,6 +246,8 @@
 #last-month:hover, #next-month:hover {
   background-color: #9933CC;
 }
+
+// SIDEBAR
 
 #new-event {
   background-color: #AA66CC;

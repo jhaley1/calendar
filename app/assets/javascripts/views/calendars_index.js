@@ -10,7 +10,12 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   initialize: function () {
+    var that = this;
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
+    
+    $(document).keydown(function (event) {
+      that.whichKey(event);
+    });
   },
   
   render: function () {
@@ -65,6 +70,19 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var el = $(".cal-" + calId);
     
     el.is(":hidden") ? el.show() : el.hide()
+  },
+  
+  whichKey: function (event) {
+    switch (event.keyCode) {
+      case 74: // j
+        console.log("J");
+        this.lastMonth();
+        break;
+      case 75: // k
+        console.log("K");
+        this.nextMonth();
+        break;
+    }
   }
 
 });

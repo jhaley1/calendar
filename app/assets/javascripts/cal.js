@@ -23,7 +23,8 @@ window.Cal = {
     Cal.calendars.fetch({
       success: function () {
         Cal.router = new Cal.Routers.Calendars ({
-          $rootEl: $("#content")
+          $rootEl: $("#content"),
+          $sidebarEl: $("#sidebar")
         });
         
         Cal.eventsRouter = new Cal.Routers.Events ({

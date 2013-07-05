@@ -1,0 +1,21 @@
+<script>
+  $(document).ready(function() {
+    $(".fancy_title").lettering();
+  });
+</script>
+
+<br><br>
+<button id="new-event">CREATE</button>
+<br><br>
+
+<% calendars.each(function (calendar) { %>
+  <button id="show-cal"
+    data-id="<%= calendar.get("id") %>"
+    class="display-cal-button cal-button-<%= calendar.get("id") %>">
+    <%= calendar.get("name") %></button>
+  <br><br>
+<% }); %>
+
+<!--iv id="title">
+  <span class="fancy_title">GOOGLE CALENDAR</span>
+</div>

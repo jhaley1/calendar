@@ -1,0 +1,25 @@
+<h1>Create a new calendar</h1>
+
+<form class="calendar-form">
+  <input
+    type="hidden"
+    name="calendar[user_id]"
+    value="<%= user_id %>">
+  
+  <label for="calendar_name"><h4>Name</h4></label>
+  <input type="text" 
+    id="calendar_name" 
+    name="calendar[name]" 
+    placeholder="Untitled calendar"
+    size="60"
+    class="accepts-data"
+    value="<%= calendar.escape("title") %>">
+  <br>
+  
+  <button id="back-to-cal"><</button>
+  <input type="submit" id="save" value="SAVE">
+  
+  <% if (!this.model.isNew()) { %>
+    <button id="discard">Discard</button>
+  <% } %>
+</form>

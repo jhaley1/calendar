@@ -1,9 +1,87 @@
 <!-- app/views/session/new.html.erb -->
 
-<form action="<%= session_url %>" method="post">
+<div id="container">
+  <div id="session-header">
+    <div id="header-content">
+      <span class="fancy_title">
+        <span class="char1">G</span>
+        <span class="char2">L</span>
+        <span class="char3">U</span>
+        <span class="char4">E</span>
+        <span class="char5">G</span>
+        <span class="char6">U</span>
+        <span class="char7">L</span>
+        <span class="char8">L</span>
+        <span class="char8"> </span>
+        <span class="char9">&nbsp;C</span>
+        <span class="char10">A</span>
+        <span class="char11">L</span>
+        <span class="char12">E</span>
+        <span class="char13">N</span>
+        <span class="char14">D</span>
+        <span class="char15">A</span>
+        <span class="char16">R</span>
+      </span>
+    </div>
+  </div>
   
-  <input type="text" name="user[email]" placeholder="email">
-  <input type="password" name="user[password]" placeholder="password">
+  <div id="session-content">
   
-  <input type="submit" value="Log In">
-</form>
+    <div id="left-half">
+      <div id="cal-info">
+        <h1 id="header-text">Calendar</h1>
+        
+        <h2>Share your schedule.</h2>
+        Let your family and friends see your calendar, and view schedules that others have shared with you.
+        <br>
+          
+        <h2>Never forget another event.</h2>
+        Get event reminders via email or have text messages sent right to your mobile phone.
+        <br><br>
+        
+        <a href=""><h5>Learn more about Gluegull Calendar</h5></a>
+      </div>
+    </div>
+
+
+    <div id="right-half">
+      <div id="log-in-box">
+        <form action="<%= session_url %>" method="post" id="entry-form">
+          <div id="log-in-info">
+            <h1 id="header-text">Sign In</h1>
+            <br><br>
+            
+            <input type="text" 
+              name="user[email]" 
+              placeholder="email" 
+              id="info-entry">
+            <br>
+            <input type="password" 
+              name="user[password]" 
+              placeholder="password" 
+              id="info-entry">
+            <br>
+          
+            <input type="submit" value="Log In" id="log-in-button">
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  </div>
+  
+  <div id="session-footer">
+    <div id="footer-content">
+      <font id="header-text"><strong>&#169; Gluegull</strong></font>
+      &emsp;&emsp;&emsp;
+      <a href="">Terms & Conditions</a>
+      &emsp;
+      <a href="">Privacy Policy</a>
+    </div>
+  </div>
+    
+    
+</div>
+
+
+

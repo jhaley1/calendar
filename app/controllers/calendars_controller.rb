@@ -3,7 +3,7 @@ class CalendarsController < ApplicationController
     @calendar = Calendar.new(params[:calendar])
     
     if @calendar.save
-      redirect_to @calendar
+      render :json => @calendar
     else
       flash[:notice] = @calendar.errors.full_messages
       render :json => @calendar.errors.full_messages, :status => 422
@@ -29,6 +29,7 @@ class CalendarsController < ApplicationController
   
   def new
     @calendar = Calendar.new
+    render :json => @calendar
   end
   
   def show

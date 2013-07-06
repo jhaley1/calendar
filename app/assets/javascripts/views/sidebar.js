@@ -4,7 +4,9 @@ Cal.Views.Sidebar = Backbone.View.extend({
   
   events: {
     "click button#new-event": "newEvent",
+    "click button#new-calendar": "newCalendar",
     "click button#show-cal": "toggleCal",
+    "mouseover #keyboard-shortcut-link": "displayKBInfo",
   },
   
   initialize: function () {
@@ -28,6 +30,19 @@ Cal.Views.Sidebar = Backbone.View.extend({
     this.$el.html(renderedContent);
     
     return this;
+  },
+  
+  displayKBInfo: function (event) {
+    $("#keyboard-shortcut-link").hover(function () {
+        $("#keyboard-shortcut-info").css("visibility", "visible");
+      },
+      function () {
+        $("#keyboard-shortcut-info").css("visibility", "hidden");
+    });
+  },
+  
+  newCalendar: function () {
+    Cal.router.navigate("calendars/new", { trigger: true });
   },
   
   newEvent: function () {

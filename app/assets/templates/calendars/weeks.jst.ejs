@@ -1,7 +1,5 @@
 <!-- app/assets/templates/calendars/weeks.jst.ejs -->
-
-<% var day = Cal._currentDate.getDay(); %>
-
+<% var day = Cal._currentDate.getDate(); %>
 
 <% var hoursInDay = []; %>
 <% var daysInWeek = []; %>
@@ -11,7 +9,7 @@
 <% } %>
 
 <% for (var j = 0; j < 7; j++) { %>
-  <% daysInWeek.push(day + j); %>
+  <% daysInWeek.push(j); %>
 <% } %>
 
 <h1>
@@ -19,10 +17,11 @@
 </h1>
 
 
-<% _(daysInWeek).each(function (day) { %>
+<% _(daysInWeek).each(function (toAdd) { %> 
+  <% var currentDay = day + toAdd %>
   <div id="week-table">
     <div class="day-in-week">
-      <center><h5><%= month %> <%= day %></h5></center>
+      <center><h5><%= month %> <%= currentDay %></h5></center>
       <% _(hoursInDay).each(function (hour) { %>  
         <div class="calendar-hour">
           <font id="day-num"><strong><%= hour %>:00</strong></font>
@@ -38,7 +37,7 @@
                 <% var eventYear = eventDate.getFullYear(); %>
       
                 <% if ((eventHour == hour)
-                  && (eventDay === day) 
+                  && (eventDay === currentDay) 
                   && (eventMonth == month) 
                   && (eventYear == year)) { %>
                   <% var cId = calendar.escape("id") %>

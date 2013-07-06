@@ -1,6 +1,15 @@
+<% var temp = Cal._currentDate.setDate(Cal._currentDate.getDate() + 6); %>
+<% var endDate = new Date (temp); %>
+
+<% var endDay = endDate.getDate(); %>
+<% var endMonthNum = endDate.getMonth(); %>
+<% var endMonth = Cal._monthNames[endMonthNum] %>
+<% var endYear = endDate.getFullYear(); %>
+
 <button id="last-week"><</button>
 <button id="next-week">></button>
-<%= month %> <%= day %>, <%= year %> 
+<%= month %> <%= day %>, <%= year %>
+ to <%= endMonth %> <%= endDay %>, <%= endYear %>
 
 <span id="switch-views">
   <button id="day-view" class="view-switch">Day</button>

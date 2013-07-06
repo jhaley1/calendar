@@ -5,8 +5,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   events: {
     "click button#last-month": "lastMonth",
     "click button#next-month": "nextMonth",
-    "click button#new-event": "newEvent",
-    "click button#show-cal": "toggleCal",
     "click button#month-view": "monthView",
     "click button#week-view": "weekView",
     "click button#day-view": "dayView",
@@ -71,20 +69,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
     this.render();
   },
-  
-  newEvent: function () {
-    Cal.router.navigate("events/new", { trigger: true });
-  },
-  
-  toggleCal: function (event) {
-    event.preventDefault();
-    var calId = $(event.currentTarget).attr("data-id");
-    var cal = Cal.calendars.get(calId);
-    var el = $(".cal-" + calId);
-    
-    el.is(":hidden") ? el.show() : el.hide()
-  },
-  
+
   weekView: function () {
     Cal.router.navigate("weeks", { trigger: true });
   },

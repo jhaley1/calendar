@@ -38,9 +38,9 @@ Cal.Routers.Calendars = Backbone.Router.extend({
   },
   
   calendarNew: function () {
-    var _calendar = new Cal.Models.Event ();
+    var _calendar = new Cal.Models.Calendar ();
     
-    var newView = new Cal.Views.EventsForm ({
+    var newView = new Cal.Views.CalendarNew ({
       collection: Cal.calendars,
       model: _calendar
     });

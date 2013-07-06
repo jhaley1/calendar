@@ -14,7 +14,6 @@ button {
 
 #title {
 //  background-color: #611d54;
-  font-family: georgia;
   font-size: 22px;
   
   width: 100%;
@@ -281,7 +280,7 @@ button {
 
 // SIDEBAR
 
-#new-event {
+#new-event, #new-calendar {
   background-color: #AA66CC;
   color: white;
   font-style: bold;
@@ -295,7 +294,7 @@ button {
   -webkit-border-radius: 3px;
 }
 
-#new-event:hover {
+#new-event:hover, #new-calendar:hover {
   background-color: #9933CC;
 }
 
@@ -310,6 +309,23 @@ button {
   padding: 2px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+}
+
+#keyboard-shortcuts {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  
+  font-size: 10px;
+}
+
+#keyboard-shortcut-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  visibility: hidden;
+  
+  font-size: 10px;
 }
 
 //////////////////////////// potential create button
@@ -549,9 +565,10 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 
 // calendar hour box
 
-.calendar-hour {
-  height: 60px;
-  width: 90%;
+.calendar-week-hour {
+  height: 45px;
+  max-height: 45px;
+  width: 100%;
   float: left;
   padding: 5px;
   

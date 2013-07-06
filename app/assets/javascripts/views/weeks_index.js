@@ -69,7 +69,7 @@ Cal.Views.WeeksIndex = Backbone.View.extend({
   },
   
   nextWeek: function () {
-    Cal._currentDate.setMonth(Cal._currentDate.getDay() + 7);
+    Cal._currentDate.setDate(Cal._currentDate.getDate() + 1);
     this.render();
   },
   

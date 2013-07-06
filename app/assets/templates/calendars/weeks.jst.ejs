@@ -15,15 +15,7 @@
 <% } %>
 
 <h1>
-  <button id="last-week"><</button>
-  <button id="next-week">></button>
-  <%= month %> <%= day %>, <%= year %> 
-    to 
-  <span id="switch-views">
-    <button id="day-view" class="view-switch">Day</button>
-    <button id="week-view" class="view-switch">Week</button>
-    <button id="month-view" class="view-switch">Month</button>
-  </span>
+  <%= JST["calendars/_weekHeader"]({ month: month, day: day, year: year })%>
 </h1>
 
 

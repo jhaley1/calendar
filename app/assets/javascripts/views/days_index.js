@@ -1,10 +1,10 @@
-Cal.Views.CalendarsIndex = Backbone.View.extend({
+Cal.Views.DaysIndex = Backbone.View.extend({
 
-  template: JST['calendars/index'],
+  template: JST['calendars/days'],
   
   events: {
-    "click button#last-month": "lastMonth",
-    "click button#next-month": "nextMonth",
+    "click button#last-day": "lastDay",
+    "click button#next-day": "nextDay",
     "click button#new-event": "newEvent",
     "click button#show-cal": "toggleCal",
     "click button#month-view": "monthView",
@@ -14,6 +14,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   
   initialize: function () {
     var that = this;
+    
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     
     $(document).keydown(function (event) {
@@ -24,6 +25,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   render: function () {
+    var _currentHour = Cal._currentDate.getHours();
     var _currentMonth = Cal._currentDate.getMonth();
     var _currentYear = Cal._currentDate.getFullYear();
     var _firstOfMonth = new Date(_currentYear, _currentMonth, 1);
@@ -43,6 +45,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       today: Cal._currentDate,
       month: Cal._monthNames[_currentMonth],
       year: _currentYear,
+      hour: _currentHour,
       dayOfWeek: Cal._dayNames[_dayOfWeek],
       daysInMonth: _daysArr,
       lastWeekday: Cal._dayNames[_lastDayOfWeek],
@@ -58,8 +61,8 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     Cal.router.navigate("days", { trigger: true });
   },
   
-  lastMonth: function () {
-    Cal._currentDate.setMonth(Cal._currentDate.getMonth() - 1);
+  lastDay: function () {
+    Cal._currentDate.setDate(Cal._currentDate.getDate() - 1);
     this.render();
   },
   
@@ -67,9 +70,9 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     Cal.router.navigate("", { trigger: true });
   },
   
-  nextMonth: function () {
-    Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
-    this.render();
+  nextDay: function () {
+    Cal._currentDate.setDate(Cal._currentDate.getDate() + 1);
+    this.render(); 
   },
   
   newEvent: function () {
@@ -92,10 +95,10 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   whichKey: function (event) {
     switch (event.keyCode) {
       case 74: // j
-        this.lastMonth();
+        this.lastDay();
         break;
       case 75: // k
-        this.nextMonth();
+        this.nextDay();
         break;
     }
   }

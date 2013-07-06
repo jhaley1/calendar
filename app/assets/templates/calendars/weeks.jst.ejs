@@ -1,0 +1,69 @@
+<!-- app/assets/templates/calendars/weeks.jst.ejs -->
+
+<% var day = Cal._currentDate.getDay(); %>
+
+
+<% var hoursInDay = []; %>
+<% var daysInWeek = []; %>
+
+<% for (var i = 1; i < 25; i++) { %>
+  <% hoursInDay.push(i); %>
+<% } %>
+
+<% for (var j = 0; j < 7; j++) { %>
+  <% daysInWeek.push(day + j); %>
+<% } %>
+
+<h1>
+  <button id="last-week"><</button>
+  <button id="next-week">></button>
+  <%= month %> <%= day %>, <%= year %> 
+    to 
+  <span id="switch-views">
+    <button id="day-view" class="view-switch">Day</button>
+    <button id="week-view" class="view-switch">Week</button>
+    <button id="month-view" class="view-switch">Month</button>
+  </span>
+</h1>
+
+
+<% _(daysInWeek).each(function (day) { %>
+  <div id="week-table">
+    <div class="day-in-week">
+      <center><h5><%= month %> <%= day %></h5></center>
+      <% _(hoursInDay).each(function (hour) { %>  
+        <div class="calendar-hour">
+          <font id="day-num"><strong><%= hour %>:00</strong></font>
+    
+          <% calendars.each(function (calendar) { %>
+            <% calendar.get("events").each(function (event) { %>
+              <div class="event">
+                <% var eventDate = new Date (event.get("start_date")); %>
+                <% var eventDay = eventDate.getDate(); %>
+                <% var eventHour = eventDate.getHours(); %>
+                <% var eventMonthNum = eventDate.getMonth(); %>
+                <% var eventMonth = Cal._monthNames[eventMonthNum] %>
+                <% var eventYear = eventDate.getFullYear(); %>
+      
+                <% if ((eventHour == hour)
+                  && (eventDay === day) 
+                  && (eventMonth == month) 
+                  && (eventYear == year)) { %>
+                  <% var cId = calendar.escape("id") %>
+                  <% var eId = event.escape("id") %>
+                  <a href="#/calendars/<%= cId %>/events/<%= eId %>/edit"
+                    id="event-link">
+                    <div id="hour-event" 
+                      class="cal-<%= calendar.get("id") %>">
+                      <%= event.escape("title") %>
+                    </div>
+                  </a>
+                <% } %>
+              </div>
+            <% }); %>
+          <% }); %>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+<% }); %>

@@ -5,6 +5,8 @@ Cal.Routers.Calendars = Backbone.Router.extend({
     "calendars/new": "calendarNew",
     "calendars/:id": "calendarShow",
     "calendars/:id/events/:id/edit": "eventEdit",
+    "weeks": "weeksIndex",
+    "days": "daysIndex",
   },
   
   initialize: function (options) {
@@ -46,6 +48,18 @@ Cal.Routers.Calendars = Backbone.Router.extend({
     this.$rootEl.html(newView.render().$el);
   },
   
+  daysIndex: function () {
+    var daysView = new Cal.Views.DaysIndex ({
+      collection: Cal.calendars
+    });
+
+    var sidebarView = new Cal.Views.Sidebar ({
+      collection: Cal.calendars
+    });
+
+    this.$rootEl.html(daysView.render().$el);
+  },
+  
   eventEdit: function (calId, id) {
     var _calendar = Cal.calendars.get(calId);
     var _event = _calendar.get("events").get(id);
@@ -56,6 +70,18 @@ Cal.Routers.Calendars = Backbone.Router.extend({
     });
     
     this.$rootEl.html(editView.render().$el);
+  },
+  
+  weeksIndex: function () {
+    var weeksView = new Cal.Views.WeeksIndex ({
+      collection: Cal.calendars
+    });
+
+    var sidebarView = new Cal.Views.Sidebar ({
+      collection: Cal.calendars
+    });
+    
+    this.$rootEl.html(weeksView.render().$el);
   }
   
 });

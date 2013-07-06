@@ -1,8 +1,14 @@
 <!-- app/assets/templates/calendars/index.jst.ejs -->
+
 <h1>
   <button id="last-month"><</button>
   <button id="next-month">></button>
   <%= month %>, <%= year %>
+  <span id="switch-views">
+    <button id="day-view" class="view-switch">Day</button>
+    <button id="week-view" class="view-switch">Week</button>
+    <button id="month-view" class="view-switch">Month</button>
+  </span>
 </h1>
 
 <% _(Cal._dayNames).each(function (dayName) { %>

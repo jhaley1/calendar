@@ -1,10 +1,10 @@
-Cal.Views.CalendarsIndex = Backbone.View.extend({
+Cal.Views.WeeksIndex = Backbone.View.extend({
 
-  template: JST['calendars/index'],
+  template: JST['calendars/weeks'],
   
   events: {
-    "click button#last-month": "lastMonth",
-    "click button#next-month": "nextMonth",
+    "click button#last-week": "lastWeek",
+    "click button#next-week": "nextWeek",
     "click button#new-event": "newEvent",
     "click button#show-cal": "toggleCal",
     "click button#month-view": "monthView",
@@ -24,6 +24,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   render: function () {
+    var _currentHour = Cal._currentDate.getHours();
     var _currentMonth = Cal._currentDate.getMonth();
     var _currentYear = Cal._currentDate.getFullYear();
     var _firstOfMonth = new Date(_currentYear, _currentMonth, 1);
@@ -58,8 +59,8 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     Cal.router.navigate("days", { trigger: true });
   },
   
-  lastMonth: function () {
-    Cal._currentDate.setMonth(Cal._currentDate.getMonth() - 1);
+  lastWeek: function () {
+    Cal._currentDate.setMonth(Cal._currentDate.getDay() - 7);
     this.render();
   },
   
@@ -67,8 +68,8 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     Cal.router.navigate("", { trigger: true });
   },
   
-  nextMonth: function () {
-    Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
+  nextWeek: function () {
+    Cal._currentDate.setMonth(Cal._currentDate.getDay() + 7);
     this.render();
   },
   
@@ -92,10 +93,10 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   whichKey: function (event) {
     switch (event.keyCode) {
       case 74: // j
-        this.lastMonth();
+        this.lastWeek();
         break;
       case 75: // k
-        this.nextMonth();
+        this.nextWeek();
         break;
     }
   }

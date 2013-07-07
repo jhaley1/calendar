@@ -1,6 +1,6 @@
 <!-- app/assets/templates/calendars/days.jst.ejs -->
 
-<% var day = Cal._currentDate.getDay(); %>
+<% var day = Cal._currentDate.getDate(); %>
 <% var hoursInDay = []; %>
 
 <% for (var i = 1; i < 25; i++) { %>
@@ -11,37 +11,8 @@
   <%= JST["calendars/_dayHeader"]({ month: month, day: day, year: year })%>
 </h1>
 
-
-<% _(hoursInDay).each(function (hour) { %>  
-  <div class="calendar-hour">
-    <font id="day-num"><strong><%= hour %>:00</strong></font>
-    
-    <% calendars.each(function (calendar) { %>
-      <% calendar.get("events").each(function (event) { %>
-        <div class="event">
-          <% var eventDate = new Date (event.get("start_date")); %>
-          <% var eventDay = eventDate.getDate(); %>
-          <% var eventHour = eventDate.getHours(); %>
-          <% var eventMonthNum = eventDate.getMonth(); %>
-          <% var eventMonth = Cal._monthNames[eventMonthNum] %>
-          <% var eventYear = eventDate.getFullYear(); %>
-
-          <% if ((eventHour == hour)
-            && (eventDay === day) 
-            && (eventMonth == month) 
-            && (eventYear == year)) { %>
-            <% var cId = calendar.escape("id") %>
-            <% var eId = event.escape("id") %>
-            <a href="#/calendars/<%= cId %>/events/<%= eId %>/edit"
-              id="event-link">
-              <div id="hour-event" 
-                class="cal-<%= calendar.get("id") %>">
-                <%= event.escape("title") %>
-              </div>
-            </a>
-          <% } %>
-        </div>
-      <% }); %>
-    <% }); %>
-  </div>
-<% }); %>
+<%= JST["calendars/_dayCalendar"]({ calendars: calendars, 
+  daysInMonth: daysInMonth, dayOfWeek: dayOfWeek,
+  month: month, year: year, lastDayOfMonth: lastDayOfMonth,
+  lastWeekday: lastWeekday, day: day,
+  hoursInDay: hoursInDay }) %>

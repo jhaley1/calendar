@@ -8,10 +8,10 @@ window.Cal = {
     Cal.calendars = new Cal.Collections.Calendars ();
     
     Cal._monthNames = [ 
-      "January", "February", "March", 
+      "Jan", "Feb", "March", 
       "April", "May", "June",
-      "July", "August", "September", 
-      "October", "November", "December" 
+      "July", "Aug", "Sept", 
+      "Oct", "Nov", "Dec" 
       ];
     Cal._dayNames = [ 
       "Sunday", "Monday", "Tuesday", 

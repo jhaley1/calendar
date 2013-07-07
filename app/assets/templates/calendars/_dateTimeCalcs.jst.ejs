@@ -1,6 +1,25 @@
-<% var eventDate = new Date (event.get("start_date")); %>
-<% var eventDay = eventDate.getDate(); %>
-<% var eventHour = eventDate.getHours(); %>
-<% var eventMonthNum = eventDate.getMonth(); %>
-<% var eventMonth = Cal._monthNames[eventMonthNum] %>
-<% var eventYear = eventDate.getFullYear(); %>
+<% var hour = Cal._currentDate.getHours(); %>
+<% var month = Cal._currentDate.getMonth(); %>
+<% var year = Cal._currentDate.getFullYear(); %>
+<% var firstOfMonth = new Date(year, month, 1); %>
+<% var dayOfWeek = firstOfMonth.getDay(); %>
+<% var lastOfMonth = new Date(year, month + 1, 0); %>
+<% var lastDayOfWeek = lastOfMonth.getDay(); %>
+<% var daysInMonth = lastOfMonth.getDate(); %>
+
+
+
+<% var _daysArr = []; %>
+
+<% for(var i = 0; i < _daysInMonth; i++) { %>
+  <% _daysArr.push(i + 1); %>
+<% } %>
+
+
+<!-- today: Cal._currentDate,
+month: Cal._monthNames[_currentMonth],
+year: _currentYear,
+dayOfWeek: Cal._dayNames[_dayOfWeek],
+daysInMonth: _daysArr,
+lastWeekday: Cal._dayNames[_lastDayOfWeek],
+lastDayOfMonth: _daysInMonth -->

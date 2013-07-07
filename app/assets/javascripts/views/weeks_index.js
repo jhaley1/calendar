@@ -24,24 +24,25 @@ Cal.Views.WeeksIndex = Backbone.View.extend({
   },
   
   render: function () {
-    var _currentHour = Cal._currentDate.getHours();
-    var _currentMonth = Cal._currentDate.getMonth();
-    var _currentYear = Cal._currentDate.getFullYear();
-    var _firstOfMonth = new Date(_currentYear, _currentMonth, 1);
-    var _dayOfWeek = _firstOfMonth.getDay();
-    var _lastOfMonth = new Date(_currentYear, _currentMonth + 1, 0);
-    var _lastDayOfWeek = _lastOfMonth.getDay();
-    var _daysInMonth = _lastOfMonth.getDate();
-    
-    var _daysArr = [];
+    var _currentHour = Cal._currentDate.getHours(); 
+    var _currentMonth = Cal._currentDate.getMonth(); 
+    var _currentYear = Cal._currentDate.getFullYear(); 
+    var _firstOfMonth = new Date(_currentYear, _currentMonth, 1); 
+    var _dayOfWeek = _firstOfMonth.getDay(); 
+    var _lastOfMonth = new Date(_currentYear, _currentMonth + 1, 0); 
+    var _lastDayOfWeek = _lastOfMonth.getDay(); 
+    var _daysInMonth = _lastOfMonth.getDate(); 
+   
+    var _daysArr = []; 
 
-    for (var i = 0; i < _daysInMonth; i++) {
-      _daysArr.push(i + 1);
-    }
+    for(var i = 0; i < _daysInMonth; i++) { 
+      _daysArr.push(i + 1); 
+    } 
 
     var renderedContent = this.template({
       calendars: this.collection,
       today: Cal._currentDate,
+      hour: _currentHour,
       month: Cal._monthNames[_currentMonth],
       year: _currentYear,
       dayOfWeek: Cal._dayNames[_dayOfWeek],

@@ -6,8 +6,8 @@
       <% calendar.get("events").each(function (event) { %>
         <div class="event">
           <% var eventDate = new Date (event.get("start_date")); %>
-          <% var eventDay = eventDate.getDate(); %>
-          <% var eventHour = eventDate.getHours(); %>
+          <% var eventDay = eventDate.getUTCDate(); %>
+          <% var eventHour = eventDate.getUTCHours(); %>
           <% var eventMonthNum = eventDate.getMonth(); %>
           <% var eventMonth = Cal._monthNames[eventMonthNum] %>
           <% var eventYear = eventDate.getFullYear(); %>
@@ -20,8 +20,8 @@
             <% var eId = event.escape("id") %>
             <a href="#/calendars/<%= cId %>/events/<%= eId %>/edit"
               id="event-link">
-              <div id="hour-event" 
-                class="cal-<%= calendar.get("id") %>">
+              <div id="event" 
+                class="cal-<%= calendar.get("id") %> display-id-<%= calendar.get("display_id") %>">
                 <%= event.escape("title") %>
               </div>
             </a>

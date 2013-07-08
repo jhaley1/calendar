@@ -146,43 +146,43 @@ button {
     text-decoration: none;
   }
   
-  .cal-1 {
+  .display-id-1 {
     background-color: #FFBB33;
   }
 
-  .cal-1:hover {
+  .display-id-1:hover {
     background-color: #FF8800;
   }
 
-  .cal-2 {
+  .display-id-2 {
     background-color: #AA66CC;
   }
 
-  .cal-2:hover {
+  .display-id-2:hover {
     background-color: #9933CC;
   }
 
-  .cal-3 {
+  .display-id-3 {
     background-color: #33B5E5;
   }
 
-  .cal-3:hover {
+  .display-id-3:hover {
     background-color: #0099CC;
   }
 
-  .cal-4 {
+  .display-id-4 {
     background-color: #FF4444;
   }
 
-  .cal-4:hover {
+  .display-id-4:hover {
     background-color: #CC0000;
   }
 
-  .cal-5 {
+  .display-id-5 {
     background-color: #99CC00;
   }
 
-  .cal-5:hover {
+  .display-id-5:hover {
     background-color: #669900;
   }
 }
@@ -363,6 +363,10 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   border: 1px solid #CDCDCD;
 }
 
+#checkbox-tag {
+  display: inline;
+}
+
 
 // CALENDAR DAY VIEW
 
@@ -426,43 +430,43 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
     text-decoration: none;
   }
   
-  .cal-1 {
+  .display-id-1 {
     background-color: #FFBB33;
   }
 
-  .cal-1:hover {
+  .display-id-1:hover {
     background-color: #FF8800;
   }
 
-  .cal-2 {
+  .display-id-2 {
     background-color: #AA66CC;
   }
 
-  .cal-2:hover {
+  .display-id-2:hover {
     background-color: #9933CC;
   }
 
-  .cal-3 {
+  .display-id-3 {
     background-color: #33B5E5;
   }
 
-  .cal-3:hover {
+  .display-id-3:hover {
     background-color: #0099CC;
   }
 
-  .cal-4 {
+  .display-id-4 {
     background-color: #FF4444;
   }
 
-  .cal-4:hover {
+  .display-id-4:hover {
     background-color: #CC0000;
   }
 
-  .cal-5 {
+  .display-id-5 {
     background-color: #99CC00;
   }
 
-  .cal-5:hover {
+  .display-id-5:hover {
     background-color: #669900;
   }
 }
@@ -596,43 +600,43 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
     text-decoration: none;
   }
   
-  .cal-1 {
+  .display-id-1 {
     background-color: #FFBB33;
   }
 
-  .cal-1:hover {
+  .display-id-1:hover {
     background-color: #FF8800;
   }
 
-  .cal-2 {
+  .display-id-2 {
     background-color: #AA66CC;
   }
 
-  .cal-2:hover {
+  .display-id-2:hover {
     background-color: #9933CC;
   }
 
-  .cal-3 {
+  .display-id-3 {
     background-color: #33B5E5;
   }
 
-  .cal-3:hover {
+  .display-id-3:hover {
     background-color: #0099CC;
   }
 
-  .cal-4 {
+  .display-id-4 {
     background-color: #FF4444;
   }
 
-  .cal-4:hover {
+  .display-id-4:hover {
     background-color: #CC0000;
   }
 
-  .cal-5 {
+  .display-id-5 {
     background-color: #99CC00;
   }
 
-  .cal-5:hover {
+  .display-id-5:hover {
     background-color: #669900;
   }
 }
@@ -705,4 +709,56 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 .day-in-week {
   float: left;
   width: 12%;
+}
+
+
+// NEW CALENDAR PAGE
+
+#cal-blue-box {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  display: inline;
+  
+  background-color: #FFBB33;
+}
+
+#cal-purple-box {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  display: inline;
+  
+  background-color: #AA66CC;
+}
+
+#cal-yellow-box {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  display: inline;
+  
+  background-color: #33B5E5;
+}
+
+#cal-red-box {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  display: inline;
+  
+  background-color: #FF4444;
+}
+
+#cal-green-box {
+  height: 10px;
+  width: 10px;
+  position: absolute;
+  display: inline;
+  
+  background-color: #99CC00;
+}
+
+.display-color {
+  position: relative;
 }

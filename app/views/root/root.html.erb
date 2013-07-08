@@ -1,5 +1,9 @@
 <!-- app/views/root/root.html.erb -->
 
+<script type="application/json" id="user_id_json">
+  <%= current_user.id.to_json.html_safe %>
+</script>
+
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="span2" id="sidebar">

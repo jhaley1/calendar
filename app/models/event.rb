@@ -8,8 +8,7 @@ class Event < ActiveRecord::Base
   belongs_to :calendar
 
   validates :description, :title,
-    :start_date, :end_date,
-    :recurring, :presence => true
+    :start_date, :end_date, :presence => true
     
   private
   

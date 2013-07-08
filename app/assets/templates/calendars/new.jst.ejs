@@ -1,5 +1,8 @@
 <h1>Create a new calendar</h1>
 
+<% var user_id = JSON.parse($("#user_id_json").html()); %>
+<% console.log(user_id); %>
+
 <form class="calendar-form">
   <input
     type="hidden"
@@ -14,6 +17,54 @@
     size="60"
     class="accepts-data"
     value="<%= calendar.escape("title") %>">
+  <br>
+  
+  <label for="calendar_display_id"><h4>Display Label Color</h4></label>
+  <div class="display-color">
+    <input type="radio"
+      id="calendar_display_id_yellow"
+      name="calendar[display_id]"
+      value="1">
+    <label for="calendar_display_id_yellow">
+      <div id="cal-yellow-box"> </div>
+    </label>
+  </div>
+  <div class="display-color">
+    <input type="radio"
+      id="calendar_display_id_purple"
+      name="calendar[display_id]"
+      value="1">
+    <label for="calendar_display_id_purple">
+      <div id="cal-purple-box"> </div>
+    </label>
+  </div>
+  <div class="display-color">
+    <input type="radio"
+      id="calendar_display_id_blue"
+      name="calendar[display_id]"
+      value="1">
+    <label for="calendar_display_id_blue">
+      <div id="cal-blue-box"> </div>
+    </label>
+  </div>
+  <div class="display-color">
+    <input type="radio"
+      id="calendar_display_id_red"
+      name="calendar[display_id]"
+      value="1">
+    <label for="calendar_display_id_red">
+      <div id="cal-red-box"> </div>
+    </label>
+  </div>
+  <div class="display-color">
+    <input type="radio"
+      id="calendar_display_id_green"
+      name="calendar[display_id]"
+      value="1">
+    <label for="calendar_display_id_green">
+      <div id="cal-green-box"></div>
+    </label>
+  </div>
   <br>
   
   <button id="back-to-cal"><</button>

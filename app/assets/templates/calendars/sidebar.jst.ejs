@@ -14,7 +14,7 @@
 <% calendars.each(function (calendar) { %>
   <button id="show-cal"
     data-id="<%= calendar.get("id") %>"
-    class="display-cal-button cal-button-<%= calendar.get("id") %>">
+    class="display-cal-button cal-button-<%= calendar.get("display_id") %>">
     <%= calendar.get("name") %></button>
   <br><br>
 <% }); %>
@@ -28,7 +28,7 @@
     <br><br>
   </div>
   
-  <font id="keyboard-shortcut-link"><h6>keyboard shortcuts</h6></font>
+  <div id="keyboard-shortcut-link"><h6>keyboard shortcuts</h6></div>
 </div>
 
 <br><br><br>
@@ -45,3 +45,4 @@
 <!--div id="title">
   <span class="fancy_title">GOOGLE CALENDAR</span>
 </div-->
+

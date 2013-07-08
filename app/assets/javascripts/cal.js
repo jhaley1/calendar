@@ -40,16 +40,3 @@ window.Cal = {
 $(function (){
   Cal.initialize();
 });
-
-
-
-    // Cal.events = new Cal.Collections.Events ();
-    // Cal.events.fetch({
-  //     success: function () {
-  //       Cal.router = new Cal.Routers.Events ({
-  //         $rootEl: $("#content")
-  //       });
-  // 
-  //       Backbone.history.start(); 
-  //     }
-  //   });

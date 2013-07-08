@@ -6,11 +6,12 @@ Cal.Views.EventsForm = Backbone.View.extend({
     "click button#back-to-cal": "backToCal",
     "click button#discard": "discard",
     "click #save": "save",
+    "click .recurring-event": "toggleRecurringField",
   },
   
   initialize: function () {
     var that = this;
-    
+
     $(document).keydown(function (event) {
       if (event.target.nodeName.toLowerCase() !== ('input' || 'textarea')) {
         that.whichKey(event);
@@ -64,6 +65,14 @@ Cal.Views.EventsForm = Backbone.View.extend({
       this.model.save({}, options);
     } else {
       this.model.save({}, options);
+    }
+  },
+  
+  toggleRecurringField: function () {
+    if ($(".recurring-event").is(":checked")) {
+      $("#recurring-event-fields").show();
+    } else {
+      $("#recurring-event-fields").hide();
     }
   },
   

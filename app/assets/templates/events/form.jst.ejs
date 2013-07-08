@@ -16,12 +16,23 @@
     value="<%= event.escape("title") %>">
   <br>
 
+  <% var start_date = new Date (event.escape("start_date")) %>
+  <% var start_month = start_date.getMonth(); %>
+  <% var start_year = start_date.getFullYear(); %>
+  <% var start_day = start_date.getUTCDate(); %>
+  <% var start_time = start_date.getTime();%>
+
+
+
+
+
   <label for="event_start_date"><h4>Start</h4></label>
   <input id="event_start_date" 
     name="event[start_date]" 
     type="datetime-local" 
     class="accepts-data" 
-    value="<%= event.escape("start_date") %>" />
+    value="<%= start_month %>" />
+    
   <label for="event_end_date"><h4>End</h4></label>
   <input id="event_end_date" 
     name="event[end_date]" 
@@ -51,10 +62,50 @@
 
   <input type="checkbox" 
     id="event_recurring_true"
+    class="recurring-event"
     name="event[recurring]"
     value="true"><h4 id="checkbox-tag"> Recurring</h4>
   <br><br>
 
+  <div id="recurring-event-fields">
+    <label for="event_num_of_times"><h4>Number of occurrences</h4></label>
+    <input type="number"
+      id="event_num_of_times"
+      name="event[num_of_times]"
+      min="1">
+    <br>
+    
+    <input type="radio" 
+      id="event_frequency_daily" 
+      name="event[frequency]"
+      value="daily">
+    <label for="event_frequency_daily">
+      <h4 id="checkbox-tag">Daily</h4></label>
+    <input type="radio" 
+      id="event_frequency_weekly" 
+      name="event[frequency]"
+      value="weekly">
+    <label for="event_frequency_weekly">
+      <h4 id="checkbox-tag">Weekly</h4></label>
+    <input type="radio" 
+      id="event_frequency_biweekly" 
+      name="event[frequency]"
+      value="biweekly">
+    <label for="event_frequency_biweekly">
+      <h4 id="checkbox-tag">Bi-weekly</h4></label>
+    <input type="radio" 
+      id="event_frequency_monthly" 
+      name="event[frequency]"
+      value="biweekly">
+    <label for="event_frequency_monthly">
+      <h4 id="checkbox-tag">Monthly</h4></label>
+    <input type="radio" 
+      id="event_frequency_yearly" 
+      name="event[frequency]"
+      value="biweekly">
+    <label for="event_frequency_yearly">
+      <h4 id="checkbox-tag">Yearly</h4></label>
+  </div>
 
   <!--input type="radio" 
     id="event_recurring_true" 

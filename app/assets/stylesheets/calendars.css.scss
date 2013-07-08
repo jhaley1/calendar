@@ -314,7 +314,7 @@ button {
 #keyboard-shortcuts {
   position: absolute;
   bottom: 0;
-  width: 20%;
+  width: 10%;
   
   font-size: 10px;
 }
@@ -365,6 +365,10 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 
 #checkbox-tag {
   display: inline;
+}
+
+#recurring-event-fields {
+  display: none;
 }
 
 
@@ -720,7 +724,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   position: absolute;
   display: inline;
   
-  background-color: #FFBB33;
+  background-color: #33B5E5;
 }
 
 #cal-purple-box {
@@ -738,7 +742,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   position: absolute;
   display: inline;
   
-  background-color: #33B5E5;
+  background-color: #FFBB33;
 }
 
 #cal-red-box {

@@ -13,9 +13,9 @@ Cal.Views.Sidebar = Backbone.View.extend({
     var that = this;
     
     $(document).keydown(function (event) {
-      if (event.target.nodeName.toLowerCase() !== 'input') {
+      if (event.target.nodeName.toLowerCase().not('input, textarea')) {
         that.whichKey(event);
-      }     
+      }    
     });
   },
   

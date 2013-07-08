@@ -22,10 +22,6 @@
   <% var start_day = start_date.getUTCDate(); %>
   <% var start_time = start_date.getTime();%>
 
-
-
-
-
   <label for="event_start_date"><h4>Start</h4></label>
   <input id="event_start_date" 
     name="event[start_date]" 
@@ -38,7 +34,7 @@
     name="event[end_date]" 
     type="datetime-local" 
     class="accepts-data" 
-    value="<%= event.escape("end_date") %>" />
+    value="<%= event.get("end_date") %>" />
   <br>
   
   <label for="event_calendar_id"><h4>Calendar</h4></label>

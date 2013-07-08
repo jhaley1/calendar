@@ -13,7 +13,7 @@ Cal.Views.EventsForm = Backbone.View.extend({
     var that = this;
 
     $(document).keydown(function (event) {
-      if (event.target.nodeName.toLowerCase() !== ('input' || 'textarea')) {
+      if (event.target.nodeName.toLowerCase().not('input, textarea')) {
         that.whichKey(event);
       }     
     });
@@ -49,15 +49,26 @@ Cal.Views.EventsForm = Backbone.View.extend({
   
   save: function (event) {
     event.preventDefault();
+    var that = this;
     
     var attrs = $(event.target.form).serializeJSON();
+    var calendar = Cal.calendars.get(attrs.event.calendar_id);
+    
     var options = {
-      success: function () {
+      success: function (model, response) {
+        if (_(response).length > 1) {
+          _(response).each(function(ev) {
+            var eventModel = new Cal.Models.Event(ev);
+            calendar.get("events").add(eventModel);
+          });
+        } else {
+          that.model.set(attrs);
+        }
+        
         Backbone.history.navigate("#/", { trigger: true });
       }
     };
 
-    var calendar = Cal.calendars.get(attrs.event.calendar_id);
     this.model.set(attrs);
 
     if (this.model.isNew()) {

@@ -2,13 +2,14 @@ class EventsController < ApplicationController
   def create
     @calendar = Calendar.find(params[:event][:calendar_id])
     @event = @calendar.events.build(params[:event])
+    @events = [@event]
     
     if @event.save
       if params[:event][:recurring]
         create_recurring_events
       end
       
-      render :json => @event
+      render :json => @events
     else
       flash[:notice] = @event.errors.full_messages
       render :json => @event.errors.full_messages, :status => 422
@@ -61,19 +62,19 @@ class EventsController < ApplicationController
       params[:event][:start_date] = next_date(params[:event][:start_date])
       params[:event][:end_date] = next_date(params[:event][:end_date])
       
-      @event = Event.create!({ 
+      event = Event.create!({ 
         calendar_id: params[:event][:calendar_id],
         title: params[:event][:title],
         description: params[:event][:description],
         start_date: params[:event][:start_date],
         end_date: params[:event][:end_date]
         })
+        
+      @events << event
     end
   end
 
   def next_date(date)
-    debugger
-    
     date = DateTime.parse(date)
     
     case params[:event][:frequency]

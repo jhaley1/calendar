@@ -30,8 +30,6 @@ class Event < ActiveRecord::Base
   end
   
   def ensure_end_date_is_after_start_date
-    debugger
-    
     if self.end_date - self.start_date == 0
       errors[:same_time] << "Start date cannot be the same as end time."
     elsif self.end_date - self.start_date < 0

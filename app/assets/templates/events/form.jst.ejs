@@ -1,4 +1,8 @@
-<h1>Create a new event</h1>
+<% if (event.isNew()) { %>
+  <h1>Create a new event</h1>
+<% } else { %>
+  <h1>Edit an event</h1>
+<% } %>
 
 <form class="event-form">
   <input
@@ -16,31 +20,36 @@
     value="<%= event.escape("title") %>">
   <br>
 
-  <% var start_date = new Date (event.escape("start_date")) %>
-  <% var start_month = start_date.getMonth(); %>
-  <% var start_year = start_date.getFullYear(); %>
-  <% var start_day = start_date.getUTCDate(); %>
-  <% var start_time = start_date.getTime();%>
+  <% var startDate = event.escape("start_date")%>
+  <% var startDateFormatted = startDate.substring(0, startDate.length - 1) %>
+  <% var endDate = event.escape("end_date")%>
+  <% var endDateFormatted = endDate.substring(0, endDate.length - 1) %>
 
   <label for="event_start_date"><h4>Start</h4></label>
   <input id="event_start_date" 
     name="event[start_date]" 
     type="datetime-local" 
     class="accepts-data" 
-    value="<%= start_month %>" />
+    value="<%= startDateFormatted %>" />
     
   <label for="event_end_date"><h4>End</h4></label>
   <input id="event_end_date" 
     name="event[end_date]" 
     type="datetime-local" 
     class="accepts-data" 
-    value="<%= event.get("end_date") %>" />
+    value="<%= endDateFormatted %>" />
   <br>
   
   <label for="event_calendar_id"><h4>Calendar</h4></label>
   <select name="event[calendar_id]" id="event_calendar_id">
     <% Cal.calendars.each(function (calendar) { %>
-      <option value="<%= calendar.get("id") %>">
+      <% if (calendar.get("id") === event.get("calendar_id")) { %>
+        <% var selectStatus = 'selected="selected"' %>
+      <% } else { %>
+        <% var selectStatus = "" %>
+      <% } %>
+      
+      <option value="<%= calendar.get("id") %>" <%=selectStatus %>>
         <%= calendar.escape("name") %></option>
     <% }); %>
   </select>

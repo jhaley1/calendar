@@ -1,5 +1,7 @@
 <!-- app/assets/templates/calendars/weeks.jst.ejs -->
+
 <% var day = Cal._currentDate.getDate(); %>
+<% var currentDay = Cal._currentDate %>
 
 <% var hoursInDay = []; %>
 <% var daysInWeek = []; %>
@@ -9,11 +11,13 @@
 <% } %>
 
 <% for (var j = 0; j < 7; j++) { %>
-  <% daysInWeek.push(j); %>
+  <% daysInWeek.push(new Date(currentDay)); %>
+  <% currentDay.setDate(currentDay.getDate() + 1); %> 
 <% } %>
 
 <h1>
-  <%= JST["calendars/_weekHeader"]({ month: month, day: day, year: year })%>
+  <%= JST["calendars/_weekHeader"]({ month: month, day: day,
+    year: year, endDate: _(daysInWeek).last() })%>
 </h1>
 
 <%= JST["calendars/_weekCalendar"]({ calendars: calendars, 

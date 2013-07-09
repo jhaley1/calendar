@@ -20,7 +20,7 @@
             <% var eId = event.escape("id") %>
             <a href="#/calendars/<%= cId %>/events/<%= eId %>/edit"
               id="event-link">
-              <div id="event" 
+              <div id="hour-event" 
                 class="cal-<%= calendar.get("id") %> display-id-<%= calendar.get("display_id") %>">
                 <%= event.escape("title") %>
               </div>

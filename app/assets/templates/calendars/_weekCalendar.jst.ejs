@@ -1,5 +1,6 @@
-<% _(daysInWeek).each(function (toAdd) { %> 
-  <% var currentDay = day + toAdd %>
+<% _(daysInWeek).each(function (day) { %> 
+  <% var currentDay = day.getDate(); %>
+  
   <div id="week-table">
     <div class="day-in-week">
       <center><h5><%= month %> <%= currentDay %></h5></center>
@@ -25,7 +26,7 @@
                   <% var eId = event.escape("id") %>
                   <a href="#/calendars/<%= cId %>/events/<%= eId %>/edit"
                     id="event-link">
-                    <div id="event" 
+                    <div id="hour-event" 
                       class="cal-<%= calendar.get("id") %> display-id-<%= calendar.get("display_id") %>">
                       <%= event.escape("title") %>
                     </div>

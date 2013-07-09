@@ -13,7 +13,7 @@ Cal.Views.EventsForm = Backbone.View.extend({
     var that = this;
 
     $(document).keydown(function (event) {
-      if (event.target.nodeName.toLowerCase().not('input, textarea')) {
+      if (event.target.nodeName.toLowerCase() !== ('input, textarea')) {
         that.whichKey(event);
       }     
     });
@@ -64,8 +64,6 @@ Cal.Views.EventsForm = Backbone.View.extend({
         } else {
           that.model.set(attrs);
         }
-        
-        Backbone.history.navigate("#/", { trigger: true });
       }
     };
 
@@ -75,8 +73,15 @@ Cal.Views.EventsForm = Backbone.View.extend({
       calendar.get("events").add(this.model);
       this.model.save({}, options);
     } else {
+      calendar.get("events").add(this.model);
       this.model.save({}, options);
     }
+    
+    Cal.calendars.fetch({
+      success: function () {
+        Backbone.history.navigate("#/", { trigger: true });
+      }
+    });
   },
   
   toggleRecurringField: function () {

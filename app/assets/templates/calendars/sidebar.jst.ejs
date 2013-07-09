@@ -10,16 +10,21 @@
 <button id="new-calendar">NEW CALENDAR</button>
 <br><br>
 
-<form>
+<form class="search-box">
   <input type="text" 
     data-provide="typeahead" 
     autocomplete="off" 
     data-source="[banana, grapefruit]"
-    class="typeahead search-events">
-  <input type="submit" value="SPOTLIGHT" class="search-submit">
+    class="typeahead"
+    id="search-events">
+  <input type="hidden" name="id" id="id">
+  <input type="hidden" name="calendar_id" id="calendar_id">
+  
+  <button class="search-submit"><i class="icon-search"></i></button>
 </form>
 
 <script>
+$(function() {
   var typeAhead = {};
     
   typeAhead.Person = Backbone.Model.extend({});
@@ -28,16 +33,16 @@
     model: typeAhead.Person
   });
 
-  typeAhead.testData = [];
+  dataset = [];
 
   Cal.calendars.each(function (calendar) {
-    calendar.get("events").each(function (event) {
+    calendar.get("events").each( function (event) {
       var startDate = new Date (event.get("start_date"));
       var startMonth = startDate.getMonth();
       var startDay = startDate.getUTCDate();
       var startYear = startDate.getFullYear();
       
-      typeAhead.testData.push({
+      dataset.push({
         "name": event.get("title") + " - " + 
           startMonth + "/" + startDay + "/" + startYear,
         "id": event.get("id"),
@@ -46,13 +51,33 @@
     });
   });
   
-  $(function () {
-    typeAhead.people = new typeAhead.People(typeAhead.testData);
   
-    $('.typeahead').typeahead({
-      source: typeAhead.people.pluck('name')
-    });
-  });
+	$(".typeahead").typeahead({
+    source: function (query, process) {
+        eventObjs = {};
+        eventNames = [];
+
+        _.each(dataset, function(item, ix, list) {
+          eventNames.push(item.name);
+          
+          eventObjs[item.name] = {
+            id: item.id,
+            calendar_id: item.calendar_id
+          };
+        });
+        
+        process(eventNames);
+    },
+    
+    updater: function (selectedEvent) {
+      $("#id").val(eventObjs[selectedEvent]);
+      $("#calendar_id").val(eventObjs[selectedEvent]);
+
+      return selectedEvent;
+		}
+	});
+});
+  
 </script>
 
 <h3>My Calendars</h3>

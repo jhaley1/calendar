@@ -32,11 +32,6 @@ class CalendarsController < ApplicationController
     render :json => @calendar
   end
   
-  def show
-    @event = current_user.calendars.basic_search(params[:search_item])
-    render :json => @event
-  end
-  
   def update
     @calendar = Calendar.find(params[:id])
     

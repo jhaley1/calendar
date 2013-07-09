@@ -343,6 +343,35 @@ button {
   font-size: 12px;
 }
 
+.search-box {
+  position: relative;
+  height: 30px;
+}
+
+#search-events {
+  border: 1px solid $purple;
+  width: 57%;
+  height: 68%;
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+.search-submit {
+  color: white;
+  font-style: bold;
+  background-color: $purple;
+
+  border: none;
+  text-align: left;
+  width: 15%;
+  height: 100%;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+.search-submit:hover {
+  background-color: $dark-purple;
+};
 
 
 

@@ -6,7 +6,7 @@ Cal.Views.Sidebar = Backbone.View.extend({
     "click button#new-event": "newEvent",
     "click button#new-calendar": "newCalendar",
     "click button#show-cal": "toggleCal",
-    "click button#search-submit": "searchCal",
+    "click .search-submit": "searchCal",
     "mouseover #keyboard-shortcut-link": "displayKBInfo",
   },
   
@@ -51,8 +51,15 @@ Cal.Views.Sidebar = Backbone.View.extend({
   },
   
   searchCal: function (event) {
-    var attrs = $(event.target.form).serializeJSON();
-    console.log(attrs);
+    event.preventDefault();
+    
+    var ev = $("ul.typeahead.dropdown-menu").find('li.active').data('value');
+    var eventObj = eventObjs[ev];
+    var id = eventObj.id;
+    var cal_id = eventObj.calendar_id;
+
+    Backbone.history.navigate("calendars/" + cal_id + "/events/" + id + "/edit",
+      { trigger: true });
   },
   
   toggleCal: function (event) {

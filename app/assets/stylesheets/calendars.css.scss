@@ -4,98 +4,202 @@
 
 @import "bootstrap";
 
+
+
+
+
+
+
+// COLORS
+$grey: #CDCDCD;
+$red: #FF4444;
+$dark-red: #CC0000;
+$yellow: #FFBB33;
+$dark-yellow: #FF8800;
+$purple: #AA66CC;
+$dark-purple: #9933CC;
+$blue: #33B5E5;
+$dark-blue: #0099CC;
+$green: #99CC00;
+$dark-green: #669900;
+
+
+
+
+
+
+
+
+
+
+
+
+// MIX-INS
+
+@mixin no-wrap {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+
+
+
+
+
+
+
 // ALL
 
 button {
   font-weight: bold;
 }
 
-// TOP MENU BAR
 
-#title {
-//  background-color: #611d54;
-  font-size: 22px;
-  
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  
-//  #search {
-//    margin-top: 15px;
-//    border: none;
-//    line-height: 30px;
-//    width: 400px;
-//    margin-right: 40px;
-//    float: right;
-//  }
-  
-  .char1 {
-    color: #d980c8;
-    font-weight: bold;
-  }
-  .char2 {
-    color: #efcbe8;
-    font-weight: bold;
-  }
-  .char3 {
-    color: #e19cd4;
-    font-weight: bold;
-  }
-  .char4 {
-    color: #f3d7ed;
-    font-weight: bold;
-  }
-  .char5 {
-    color: #d980c8;
-    font-weight: bold;
-  }
-  .char6 {
-    color: #efcbe8;
-    font-weight: bold;
-  }
-  .char7 {
-    color: #eab7e0;
-    font-weight: bold;
-  }
-  .char8 {
-    color: #eab7e0;
-    font-weight: bold;
-  }
-  .char9 {
-    color: #efcbe8;
-    font-weight: bold;
-  }
-  .char10 {
-    color: #e19cd4;
-    font-weight: bold;
-  }
-  .char11 {
-    color: #f3d7ed;
-    font-weight: bold;
-  }
-  .char12 {
-    color: #d980c8;
-    font-weight: bold;
-  }
-  .char13 {
-    color: #efcbe8;
-    font-weight: bold;
-  }
-  .char14 {
-    color: #eab7e0;
-    font-weight: bold;
-  }
-  .char15 {
-    color: #d980c8;
-    font-weight: bold;
-  }
-  .char16 {
-    color: #efcbe8;
-    font-weight: bold;
-  }
+
+
+
+
+
+
+
+// EVENT DISPLAY INFO
+
+#event-link {
+  color: white;
+  text-decoration: none;
 }
 
-// CALENDAR - EVENTS INDEX PAGE
+.display-id-1 {
+  background-color: $yellow;
+}
+
+.display-id-1:hover {
+  background-color: $dark-yellow;
+}
+
+.display-id-2 {
+  background-color: $purple;
+}
+
+.display-id-2:hover {
+  background-color: $dark-purple;
+}
+
+.display-id-3 {
+  background-color: $blue;
+}
+
+.display-id-3:hover {
+  background-color: $dark-blue;
+}
+
+.display-id-4 {
+  background-color: $red;
+}
+
+.display-id-4:hover {
+  background-color: $dark-red;
+}
+
+.display-id-5 {
+  background-color: $green;
+}
+
+.display-id-5:hover {
+  background-color: $dark-green;
+}
+
+.cal-button-1 {
+  background-color: $yellow;
+}
+
+.cal-button-1:hover {
+  background-color: $dark-yellow;
+}
+
+.cal-button-2 {
+  background-color: $purple;
+}
+
+.cal-button-2:hover {
+  background-color: $dark-purple;
+}
+
+.cal-button-3 {
+  background-color: $blue;
+}
+
+.cal-button-3:hover {
+  background-color: $dark-blue;
+}
+
+.cal-button-4 {
+  background-color: $red;
+}
+
+.cal-button-4:hover {
+  background-color: $dark-red;
+}
+
+.cal-button-5 {
+  background-color: $green;
+}
+
+.cal-button-5:hover {
+  background-color: $dark-green;
+}
+
+
+.calendar-day:hover {
+  background-color: #E6E8FA;
+  border: 1px solid $grey;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// NEXT VIEW BUTTONS
+
+#last-day, #next-day, #last-week, #next-week, #last-month, #next-month {
+  border: none;
+  height: 30px;
+  width: 30px;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  
+  background-color: $purple;
+  color: white;
+  font-size: 14px;
+  font-style: bold;
+}
+
+#last-day:hover, #next-day:hover, #last-week:hover, #next-week:hover, #last-month:hover, #next-month:hover {
+  background-color: $dark-purple;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// CALENDAR MONTH VIEW
 
 #content {
   padding: 0%;
@@ -124,7 +228,7 @@ button {
   
   text-align: left;
   font-size: 12px;
-  border: 1px solid #CDCDCD;
+  border: 1px solid $grey;
   
   #day-num {
     font-size: 14px;
@@ -137,122 +241,20 @@ button {
     text-indent: 5%;
     width: 98%;
     padding: 2px;
-    -moz-border-radius: 2px;
-    -webkit-border-radius: 2px;
-  }
-
-  #event-link {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .display-id-1 {
-    background-color: #FFBB33;
-  }
-
-  .display-id-1:hover {
-    background-color: #FF8800;
-  }
-
-  .display-id-2 {
-    background-color: #AA66CC;
-  }
-
-  .display-id-2:hover {
-    background-color: #9933CC;
-  }
-
-  .display-id-3 {
-    background-color: #33B5E5;
-  }
-
-  .display-id-3:hover {
-    background-color: #0099CC;
-  }
-
-  .display-id-4 {
-    background-color: #FF4444;
-  }
-
-  .display-id-4:hover {
-    background-color: #CC0000;
-  }
-
-  .display-id-5 {
-    background-color: #99CC00;
-  }
-
-  .display-id-5:hover {
-    background-color: #669900;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    
+    @include no-wrap
   }
 }
 
-.cal-button-1 {
-  background-color: #FFBB33;
-}
-
-.cal-button-1:hover {
-  background-color: #FF8800;
-}
-
-.cal-button-2 {
-  background-color: #AA66CC;
-}
-
-.cal-button-2:hover {
-  background-color: #9933CC;
-}
-
-.cal-button-3 {
-  background-color: #33B5E5;
-}
-
-.cal-button-3:hover {
-  background-color: #0099CC;
-}
-
-.cal-button-4 {
-  background-color: #FF4444;
-}
-
-.cal-button-4:hover {
-  background-color: #CC0000;
-}
-
-.cal-button-5 {
-  background-color: #99CC00;
-}
-
-.cal-button-5:hover {
-  background-color: #669900;
-}
 
 
-.calendar-day:hover {
-  background-color: #E6E8FA;
-  border: 1px solid #CDCDCD;
-}
 
-// calendar header
 
-// calendar page buttons
 
-#last-month, #next-month {
-  border: none;
-  height: 30px;
-  width: 30px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  
-  background-color: #AA66CC;
-  color: white;
-  font-size: 14px;
-  font-style: bold;
-}
 
-#last-month:hover, #next-month:hover {
-  background-color: #9933CC;
-}
+
 
 // calendar view switch buttons
 
@@ -268,20 +270,33 @@ button {
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   
-  background-color: #AA66CC;
+  background-color: $purple;
   color: white;
   font-size: 14px;
   font-style: bold;
 }
 
 .view-switch:hover {
-  background-color: #9933CC;
+  background-color: $dark-purple;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // SIDEBAR
 
 #new-event, #new-calendar {
-  background-color: #AA66CC;
+  background-color: $purple;
   color: white;
   font-style: bold;
 
@@ -295,7 +310,7 @@ button {
 }
 
 #new-event:hover, #new-calendar:hover {
-  background-color: #9933CC;
+  background-color: $dark-purple;
 }
 
 .display-cal-button {
@@ -328,21 +343,20 @@ button {
   font-size: 12px;
 }
 
-//////////////////////////// potential create button
-//ul#actions
-//{
-//  display:none;
-//}
-//.actions:hover ul#actions
-//{
-//  display: block;
-//}
+
+
+
+
+
+
+
+
 
 
 // NEW EVENTS PAGE
 
 button#back-to-cal, button#discard, #save {
-  background-color: #AA66CC;
+  background-color: $purple;
   color: white;
   font-weight: bold;
 
@@ -356,11 +370,11 @@ button#back-to-cal, button#discard, #save {
 }
 
 button#back-to-cal:hover, button#discard:hover, #save:hover {
-  background-color: #9933CC;
+  background-color: $dark-purple;
 }
 
 .accepts-data {
-  border: 1px solid #CDCDCD;
+  border: 1px solid $grey;
 }
 
 #checkbox-tag {
@@ -372,18 +386,19 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 }
 
 
-// CALENDAR DAY VIEW
 
-.calendar-hour {
-  height: 20px;
-  width: 90%;
-  float: left;
-  padding: 5px;
-  
-  text-align: left;
-  font-size: 12px;
-  border: 1px solid #CDCDCD;
-}
+
+
+
+
+
+
+
+
+
+
+
+// CALENDAR DAY VIEW
 
 #content {
   padding: 0%;
@@ -405,145 +420,6 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 // calendar hour box
 
 .calendar-hour {
-  height: 60px;
-  width: 90%;
-  float: left;
-  padding: 5px;
-  
-  text-align: left;
-  font-size: 12px;
-  border: 1px solid #CDCDCD;
-  
-  #day-num {
-    font-size: 14px;
-  }
-  
-  // single event
-  
-  #hour-event {
-    margin-top: 1px;
-    text-indent: 1%;
-    width: 100%;
-    padding: 2px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-  }
-
-  #event-link {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .display-id-1 {
-    background-color: #FFBB33;
-  }
-
-  .display-id-1:hover {
-    background-color: #FF8800;
-  }
-
-  .display-id-2 {
-    background-color: #AA66CC;
-  }
-
-  .display-id-2:hover {
-    background-color: #9933CC;
-  }
-
-  .display-id-3 {
-    background-color: #33B5E5;
-  }
-
-  .display-id-3:hover {
-    background-color: #0099CC;
-  }
-
-  .display-id-4 {
-    background-color: #FF4444;
-  }
-
-  .display-id-4:hover {
-    background-color: #CC0000;
-  }
-
-  .display-id-5 {
-    background-color: #99CC00;
-  }
-
-  .display-id-5:hover {
-    background-color: #669900;
-  }
-}
-
-.cal-button-1 {
-  background-color: #FFBB33;
-}
-
-.cal-button-1:hover {
-  background-color: #FF8800;
-}
-
-.cal-button-2 {
-  background-color: #AA66CC;
-}
-
-.cal-button-2:hover {
-  background-color: #9933CC;
-}
-
-.cal-button-3 {
-  background-color: #33B5E5;
-}
-
-.cal-button-3:hover {
-  background-color: #0099CC;
-}
-
-.cal-button-4 {
-  background-color: #FF4444;
-}
-
-.cal-button-4:hover {
-  background-color: #CC0000;
-}
-
-.cal-button-5 {
-  background-color: #99CC00;
-}
-
-.cal-button-5:hover {
-  background-color: #669900;
-}
-
-
-.calendar-day:hover {
-  background-color: #E6E8FA;
-  border: 1px solid #CDCDCD;
-}
-
-// day calendar page buttons
-
-#last-day, #next-day {
-  border: none;
-  height: 30px;
-  width: 30px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  
-  background-color: #AA66CC;
-  color: white;
-  font-size: 14px;
-  font-style: bold;
-}
-
-#last-day:hover, #next-day:hover {
-  background-color: #9933CC;
-}
-
-
-// CALENDAR WEEK VIEW
-
-.calendar-hour {
   height: 50px;
   width: 90%;
   float: left;
@@ -551,8 +427,36 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   
   text-align: left;
   font-size: 12px;
-  border: 1px solid #CDCDCD;
+  border: 1px solid $grey;
+  
+  #day-num {
+    font-size: 14px;
+  }
+
 }
+
+#hour-event {
+  margin-top: 1px;;
+  text-indent: 1%;
+  padding: 2px;
+  width: 100%;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  
+  @include no-wrap;
+}
+
+
+
+
+
+
+
+
+
+
+
+// CALENDAR WEEK VIEW
 
 #content {
   padding: 0%;
@@ -582,138 +486,25 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   
   text-align: left;
   font-size: 12px;
-  border: 1px solid #CDCDCD;
+  border: 1px solid $grey;
   
   #day-num {
     font-size: 14px;
   }
-  
-  // single event
-  
-  #hour-event {
-    margin-top: 1px;;
-    text-indent: 1%;
-    width: 100%;
-    padding: 2px;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-  }
-
-  #event-link {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .display-id-1 {
-    background-color: #FFBB33;
-  }
-
-  .display-id-1:hover {
-    background-color: #FF8800;
-  }
-
-  .display-id-2 {
-    background-color: #AA66CC;
-  }
-
-  .display-id-2:hover {
-    background-color: #9933CC;
-  }
-
-  .display-id-3 {
-    background-color: #33B5E5;
-  }
-
-  .display-id-3:hover {
-    background-color: #0099CC;
-  }
-
-  .display-id-4 {
-    background-color: #FF4444;
-  }
-
-  .display-id-4:hover {
-    background-color: #CC0000;
-  }
-
-  .display-id-5 {
-    background-color: #99CC00;
-  }
-
-  .display-id-5:hover {
-    background-color: #669900;
-  }
-}
-
-.cal-button-1 {
-  background-color: #FFBB33;
-}
-
-.cal-button-1:hover {
-  background-color: #FF8800;
-}
-
-.cal-button-2 {
-  background-color: #AA66CC;
-}
-
-.cal-button-2:hover {
-  background-color: #9933CC;
-}
-
-.cal-button-3 {
-  background-color: #33B5E5;
-}
-
-.cal-button-3:hover {
-  background-color: #0099CC;
-}
-
-.cal-button-4 {
-  background-color: #FF4444;
-}
-
-.cal-button-4:hover {
-  background-color: #CC0000;
-}
-
-.cal-button-5 {
-  background-color: #99CC00;
-}
-
-.cal-button-5:hover {
-  background-color: #669900;
-}
-
-
-.calendar-day:hover {
-  background-color: #E6E8FA;
-  border: 1px solid #CDCDCD;
-}
-
-// day calendar page buttons
-
-#last-week, #next-week {
-  border: none;
-  height: 30px;
-  width: 30px;
-  -moz-border-radius: 15px;
-  -webkit-border-radius: 15px;
-  
-  background-color: #AA66CC;
-  color: white;
-  font-size: 14px;
-  font-style: bold;
-}
-
-#last-week:hover, #next-week:hover {
-  background-color: #9933CC;
 }
 
 .day-in-week {
   float: left;
   width: 12%;
 }
+
+
+
+
+
+
+
+
 
 
 // NEW CALENDAR PAGE
@@ -724,7 +515,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   position: absolute;
   display: inline;
   
-  background-color: #33B5E5;
+  background-color: $blue;
 }
 
 #cal-purple-box {
@@ -733,7 +524,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   position: absolute;
   display: inline;
   
-  background-color: #AA66CC;
+  background-color: $purple;
 }
 
 #cal-yellow-box {
@@ -742,7 +533,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   position: absolute;
   display: inline;
   
-  background-color: #FFBB33;
+  background-color: $yellow;
 }
 
 #cal-red-box {
@@ -751,7 +542,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   position: absolute;
   display: inline;
   
-  background-color: #FF4444;
+  background-color: $red;
 }
 
 #cal-green-box {
@@ -760,9 +551,15 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   position: absolute;
   display: inline;
   
-  background-color: #99CC00;
+  background-color: $green;
 }
 
 .display-color {
   position: relative;
 }
+
+
+
+
+
+

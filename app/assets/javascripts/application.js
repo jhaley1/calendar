@@ -17,6 +17,7 @@
 //= require underscore
 //= require backbone
 //= require backbone-relational
+//= require bootstrap
 //= require cal
 //= require_tree ../templates
 //= require_tree ./models

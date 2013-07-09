@@ -10,6 +10,51 @@
 <button id="new-calendar">NEW CALENDAR</button>
 <br><br>
 
+<form>
+  <input type="text" 
+    data-provide="typeahead" 
+    autocomplete="off" 
+    data-source="[banana, grapefruit]"
+    class="typeahead search-events">
+  <input type="submit" value="SPOTLIGHT" class="search-submit">
+</form>
+
+<script>
+  var typeAhead = {};
+    
+  typeAhead.Person = Backbone.Model.extend({});
+
+  typeAhead.People = Backbone.Collection.extend({
+    model: typeAhead.Person
+  });
+
+  typeAhead.testData = [];
+
+  Cal.calendars.each(function (calendar) {
+    calendar.get("events").each(function (event) {
+      var startDate = new Date (event.get("start_date"));
+      var startMonth = startDate.getMonth();
+      var startDay = startDate.getUTCDate();
+      var startYear = startDate.getFullYear();
+      
+      typeAhead.testData.push({
+        "name": event.get("title") + " - " + 
+          startMonth + "/" + startDay + "/" + startYear,
+        "id": event.get("id"),
+        "calendar_id": event.get("calendar_id")
+      });
+    });
+  });
+  
+  $(function () {
+    typeAhead.people = new typeAhead.People(typeAhead.testData);
+  
+    $('.typeahead').typeahead({
+      source: typeAhead.people.pluck('name')
+    });
+  });
+</script>
+
 <h3>My Calendars</h3>
 <% calendars.each(function (calendar) { %>
   <button id="show-cal"

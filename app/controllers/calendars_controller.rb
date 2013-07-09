@@ -33,8 +33,8 @@ class CalendarsController < ApplicationController
   end
   
   def show
-    @calendar = current_user.calendars.find(params[:calendar])
-    render :show
+    @event = current_user.calendars.basic_search(params[:search_item])
+    render :json => @event
   end
   
   def update

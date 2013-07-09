@@ -13,7 +13,8 @@ Cal.Views.EventsForm = Backbone.View.extend({
     var that = this;
 
     $(document).keydown(function (event) {
-      if (event.target.nodeName.toLowerCase() !== ('input, textarea')) {
+      if (event.target.nodeName.toLowerCase() != ('input') || 
+        event.target.nodeName.toLowerCase() != ('textarea')) {
         that.whichKey(event);
       }     
     });

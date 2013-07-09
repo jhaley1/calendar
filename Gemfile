@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'oj'
 gem 'pg'
 gem 'rabl'
+gem 'textacular'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.1'

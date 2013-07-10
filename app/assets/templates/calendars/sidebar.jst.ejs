@@ -24,60 +24,59 @@
 </form>
 
 <script>
-$(function() {
-  var typeAhead = {};
+  $(function() {
+    var typeAhead = {};
     
-  typeAhead.Person = Backbone.Model.extend({});
+    typeAhead.Person = Backbone.Model.extend({});
 
-  typeAhead.People = Backbone.Collection.extend({
-    model: typeAhead.Person
-  });
+    typeAhead.People = Backbone.Collection.extend({
+      model: typeAhead.Person
+    });
 
-  dataset = [];
+    dataset = [];
 
-  Cal.calendars.each(function (calendar) {
-    calendar.get("events").each( function (event) {
-      var startDate = new Date (event.get("start_date"));
-      var startMonth = startDate.getMonth();
-      var startDay = startDate.getUTCDate();
-      var startYear = startDate.getFullYear();
+    Cal.calendars.each(function (calendar) {
+      calendar.get("events").each( function (event) {
+        var startDate = new Date (event.get("start_date"));
+        var startMonth = startDate.getMonth();
+        var startDay = startDate.getUTCDate();
+        var startYear = startDate.getFullYear();
       
-      dataset.push({
-        "name": event.get("title") + " - " + 
-          startMonth + "/" + startDay + "/" + startYear,
-        "id": event.get("id"),
-        "calendar_id": event.get("calendar_id")
+        dataset.push({
+          "name": event.get("title") + " - " + 
+            startMonth + "/" + startDay + "/" + startYear,
+          "id": event.get("id"),
+          "calendar_id": event.get("calendar_id")
+        });
       });
     });
-  });
   
   
-	$(".typeahead").typeahead({
-    source: function (query, process) {
-        eventObjs = {};
-        eventNames = [];
+  	$(".typeahead").typeahead({
+      source: function (query, process) {
+          eventObjs = {};
+          eventNames = [];
 
-        _.each(dataset, function(item, ix, list) {
-          eventNames.push(item.name);
+          _.each(dataset, function(item, ix, list) {
+            eventNames.push(item.name);
           
-          eventObjs[item.name] = {
-            id: item.id,
-            calendar_id: item.calendar_id
-          };
-        });
+            eventObjs[item.name] = {
+              id: item.id,
+              calendar_id: item.calendar_id
+            };
+          });
         
-        process(eventNames);
-    },
+          process(eventNames);
+      },
     
-    updater: function (selectedEvent) {
-      $("#id").val(eventObjs[selectedEvent]);
-      $("#calendar_id").val(eventObjs[selectedEvent]);
+      updater: function (selectedEvent) {
+        $("#id").val(eventObjs[selectedEvent]);
+        $("#calendar_id").val(eventObjs[selectedEvent]);
 
-      return selectedEvent;
-		}
-	});
-});
-  
+        return selectedEvent;
+  		}
+  	});
+  });
 </script>
 
 <h3>My Calendars</h3>

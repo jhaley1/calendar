@@ -74,7 +74,6 @@ Cal.Views.Sidebar = Backbone.View.extend({
   whichKey: function (event) {
     switch (event.keyCode) {
       case 67: // c
-      console.log(event.keyCode)
         Cal.router.navigate("events/new", { trigger: true })
         break;
     }

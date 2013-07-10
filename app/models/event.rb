@@ -28,10 +28,6 @@ class Event < ActiveRecord::Base
     if self.frequency == ""
       self.frequency = ""
     end
-    
-    unless self.reminder
-      self.reminder = false
-    end
   end
   
   def ensure_end_date_is_after_start_date

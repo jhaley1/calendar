@@ -65,29 +65,25 @@
 <%= event.escape("description") %></textarea>
   <br>
   
-  
-  
   <% if (event.get("reminder")) { %>
     <% var selectStatus = 'selected="selected"' %>
   <% } else { %>
     <% var selectStatus = "" %>
   <% } %>
   
-  <% console.log(event)%>
   <div class="align-checkbox">
     <div class="form-checkbox">
       <input type="checkbox" 
         id="event_reminder_true"
-        class="remidner-event"
+        class="reminder-event"
         name="event[reminder]"
-        value="true" 
-        <%=selectStatus %>>
+        value="true">
     </div>
     <div class="form-checkbox-text">
       <h4 id="checkbox-tag"> 24-hour Email Reminder</h4>
     </div>
   </div>
-  <br>
+  <br>  
 
   <div id="recurring-event-fields">
     <label for="event_num_of_times"><h4>Number of occurrences</h4></label>

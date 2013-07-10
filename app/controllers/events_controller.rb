@@ -10,9 +10,9 @@ class EventsController < ApplicationController
       end
       
       if params[:event][:reminder]
-        send_time = send_at(params[:event][:start_date])
+        total_mins = send_at(params[:event][:start_date])
         ReminderMailer
-          .delay({ :run_at => send_time })
+          .delay({ :run_at => total_mins.from_now })
           .reminder(current_user, @event)
       end
       
@@ -54,6 +54,8 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     
     if @event.update_attributes(params[:event])
+
+      
       @event.save
       render :json => @event
     else
@@ -100,9 +102,13 @@ class EventsController < ApplicationController
   end
 
   def send_at(date)
-    debugger
     time = DateTime.parse(date)
-    
-    (time - 1.minutes).rfc3339
+    minutes = distance_between(DateTime.now, time)
   end
+  
+  def distance_between(current_date, start_date)
+    difference = current_date - start_date
+    (difference * 24 * 60).to_i - (24 * 60).minutes
+  end
+    
 end

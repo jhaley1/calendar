@@ -1,12 +1,12 @@
 class ReminderMailer < ActionMailer::Base
-  default from: "from@example.com"
+  default from: "jlhaley1@gmail.com"
   
-  def reminder_email(user, event)
+  def reminder(user, event)
     @user = user
     @event = event
     @url = "http://gcalclone.herokuapp.com"
     
-    mail(:to => @user.email, subject: 'Email Reminder for @event.title')
+    mail(:to => @user.email, :subject => "Email Reminder for #{@event.title}")
   end
   
 end

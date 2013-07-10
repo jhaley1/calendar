@@ -24,7 +24,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
     });
     
     this.$sidebarEl.html(sidebarView.render().$el);
-    this.$rootEl.html(indexView.render().$el);
+    this._swapView(indexView);
   },
   
   calendarEdit: function (id) {
@@ -34,7 +34,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
       model: _calendar
     });
     
-    this.$rootEl.html(editView.render().$el);
+    this._swapView(editView);
   },
   
   calendarNew: function () {
@@ -45,7 +45,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
       model: _calendar
     });
     
-    this.$rootEl.html(newView.render().$el);
+    this._swapView(newView);
   },
   
   daysIndex: function () {
@@ -57,7 +57,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
       collection: Cal.calendars
     });
 
-    this.$rootEl.html(daysView.render().$el);
+    this._swapView(daysView);
   },
   
   eventEdit: function (calId, id) {
@@ -69,7 +69,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
       collection: _calendar
     });
     
-    this.$rootEl.html(editView.render().$el);
+    this._swapView(editView);
   },
   
   weeksIndex: function () {
@@ -81,7 +81,13 @@ Cal.Routers.Calendars = Backbone.Router.extend({
       collection: Cal.calendars
     });
     
-    this.$rootEl.html(weeksView.render().$el);
+    this._swapView(weeksView);
+  },
+  
+  _swapView: function (view) {
+    this._currentView && this._currentView.remove();
+    this._currenView = view;
+    this.$rootEl.html(view.render().$el);
   }
   
 });

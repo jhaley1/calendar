@@ -9,6 +9,13 @@ class EventsController < ApplicationController
         create_recurring_events
       end
       
+      if params[:event][:reminder]
+        send_time = send_at(params[:event][:start_date])
+        ReminderMailer
+          .delay({ :run_at => send_time })
+          .reminder(current_user, @event)
+      end
+      
       render :json => @events
     else
       flash[:notice] = @event.errors.full_messages
@@ -67,7 +74,8 @@ class EventsController < ApplicationController
         title: params[:event][:title],
         description: params[:event][:description],
         start_date: params[:event][:start_date],
-        end_date: params[:event][:end_date]
+        end_date: params[:event][:end_date],
+        reminder: params[:event][:reminder]
         })
         
       @events << event
@@ -87,8 +95,14 @@ class EventsController < ApplicationController
     when "monthly"
       (date + 1.months).rfc3339
     when "yearly"
-      (date.parse + 1.years).rfc3339
+      (date + 1.years).rfc3339
     end
   end
 
+  def send_at(date)
+    debugger
+    time = DateTime.parse(date)
+    
+    (time - 1.minutes).rfc3339
+  end
 end

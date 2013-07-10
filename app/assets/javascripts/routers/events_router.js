@@ -18,16 +18,6 @@ Cal.Routers.Events = Backbone.Router.extend({
     this.$rootEl.html(indexView.render().$el);
   },
   
-  // eventEdit: function (id) {
-  //   var _event = Cal.events.get(id);
-  //   
-  //   var editView = new Cal.Views.EventsForm ({
-  //     model: _event
-  //   });
-  //   
-  //   this.$rootEl.html(editView.render().$el);
-  // },
-  
   eventNew: function () {
     var _event = new Cal.Models.Event ();
     

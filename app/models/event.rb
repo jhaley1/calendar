@@ -2,7 +2,8 @@ class Event < ActiveRecord::Base
   attr_accessible :description, :title,
     :start_date, :end_date, 
     :calendar_id, :recurring,
-    :num_of_times, :frequency
+    :num_of_times, :frequency,
+    :reminder
 
   before_save :default_values
 
@@ -26,6 +27,10 @@ class Event < ActiveRecord::Base
     
     if self.frequency == ""
       self.frequency = ""
+    end
+    
+    unless self.reminder
+      self.reminder = false
     end
   end
   

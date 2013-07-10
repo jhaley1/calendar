@@ -13,7 +13,7 @@ Cal.Views.Sidebar = Backbone.View.extend({
   initialize: function () {
     var that = this;
     
-    $(document).keydown(function (event) {
+    $(document).keypress(function (event) {
       if (event.target.nodeName.toLowerCase() != ('input')) {
         that.whichKey(event);
       }
@@ -73,7 +73,7 @@ Cal.Views.Sidebar = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 67: // c
+      case 99: // c
         Cal.router.navigate("events/new", { trigger: true })
         break;
     }

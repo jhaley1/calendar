@@ -15,7 +15,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     this.listenTo(this.collection, "all", this.render);
     
-    $(document).keydown(function (event) {
+    $(document).keypress(function (event) {
       if (event.target.nodeName.toLowerCase() !== 'input') {
         that.whichKey(event);
       }     
@@ -78,10 +78,10 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 74: // j
+      case 106: // j
         this.lastMonth();
         break;
-      case 75: // k
+      case 107: // k
         this.nextMonth();
         break;
     }

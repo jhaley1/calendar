@@ -17,7 +17,7 @@ Cal.Views.DaysIndex = Backbone.View.extend({
     
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     
-    $(document).keydown(function (event) {
+    $(document).keypress(function (event) {
       if (event.target.nodeName.toLowerCase() !== 'input') {
         that.whichKey(event);
       }     
@@ -94,10 +94,10 @@ Cal.Views.DaysIndex = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 74: // j
+      case 106: // j
         this.lastDay();
         break;
-      case 75: // k
+      case 107: // k
         this.nextDay();
         break;
     }

@@ -12,7 +12,7 @@ Cal.Views.EventsForm = Backbone.View.extend({
   initialize: function () {
     var that = this;
 
-    $(document).keydown(function (event) {
+    $(document).keypress(function (event) {
       if (event.target.nodeName.toLowerCase() != ('input') || 
         event.target.nodeName.toLowerCase() != ('textarea')) {
         that.whichKey(event);
@@ -95,7 +95,7 @@ Cal.Views.EventsForm = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 66:
+      case 98:
         Backbone.history.navigate("#/", { trigger: true });
         break;
     }

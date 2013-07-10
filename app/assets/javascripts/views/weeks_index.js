@@ -16,7 +16,7 @@ Cal.Views.WeeksIndex = Backbone.View.extend({
     var that = this;
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     
-    $(document).keydown(function (event) {
+    $(document).keypress(function (event) {
       if (event.target.nodeName.toLowerCase() !== 'input') {
         that.whichKey(event);
       }     
@@ -72,7 +72,7 @@ Cal.Views.WeeksIndex = Backbone.View.extend({
   },
   
   nextWeek: function () {
-    var date = Cal._currentDate.setDate(Cal._currentDate.getDate() + 7);
+    var date = Cal._currentDate.setDate(Cal._currentDate.getDate());
     Cal._currentDate = new Date (date);
     
     this.render();
@@ -97,10 +97,10 @@ Cal.Views.WeeksIndex = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 74: // j
+      case 106: // j
         this.lastWeek();
         break;
-      case 75: // k
+      case 107: // k
         this.nextWeek();
         break;
     }

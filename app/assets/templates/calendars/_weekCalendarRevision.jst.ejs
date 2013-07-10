@@ -1,0 +1,73 @@
+<div class="all-hours">
+  <% _(hoursInDay).each(function (hour) { %> 
+    <div class="display-hour-weeks">
+      <font id="hour-num"><strong><%= hour %>:00</strong></font>
+    </div>
+  <% }); %>
+</div>
+
+<% _(daysInWeek).each(function (day) { %> 
+  <% var currentDay = day.getDate(); %>
+  
+    <div class="day-of-week">
+      <center><h5><%= month %> <%= currentDay %></h5></center>
+      
+      <% _(hoursInDay).each(function (hour) { %>  
+        <div class="calendar-day-view">
+          <div class="display-day-event">
+            <% calendars.each(function (calendar) { %>
+              <% calendar.get("events").each(function (event) { %>
+              
+                <% var eventDate = new Date (event.get("start_date")); %>
+                <% var eventDay = eventDate.getUTCDate(); %>
+                <% var eventHour = eventDate.getUTCHours(); %>
+                <% var eventMonthNum = eventDate.getMonth(); %>
+                <% var eventMonth = Cal._monthNames[eventMonthNum] %>
+                <% var eventYear = eventDate.getFullYear(); %>
+
+                <% var eventEndDate = new Date(event.get("end_date")); %>
+                <% var eventEndDay = eventEndDate.getUTCDate(); %>
+          
+                <% if (eventEndDay === eventDate) { %>
+                  <% var eventEndHour = 23; %>
+                <% } else { %>
+                  <% var eventEndHour = eventEndDate.getUTCHours(); %>
+                <% } %>
+
+                <% var eventLength = eventEndHour - eventHour; %>
+
+                <% if ((eventHour == hour)
+                  && (eventDay === currentDay) 
+                  && (eventMonth == month) 
+                  && (eventYear == year)) { %>
+              
+                    <% var cId = calendar.escape("id") %>
+                    <% var eId = event.escape("id") %>
+              
+                    <a href="#/calendars/<%= cId %>/events/<%= eId %>/edit"
+                      id="event-link">
+                      <div id="event-height-<%= eventLength %>"
+                        class="cal-<%= calendar.get("id") %> 
+                        display-id-<%= calendar.get("display_id") %> 
+                        new-hour-event">
+                        <%= event.escape("title") %>
+                      </div>
+                    </a>
+              
+                    <script>
+                      $(function () {
+                        if ($(".display-day-event .new-hour-event").length > 1) {
+                          console.log(this)
+                          $(".display-day-event .new-hour-event").css("width", " 50%");
+                        }
+                      });
+                    </script>
+                  <% } %>
+              <% }); %>
+            <% }); %>
+          </div>
+        </div>
+      <% }); %>
+      
+    </div>
+<% }); %>

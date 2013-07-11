@@ -3,10 +3,12 @@ Cal.Views.Sidebar = Backbone.View.extend({
   template: JST['calendars/sidebar'],
   
   events: {
+    "click button#edit-cal": "editCalendar",
     "click button#new-event": "newEvent",
     "click button#new-calendar": "newCalendar",
     "click button#show-cal": "toggleCal",
     "click .search-submit": "searchCal",
+    "click button.logout": "logUserOut",
     "mouseover #keyboard-shortcut-link": "displayKBInfo",
   },
   
@@ -42,6 +44,17 @@ Cal.Views.Sidebar = Backbone.View.extend({
     });
   },
   
+  editCalendar: function (event) {
+    event.preventDefault();
+    var calId = $(event.currentTarget).attr("data-id");
+    
+    Backbone.history.navigate("calendars/" + calId + "/edit", { trigger: true })
+  },
+  
+  logUserOut: function () {
+    Cal.router.navigate("session/destroy");
+  },
+  
   newCalendar: function () {
     Cal.router.navigate("calendars/new", { trigger: true });
   },
@@ -56,9 +69,9 @@ Cal.Views.Sidebar = Backbone.View.extend({
     var ev = $("ul.typeahead.dropdown-menu").find('li.active').data('value');
     var eventObj = eventObjs[ev];
     var id = eventObj.id;
-    var cal_id = eventObj.calendar_id;
+    var calId = eventObj.calendar_id;
 
-    Backbone.history.navigate("calendars/" + cal_id + "/events/" + id + "/edit",
+    Backbone.history.navigate("calendars/" + calId + "/events/" + id + "/edit",
       { trigger: true });
   },
   

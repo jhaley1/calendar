@@ -4,6 +4,10 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password
 
   has_many :calendars
+  has_many :friends_calendars, :foreign_key => :friend_id
+  has_many :shared_calendars, :through => :friends_calendars
+  
+  has_secure_password
 
   validates :email, :password_digest, :presence => true
 

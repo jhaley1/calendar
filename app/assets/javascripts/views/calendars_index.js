@@ -1,6 +1,7 @@
 Cal.Views.CalendarsIndex = Backbone.View.extend({
 
   template: JST['calendars/index'],
+  showEventTemplate: JST['events/show'],
   
   events: {
     "click button#last-month": "lastMonth",
@@ -8,6 +9,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#month-view": "monthView",
     "click button#week-view": "weekView",
     "click button#day-view": "dayView",
+    "click a#event-link": "showEvent",
   },
   
   initialize: function () {
@@ -70,6 +72,24 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   nextMonth: function () {
     Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
     this.render();
+  },
+  
+  renderShow: function () {
+    var renderedContent = this.showEventTemplate({
+      calendars: this.collection
+    });
+    
+    this.$el.html(renderedContent);
+    
+    return this;
+  },
+  
+  showEvent: function (event) {
+    event.preventDefault();
+    
+    console.log('hi')
+  
+    this.$el.html(this.renderShow().$el);
   },
 
   weekView: function () {

@@ -5,23 +5,24 @@
 @import "bootstrap";
 
 
-
-
+//blue #C8C8FF 15% darker
+// blue #6F6FDF 0 % darker
+//#FF9A58
 
 
 
 // COLORS
 $grey: #CDCDCD;
-$red: #FF4444;
-$dark-red: #CC0000;
-$yellow: #FFBB33;
-$dark-yellow: #FF8800;
-$purple: #AA66CC;
-$dark-purple: #9933CC;
-$blue: #33B5E5;
-$dark-blue: #0099CC;
-$green: #99CC00;
-$dark-green: #669900;
+$red: lighten(#FF5A4B, 5%);
+$dark-red: darken(#FF5A4B, 5%);
+$yellow: darken(#FEBF83, 5%);
+$dark-yellow: darken(#FEBF83, 12%);
+$purple: darken(#DDABEB, 12%);
+$dark-purple: darken(#DDABEB, 17%);
+$blue: darken(#82B7E9, 5%);
+$dark-blue: darken(#82B7E9, 10%);
+$green: darken(#A2EC8F, 10%);
+$dark-green: darken(#A2EC8F, 18%);
 
 
 
@@ -70,8 +71,8 @@ button {
   position: fixed;
   width: 17%;
   float: left;
-  padding: 10px;
-  bottom: 0;
+  padding: 15px;
+  top: 17px;
 }
 
 #content {
@@ -80,6 +81,7 @@ button {
   width: 82%;
   float: right;
   margin-bottom: 0;
+  top: 50px;
 }
 
 
@@ -209,7 +211,7 @@ button {
   background-color: $purple;
   color: white;
   font-size: 14px;
-  font-style: bold;
+  font-weight: bold;
 }
 
 #last-day:hover, #next-day:hover, #last-week:hover, #next-week:hover, #last-month:hover, #next-month:hover {
@@ -302,7 +304,7 @@ button {
   background-color: $purple;
   color: white;
   font-size: 14px;
-  font-style: bold;
+  font-weight: bold;
 }
 
 .view-switch:hover {
@@ -327,11 +329,11 @@ button {
 #new-event, #new-calendar {
   background-color: $purple;
   color: white;
-  font-style: bold;
+  font-weight: bold;
 
   border: none;
   text-align: center;
-  width: 80%;
+  width: 80.2%;
   height: 30px;
   padding: 2px;
   -moz-border-radius: 3px;
@@ -344,17 +346,30 @@ button {
 
 .display-cal-button {
   color: white;
-  font-style: bold;
+  font-weight: bold;
 
   border: none;
   text-align: center;
-  width: 80%;
+  width: 66.9%;
   height: 30px;
   padding: 2px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   
   @include no-wrap;
+}
+
+.edit-cal-button {
+  color: white;
+  font-weight: bold;
+
+  border: none;
+  text-align: center;
+  width: 12%;
+  height: 30px;
+  padding: 2px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 
 #keyboard-shortcuts {
@@ -380,20 +395,24 @@ button {
 
 #search-events {
   border: 1px solid $purple;
-  width: 57%;
+  width: 60.6%;
   height: 68%;
   margin-top: 10px;
   font-size: 12px;
 }
 
+#search-events:hover {
+  border: 1px solid $dark-purple;
+}
+
 .search-submit {
   color: white;
-  font-style: bold;
+  font-weight: bold;
   background-color: $purple;
 
   border: none;
   text-align: center;
-  width: 15%;
+  width: 12%;
   height: 100%;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -460,6 +479,19 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   float: left;
   padding-top: 2px;
 }
+
+#event_title, #event_start_date, #event_end_date, #event_calendar_id, #event_description {
+  border: 1px solid $purple;
+}
+
+#event_title:hover, #event_start_date:hover, #event_end_date:hover, #event_calendar_id:hover, #event_description:hover {
+  border: 1px solid $dark-purple;
+}
+
+
+
+
+
 
 
 
@@ -582,61 +614,140 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 
 // NEW CALENDAR PAGE
 
-#cal-blue-box {
-  height: 20px;
-  width: 20px;
-  
-  background-color: $blue;
+#calendar_name {
+  border: 1px solid $purple;
 }
 
-#cal-purple-box {
+#calendar_name:hover {
+  border: 1px solid $dark-purple;
+}
+
+.friend-search-box {
+  height: 30px;
+}
+
+#search-friends {
+  border: 1px solid $purple;
+  width: 170px;
   height: 20px;
-  width: 20px;
-  
+  margin-top: 10px;
+  font-size: 12px;
+}
+
+#search-friends:hover {
+  border: 1px solid $dark-purple;
+}
+
+.friend-search-submit {
+  color: white;
+  font-weight: bold;
   background-color: $purple;
+
+  border: none;
+  text-align: center;
+  width: 35px;
+  height: 30px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
 }
 
-#cal-yellow-box {
-  height: 20px;
-  width: 20px;
-  
-  background-color: $yellow;
+.friend-search-submit:hover {
+  background-color: $dark-purple;
 }
 
-#cal-red-box {
-  height: 20px;
-  width: 20px;
-  
+.shared-users-list {
+  list-style: none;
+}
+
+input[type=radio] {
+  display: none; 
+  margin: 10px;
+}
+
+@mixin highlighted {
+  outline: 0;
+  -webkit-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+  -moz-box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.15),0 1px 2px rgba(0,0,0,0.05);
+} 
+
+@mixin replacement-radio-properties {
+  display: inline-block;
+  margin: 0px;
+  padding: 14px 20px;
+}
+
+#calendar_display_id_red + label {
   background-color: $red;
-}
-
-#cal-green-box {
-  height: 20px;
-  width: 20px;
   
+  @include replacement-radio-properties
+}
+
+#calendar_display_id_red:checked + label { 
+  background-color: $dark-red;
+  
+  @include highlighted;
+}
+
+#calendar_display_id_green + label {
   background-color: $green;
+  -moz-border-radius: 0px 5px 5px 0px;
+  -webkit-border-radius: 0px 5px 5px 0px;
+  
+  @include replacement-radio-properties
 }
 
-.display-color {
-  position: relative;
+#calendar_display_id_green:checked + label { 
+  background-color: $dark-green;
+  
+  @include highlighted;
 }
 
-.align-radio {
-  height: 20px;
+#calendar_display_id_yellow + label {
+  background-color: $yellow;
+  -moz-border-radius: 5px 0px 0px 5px;
+  -webkit-border-radius: 5px 0px 0px 5px;
+  
+  @include replacement-radio-properties
 }
 
-.form-radio {
-  height: 100%;
-  float: left;
-  padding-left: 0px;
-  padding-right: 6px;
+#calendar_display_id_yellow:checked + label { 
+  background-color: $dark-yellow;
+  
+  @include highlighted;
 }
 
-.form-radio-text {
-  height: 100%;
-  float: left;
-  padding-top: 3px;
+#calendar_display_id_blue + label {
+  background-color: $blue;
+  
+  @include replacement-radio-properties
 }
+
+#calendar_display_id_blue:checked + label { 
+  background-color: $dark-blue;
+  
+  @include highlighted;
+}
+
+#calendar_display_id_purple + label {
+  background-color: $purple;
+  
+  @include replacement-radio-properties
+}
+
+#calendar_display_id_purple:checked + label { 
+  background-color: $dark-purple;
+  
+  @include highlighted;
+}
+
+
+
+
+
+
+
+
 
 
 
@@ -737,4 +848,41 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   padding-right: 3px;
   top: 0;
   border: 1px solid $grey;
+}
+
+
+
+
+
+
+
+
+
+
+// SHOW EVENT
+
+.lightbox {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	width: 500px;
+	margin-left: -250px;
+	background: #fff;
+	z-index: 1001;
+	display: none;
+}
+
+.lightbox-shadow {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	filter: alpha(opacity=75);
+	-moz-opacity: 0.75;
+	-khtml-opacity: 0.75;
+	opacity: 0.75;
+	z-index: 1000;
+	display: none;
 }

@@ -19,11 +19,19 @@ class CalendarsController < ApplicationController
   
   def edit
     @calendar = Calendar.find(params[:id])
+    
     render :json => @calendar
   end
   
   def index
-    @calendars = current_user.calendars
+    if current_user.shared_calendars
+      @calendars = current_user.calendars + current_user.shared_calendars
+    else
+      @calendars = current_user.calendars
+    end
+    
+    @users = User.find(:all, :conditions => ["id != ?", current_user.id])
+    
     render :index
   end
   
@@ -35,7 +43,7 @@ class CalendarsController < ApplicationController
   def update
     @calendar = Calendar.find(params[:id])
     
-    if @calendar.update_attributes(params[:event])
+    if @calendar.update_attributes(params[:calendar])
       @calendar.save
       render :json => @calendar
     else

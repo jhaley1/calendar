@@ -16,7 +16,8 @@
     autocomplete="off" 
     data-source="[banana, grapefruit]"
     class="typeahead"
-    id="search-events">
+    id="search-events"
+    placeholder="Search calendar">
   <input type="hidden" name="id" id="id">
   <input type="hidden" name="calendar_id" id="calendar_id">
   
@@ -85,6 +86,10 @@
     data-id="<%= calendar.get("id") %>"
     class="display-cal-button cal-button-<%= calendar.get("display_id") %>">
     <%= calendar.get("name") %></button>
+  <button id="edit-cal"
+    data-id="<%= calendar.get("id") %>"
+    class="edit-cal-button cal-button-<%= calendar.get("display_id") %>">
+    <i class="icon-pencil icon-white"></i></button>
   <br><br>
 <% }); %>
 
@@ -101,6 +106,7 @@
 </div>
 
 <br><br><br>
+
 
 <!-- <div class="actions">
   <a id="TakeAction">&#x25BC;</a>

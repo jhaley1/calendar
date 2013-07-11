@@ -1,7 +1,89 @@
-<!-- users/app/views/new.html.erb -->
+<!-- app/views/session/new.html.erb -->
 
-<%= form_for @user do |f| %>
-  <%= f.text_field :email, :placeholder => "email", :value => @user.email %>
-  <%= f.password_field :password, :placeholder => "password" %>
-  <%= f.submit :value => "Sign Up" %>
-<% end %>
+<div class="container">
+  <div class="header">
+    
+    <div id="test">
+      <span id="calendar-title">
+        <span class="char1"></span>
+        <span class="char2"></span>
+        <span class="char3"></span>
+        <span class="char4"></span>
+        <span class="char5"></span>
+        <span class="char6"></span>
+        <span class="char7"></span>
+        <span class="char8"></span>
+        <span class="char8"> </span>
+        <span class="char9">&nbsp;C</span>
+        <span class="char10">A</span>
+        <span class="char11">L</span>
+        <span class="char12">E</span>
+        <span class="char13">N</span>
+        <span class="char14">D</span>
+        <span class="char15">A</span>
+        <span class="char16">R</span>
+      </span>
+    </div>
+    
+    
+    <div class="sign-up-region">
+      <font id="sign-up-text">New to Calendar?</font>
+      <%= button_to "Sign up", 
+        new_session_url,
+        :class => "sign-up-button" %>
+    </div>
+  </div>
+  <div id="session-content">
+  
+    <div id="left-half">
+      <div id="cal-info">
+        <h1 id="header-text">Calendar</h1>
+        
+        <h2>Share your schedule.</h2>
+        Let your family and friends see your calendar, and view schedules that others have shared with you.
+        <br>
+          
+        <h2>Never forget another event.</h2>
+        Get event reminders via email or have text messages sent right to your mobile phone.
+        <br><br>
+        
+        <a href=""><h5>Learn more about Calendar</h5></a>
+      </div>
+    </div>
+
+
+    <div id="right-half">
+      <div id="log-in-box">       
+        <div id="log-in-info">
+          <h1 id="header-text">Sign Up</h1>
+          <br>
+        
+          <%= form_for @user do |f| %>
+            <%= f.text_field :email, 
+              :placeholder => "email", 
+              :value => @user.email,
+              :id => "info-entry" %>
+            <%= f.password_field :password, 
+              :placeholder => "password",
+              :id => "info-entry" %>
+            <br>
+          
+            <%= f.submit :value => "Sign Up", :id => "log-in-button" %>
+          <% end %> 
+        </div>       
+      </div>
+    </div>
+  
+  </div>
+  
+</div>
+
+<div id="session-footer">
+  <div id="footer-content">
+    <font id="header-text"><strong>&#169; Calendar</strong></font>
+    &emsp;&emsp;&emsp;
+    <a href="">Terms & Conditions</a>
+    &emsp;
+    <a href="">Privacy Policy</a>
+  </div>
+</div>

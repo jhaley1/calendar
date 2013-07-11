@@ -1,6 +1,6 @@
-Cal.Views.CalendarNew = Backbone.View.extend({
+Cal.Views.CalendarEdit = Backbone.View.extend({
 
-  template: JST['calendars/new'],
+  template: JST['calendars/edit'],
   
   events: {
     "click button#back-to-cal": "backToCal",
@@ -54,14 +54,12 @@ Cal.Views.CalendarNew = Backbone.View.extend({
     var options = {
       success: function () {
         Backbone.history.navigate("#/", { trigger: true });
-      },
-      error: function (model, response) {
-        // $(function () {
-        //   $(document).prepend("<a class='close' data-dismiss='alert' href='#'>" + response.responseText + "</a>")
-        // });
       }
     };
+    
+    console.log(event.target.form);
 
+    console.log(attrs);
     this.model.set(attrs);
 
     if (this.model.isNew()) {

@@ -30,7 +30,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
   calendarEdit: function (id) {
     var _calendar = Cal.calendars.get(id);
     
-    var editView = new Cal.Views.EventsForm ({
+    var editView = new Cal.Views.CalendarNew ({
       model: _calendar
     });
     

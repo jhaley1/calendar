@@ -4,10 +4,44 @@
   <%= current_user.id.to_json.html_safe %>
 </script>
 
+<script type ="application/json" id="all_users_json">
+  <%= User.find(:all, :conditions => ["id != ?", current_user.id]).to_json.html_safe %>
+</script>
+
 <div class="container">
+  <div class="header">
+    
+    <div id="test">
+      <span id="calendar-title">
+        <span class="char1"></span>
+        <span class="char2"></span>
+        <span class="char3"></span>
+        <span class="char4"></span>
+        <span class="char5"></span>
+        <span class="char6"></span>
+        <span class="char7"></span>
+        <span class="char8"></span>
+        <span class="char8"> </span>
+        <span class="char9">&nbsp;C</span>
+        <span class="char10">A</span>
+        <span class="char11">L</span>
+        <span class="char12">E</span>
+        <span class="char13">N</span>
+        <span class="char14">D</span>
+        <span class="char15">A</span>
+        <span class="char16">R</span>
+      </span>
+    </div>
+    
+    <%= button_to "Sign out", 
+      session_url, 
+      :method => "delete", 
+      :class => "log-out-button" %>
+  </div>
+  
   <div class="container-row">
     <div id="sidebar">
-      
+
     </div>
     
     <div id="content">

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130709232949) do
+ActiveRecord::Schema.define(:version => 20130711163119) do
 
   create_table "calendars", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -49,6 +49,13 @@ ActiveRecord::Schema.define(:version => 20130709232949) do
     t.string   "frequency"
     t.integer  "num_of_times"
     t.boolean  "reminder",     :default => false
+  end
+
+  create_table "friends_calendars", :force => true do |t|
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "friend_id"
+    t.integer  "shared_calendar_id"
   end
 
   create_table "recurring_events", :force => true do |t|

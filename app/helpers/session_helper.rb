@@ -5,6 +5,10 @@ module SessionHelper
     User.find_by_session_token(session[:token])
   end
   
+  def logged_in?
+    !!current_user
+  end
+  
   def login!(user)
     user.reset_session_token!
     session[:token] = user.session_token

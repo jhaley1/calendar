@@ -1,17 +1,18 @@
 <!-- app/views/session/new.html.erb -->
 
-<div id="container">
-  <div id="session-header">
-    <div id="header-content">
-      <span class="fancy_title">
-        <span class="char1">G</span>
-        <span class="char2">L</span>
-        <span class="char3">U</span>
-        <span class="char4">E</span>
-        <span class="char5">G</span>
-        <span class="char6">U</span>
-        <span class="char7">L</span>
-        <span class="char8">L</span>
+<div class="container">
+  <div class="header">
+    
+    <div id="test">
+      <span id="calendar-title">
+        <span class="char1"></span>
+        <span class="char2"></span>
+        <span class="char3"></span>
+        <span class="char4"></span>
+        <span class="char5"></span>
+        <span class="char6"></span>
+        <span class="char7"></span>
+        <span class="char8"></span>
         <span class="char8"> </span>
         <span class="char9">&nbsp;C</span>
         <span class="char10">A</span>
@@ -23,8 +24,15 @@
         <span class="char16">R</span>
       </span>
     </div>
+    
+    
+    <div class="sign-up-region">
+      <font id="sign-up-text">New to Calendar?</font>
+      <%= button_to "Sign up", 
+        new_session_url,
+        :class => "sign-up-button" %>
+    </div>
   </div>
-  
   <div id="session-content">
   
     <div id="left-half">
@@ -39,7 +47,7 @@
         Get event reminders via email or have text messages sent right to your mobile phone.
         <br><br>
         
-        <a href=""><h5>Learn more about Gluegull Calendar</h5></a>
+        <a href=""><h5>Learn more about Calendar</h5></a>
       </div>
     </div>
 
@@ -49,7 +57,7 @@
         <form action="<%= session_url %>" method="post" id="entry-form">
           <div id="log-in-info">
             <h1 id="header-text">Sign In</h1>
-            <br><br>
+            <br>
             
             <input type="text" 
               name="user[email]" 
@@ -70,17 +78,16 @@
   
   </div>
   
-  <div id="session-footer">
-    <div id="footer-content">
-      <font id="header-text"><strong>&#169; Gluegull</strong></font>
-      &emsp;&emsp;&emsp;
-      <a href="">Terms & Conditions</a>
-      &emsp;
-      <a href="">Privacy Policy</a>
-    </div>
+</div>
+
+<div id="session-footer">
+  <div id="footer-content">
+    <font id="header-text"><strong>&#169; Calendar</strong></font>
+    &emsp;&emsp;&emsp;
+    <a href="">Terms & Conditions</a>
+    &emsp;
+    <a href="">Privacy Policy</a>
   </div>
-    
-    
 </div>
 
 

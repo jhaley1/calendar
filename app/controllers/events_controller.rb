@@ -54,8 +54,6 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     
     if @event.update_attributes(params[:event])
-
-      
       @event.save
       render :json => @event
     else

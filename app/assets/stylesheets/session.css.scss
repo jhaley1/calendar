@@ -2,6 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+// COLORS
+
+$purple: darken(#DDABEB, 12%);
+$dark-purple: darken(#DDABEB, 17%);
+
+
+
+
+// HEADER
+
 * {
   font-family: "HelveticaNeue";
 }
@@ -13,109 +23,6 @@
 #header-text {
   color: #611d54;
 }
-
-#session-content {
-  position: absolute;
-  width: 100%;
-  top: 100px;
-  bottom: 100px;
-}
-
-#session-header {
-  background-color: #611D54;
-  border: 1px solid #CDCDCD;
-  
-  padding: 15px;
-  height: 60px;
-  width: 100%;
-  top: 0;
-}
-
-#header-content {
-  margin-top: 1.2%;
-}
-
-.char1 {
-  color: #d980c8;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char2 {
-  color: #efcbe8;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char3 {
-  color: #e19cd4;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char4 {
-  color: #f3d7ed;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char5 {
-  color: #d980c8;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char6 {
-  color: #efcbe8;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char7 {
-  color: #eab7e0;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char8 {
-  color: #eab7e0;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char9 {
-  color: #efcbe8;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char10 {
-  color: #e19cd4;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char11 {
-  color: #f3d7ed;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char12 {
-  color: #d980c8;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char13 {
-  color: #efcbe8;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char14 {
-  color: #eab7e0;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char15 {
-  color: #d980c8;
-  font-weight: bold;
-  font-size: 55px;
-}
-.char16 {
-  color: #efcbe8;
-  font-weight: bold;
-  font-size: 55px;
-}
-
 
 #session-footer {
   background-color: #FAF5F7;
@@ -133,7 +40,6 @@
 
 #right-half {
   padding-top: 10px;
-//  padding-left: 60%;
   margin-left: 60%;
   height: 100%;
   overflow: auto;
@@ -141,7 +47,7 @@
 
 #cal-info {
   margin-left: 20%;
-  margin-top: 27%;
+  margin-top: 42%;
 }
 
 #left-half {
@@ -153,7 +59,7 @@
 }
 
 #log-in-info {
-  padding-top: 20%;
+  padding-top: 25%;
   padding-left: 17%;
 }
 
@@ -163,7 +69,7 @@
 
   height: 400px;
   width: 400px;
-  margin-top: 18%;
+  margin-top: 33%;
   align: center;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -171,7 +77,41 @@
 
 #info-entry {
   width: 250px;
+  border: 1px solid $purple;
+}
+
+.sign-up-region {
+  float: right;
+  margin-left: 83.5%;
+  position: absolute;
+  width: 10%;
+  top: 0;
+  margin-top: 10px;
+}
+
+.sign-up-button {
   border: none;
+  background-color: $purple;
+  color: white;
+  font-weight: bold;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding: 2px;
+  min-width: 90px;
+  height: 30px;
+  position: absolute;
+  margin-left: 92.7%;
+  top: 0;
+}
+
+.sign-up-button:hover {
+  background-color: $dark-purple;
+}
+
+#sign-up-text {
+  color: white;
+  font-weight: bold;
+  align: left;
 }
 
 #log-in-button {
@@ -181,12 +121,12 @@
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   
-  background-color: #AA66CC;
+  background-color: $purple;
   color: white;
   font-size: 14px;
-  font-style: bold;
+  font-weight: bold;
 }
 
 #log-in-button:hover {
-  background-color: #9933CC;
+  background-color: $dark-purple;
 }

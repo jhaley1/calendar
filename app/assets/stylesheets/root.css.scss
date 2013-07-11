@@ -1,3 +1,130 @@
 // Place all the styles related to the root controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// COLORS
+
+$purple: darken(#DDABEB, 12%);
+$dark-purple: darken(#DDABEB, 17%);
+
+
+
+
+
+// HEADER
+
+.header {
+  width: 100%;
+  height: 50px;
+  background-color: #2D2D2D;
+  top: 0;
+  position: fixed;
+  z-index: 2000;
+//  border-bottom: 1px solid #CDCDCD;
+  box-shadow: 0px 0px 0px 2px lighten(#2D2D2D, 5%);
+}
+
+.log-out-button {
+  border: none;
+  background-color: $purple;
+  color: white;
+  font-weight: bold;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding: 2px;
+  min-width: 90px;
+  height: 30px;
+  position: absolute;
+  margin-left: 92.7%;
+  margin-top: 10px;
+  top: 0;
+}
+
+.log-out-button:hover {
+  background-color: $dark-purple;
+}
+
+#test {
+  margin-top: 14px;
+}
+
+.char1 {
+  color: #d980c8;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char2 {
+  color: #efcbe8;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char3 {
+  color: #e19cd4;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char4 {
+  color: #f3d7ed;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char5 {
+  color: #d980c8;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char6 {
+  color: #efcbe8;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char7 {
+  color: #eab7e0;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char8 {
+  color: #eab7e0;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char9 {
+  color: #efcbe8;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char10 {
+  color: #e19cd4;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char11 {
+  color: #f3d7ed;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char12 {
+  color: #d980c8;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char13 {
+  color: #efcbe8;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char14 {
+  color: #eab7e0;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char15 {
+  color: #d980c8;
+  font-weight: bold;
+  font-size: 45px;
+}
+.char16 {
+  color: #efcbe8;
+  font-weight: bold;
+  font-size: 45px;
+}

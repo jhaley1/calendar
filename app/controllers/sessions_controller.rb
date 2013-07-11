@@ -11,13 +11,13 @@ class SessionsController < ApplicationController
   end
   
   def destroy
-    @user = User.find(params[:id])
     logout!
     
-    render :new
+    redirect_to new_session_url
   end
   
   def new
+    render :new
   end
 
 end

@@ -48,11 +48,15 @@
               </a>
               
               <script>
-                $(function () {
-                  if ($(".display-hour-event .new-hour-event").length > 1) {
-                    $(".display-hour-event .new-hour-event").css("width, 50%");
-                  }
+                $(".display-hour-event").each(function (i, day) {
+                  $(day).attr("id", i)
                 });
+                
+                for (var j = 0; j < 161; j++) {
+                  if ($("#" + j + " .new-hour-event").length > 1) {
+                    $("#" + j + " .new-hour-event").css("width", "50%")
+                  }
+                }
               </script>
             <% } %>
 

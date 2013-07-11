@@ -53,15 +53,19 @@
                         <%= event.escape("title") %>
                       </div>
                     </a>
-              
+
                     <script>
-                      $(function () {
-                        if ($(".display-day-event .new-hour-event").length > 1) {
-                          console.log(this)
-                          $(".display-day-event .new-hour-event").css("width", " 50%");
-                        }
+                      $(".display-day-event").each(function (i, day) {
+                        $(day).attr("id", i)
                       });
+                      
+                      for (var j = 0; j < 161; j++) {
+                        if ($("#" + j + " .new-hour-event").length > 1) {
+                          $("#" + j + " .new-hour-event").css("width", "50%")
+                        }
+                      }
                     </script>
+
                   <% } %>
               <% }); %>
             <% }); %>

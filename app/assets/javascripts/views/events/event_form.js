@@ -60,11 +60,6 @@ Cal.Views.EventForm = Backbone.View.extend({
           _(response).each(function(ev) {
             var eventModel = new Cal.Models.Event(ev);
             calendar.get("events").add(eventModel);
-            
-            Cal.calendars.fetch({
-              success: function () {
-                Backbone.history.navigate("#/", { trigger: true });
-              }
             });
             
           });
@@ -77,6 +72,11 @@ Cal.Views.EventForm = Backbone.View.extend({
           $("#content").prepend("<div class='alert alert-error'><a class='close' data-dismiss='alert'>×</a>" + response.responseText + "</div>")
         });
       }
+      
+      Cal.calendars.fetch({
+        success: function () {
+          Backbone.history.navigate("#/", { trigger: true });
+        }
     };
 
     this.model.set(attrs);

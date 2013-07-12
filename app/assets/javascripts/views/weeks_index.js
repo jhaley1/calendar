@@ -10,6 +10,7 @@ Cal.Views.WeeksIndex = Backbone.View.extend({
     "click button#month-view": "monthView",
     "click button#week-view": "weekView",
     "click button#day-view": "dayView",
+    "click a#event-link": "showEvent",
   },
   
   initialize: function () {
@@ -80,6 +81,17 @@ Cal.Views.WeeksIndex = Backbone.View.extend({
   
   newEvent: function () {
     Cal.router.navigate("events/new", { trigger: true });
+  },
+  
+  showEvent: function (event) {
+    event.preventDefault();
+
+    var cl = event.currentTarget.className;   
+    var cls = cl.split(' ');
+    var calendar = Cal.calendars.get(cls[0]);
+    var event = calendar.get("events").get(cls[1]);
+    
+    $("#content").append("<div class='lightbox'>" + JST['events/show']({ calendarId: cls[0], calendar: calendar, eventId: cls[1], event: event }) + "</div>")
   },
   
   toggleCal: function (event) {

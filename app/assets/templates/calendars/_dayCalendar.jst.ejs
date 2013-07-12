@@ -22,19 +22,20 @@
           <% } %>
                
           <% var eventLength = eventEndHour - eventHour; %>
-        
-          
 
           <% if ((eventHour == hour)
             && (eventDay === day) 
             && (eventMonth == month) 
             && (eventYear == year)) { %>
+              
             <% var cId = calendar.escape("id") %>
             <% var eId = event.escape("id") %>
-            <a href="#/calendars/<%= cId %>/events/<%= eId %>/edit"
+            
+            <a href="#" 
+              class="<%= cId %> <%= eId %>"
               id="event-link">
-              <div id="hour-event" 
-                class="cal-<%= calendar.get("id") %> display-id-<%= calendar.get("display_id") %> event-length">
+              <div id="event" 
+                class="cal-<%= calendar.get("id") %> display-id-<%= calendar.get("display_id") %>">
                 <%= event.escape("title") %>
               </div>
             </a>

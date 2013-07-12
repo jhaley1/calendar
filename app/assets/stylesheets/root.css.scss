@@ -34,8 +34,7 @@ $dark-purple: darken(#DDABEB, 17%);
   padding: 2px;
   min-width: 90px;
   height: 30px;
-  position: absolute;
-  margin-left: 92.7%;
+  align: right;
   margin-top: 10px;
   top: 0;
 }
@@ -45,7 +44,12 @@ $dark-purple: darken(#DDABEB, 17%);
 }
 
 #test {
-  margin-top: 0px;
+  float: left;
+}
+
+#test-1 {
+  float: right;
+  margin-right: 13px;
 }
 
 .char1 {
@@ -130,7 +134,18 @@ $dark-purple: darken(#DDABEB, 17%);
   font-size: 45px;
 }
 
+.logo-holder {
+  float: left;
+  margin-left: 5px;
+  margin-top: 2px;
+  width: 70px;
+}
+
 .logo {
-  width: 5.1%; 
-  height: 5.1%;
+  width: 100%; 
+}
+
+.title-holder {
+  float: left;
+  margin-top: 15px;
 }

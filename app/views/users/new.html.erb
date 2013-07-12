@@ -4,40 +4,49 @@
   <div class="header">
     
     <div id="test">
-      <span id="calendar-title">
-        <span class="char1">S</span>
-        <span class="char2">E</span>
-        <span class="char3">A</span>
-        <span class="char4">G</span>
-        <span class="char5">U</span>
-        <span class="char6">L</span>
-        <span class="char7">L</span>
-        <span class="char8"></span>
-        <span class="char8"> </span>
-        <span class="char9">&nbsp;C</span>
-        <span class="char10">A</span>
-        <span class="char11">L</span>
-        <span class="char12">E</span>
-        <span class="char13">N</span>
-        <span class="char14">D</span>
-        <span class="char15">A</span>
-        <span class="char16">R</span>
-      </span>
+      <div class="logo-holder">
+        <img src="/assets/gull.png" class="logo" />
+      </div>
+      <div class="title-holder">
+        <span id="calendar-title">
+          <span class="char1">S</span>
+          <span class="char2">E</span>
+          <span class="char3">A</span>
+          <span class="char4">G</span>
+          <span class="char5">U</span>
+          <span class="char6">L</span>
+          <span class="char7">L</span>
+          <span class="char8"></span>
+          <span class="char8"> </span>
+          <span class="char9">&nbsp;C</span>
+          <span class="char10">A</span>
+          <span class="char11">L</span>
+          <span class="char12">E</span>
+          <span class="char13">N</span>
+          <span class="char14">D</span>
+          <span class="char15">A</span>
+          <span class="char16">R</span>
+        </span>
+      </div>
     </div>
     
     <div class="sign-up-region">
-      <font id="sign-up-text">Have an account?</font>
-      <%= button_to "Sign in", 
-        new_session_url,
-        :method => "get",
-        :class => "sign-up-button" %>
+      <div id="signuptext">
+        <font id="sign-up-text">Have an account?</font>
+      </div>
+      <div id="signupbutton">
+        <%= button_to "Sign in", 
+          new_session_url,
+          :method => "get",
+          :class => "sign-up-button" %>
+      </div>
     </div>
   </div>
   <div id="session-content">
   
     <div id="left-half">
       <div id="cal-info">
-        <h1 id="header-text">Calendar</h1>
+        <h1 id="header-text">Seagull Calendar</h1>
         
         <h2>Share your schedule.</h2>
         Let your family and friends see your calendar, and view schedules that others have shared with you.
@@ -80,7 +89,7 @@
 
 <div id="session-footer">
   <div id="footer-content">
-    <font id="header-text"><strong>&#169; Calendar</strong></font>
+    <font id="header-text"><strong>&#169; Seagull</strong></font>
     &emsp;&emsp;&emsp;
     <a href="">Terms & Conditions</a>
     &emsp;

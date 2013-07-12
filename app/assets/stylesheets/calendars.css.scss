@@ -789,7 +789,7 @@ input[type=radio] {
 }
 
 .new-hour-event {
-  margin-top: 1px;;
+  margin-top: 1px;
   text-indent: 1%;
   width: 100%;
   -moz-border-radius: 3px;
@@ -850,6 +850,22 @@ input[type=radio] {
   border: 1px solid $grey;
 }
 
+.new-week-event {
+  margin-top: 1px;;
+  text-indent: 1%;
+  padding: 3px;
+  width: 96%;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  
+  @include no-wrap;
+}
+
+
+
+
+
+
 
 
 
@@ -871,10 +887,10 @@ input[type=radio] {
 }
 
 .lightbox-content {
-  margin-left: 31%;
-  margin-top: 11%;
-  width: 25%;
-  height: 60%;
+  margin-left: 32.4%;
+  margin-top: 14%;
+  width: 23%;
+  height: 400px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   padding-top: 10px;
@@ -892,10 +908,15 @@ input[type=radio] {
   a:hover {
     color: darken(white, 5%);
   }
+}
+
+.event-info {
+  height: 100%;
   
   .line-separator {
     height: 1px;
     border-bottom: 1px solid white;
+    margin-top: 138px;
   }
 }
 
@@ -946,4 +967,5 @@ input[type=radio] {
 
 .cancel-icon {
   text-align: right;
+  height: 1px;
 }

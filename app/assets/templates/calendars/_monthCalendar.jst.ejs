@@ -23,8 +23,10 @@
           <% if ((eventDay === day) 
             && (eventMonth == month) 
             && (eventYear == year)) { %>
+              
             <% var cId = calendar.escape("id") %>
             <% var eId = event.escape("id") %>
+            
             <a href="#" 
               class="<%= cId %> <%= eId %>"
               id="event-link">

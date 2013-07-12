@@ -12,33 +12,38 @@
   <div class="header">
     
     <div id="test">
-      <img src="/assets/gull.png" class="logo" />
-      
-      <span id="calendar-title">
-        <span class="char1">S</span>
-        <span class="char2">E</span>
-        <span class="char3">A</span>
-        <span class="char4">G</span>
-        <span class="char5">U</span>
-        <span class="char6">L</span>
-        <span class="char7">L</span>
-        <span class="char8"></span>
-        <span class="char8"> </span>
-        <span class="char9">&nbsp;C</span>
-        <span class="char10">A</span>
-        <span class="char11">L</span>
-        <span class="char12">E</span>
-        <span class="char13">N</span>
-        <span class="char14">D</span>
-        <span class="char15">A</span>
-        <span class="char16">R</span>
-      </span>
+      <div class="logo-holder">
+        <img src="/assets/gull.png" class="logo" />
+      </div>
+      <div class="title-holder">
+        <span id="calendar-title">
+          <span class="char1">S</span>
+          <span class="char2">E</span>
+          <span class="char3">A</span>
+          <span class="char4">G</span>
+          <span class="char5">U</span>
+          <span class="char6">L</span>
+          <span class="char7">L</span>
+          <span class="char8"></span>
+          <span class="char8"> </span>
+          <span class="char9">&nbsp;C</span>
+          <span class="char10">A</span>
+          <span class="char11">L</span>
+          <span class="char12">E</span>
+          <span class="char13">N</span>
+          <span class="char14">D</span>
+          <span class="char15">A</span>
+          <span class="char16">R</span>
+        </span>
+      </div>
     </div>
     
-    <%= button_to "Sign out", 
-      session_url, 
-      :method => "delete", 
-      :class => "log-out-button" %>
+    <div id="test-1">
+      <%= button_to "Sign out", 
+        session_url, 
+        :method => "delete", 
+        :class => "log-out-button" %>
+    </div>
   </div>
   
   <div class="container-row">

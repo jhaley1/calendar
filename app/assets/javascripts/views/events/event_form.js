@@ -60,8 +60,6 @@ Cal.Views.EventForm = Backbone.View.extend({
           _(response).each(function(ev) {
             var eventModel = new Cal.Models.Event(ev);
             calendar.get("events").add(eventModel);
-            });
-            
           });
         } else {
           that.model.set(attrs);
@@ -77,6 +75,7 @@ Cal.Views.EventForm = Backbone.View.extend({
         success: function () {
           Backbone.history.navigate("#/", { trigger: true });
         }
+      });
     };
 
     this.model.set(attrs);

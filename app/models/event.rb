@@ -31,10 +31,12 @@ class Event < ActiveRecord::Base
   end
   
   def ensure_end_date_is_after_start_date
-    if self.end_date - self.start_date == 0
-      errors[:same_time] << "Start date cannot be the same as end time."
+    if (self.end_date || self.start_date) == nil
+      errors[:time] << "- must enter both start and end dates."
+    elsif self.end_date - self.start_date == 0
+      errors[:same_time] << "- start date cannot be the same as end time."
     elsif self.end_date - self.start_date < 0
-      errors[:same_time] << "End date cannot be before start date."
+      errors[:same_time] << "- end date cannot be before start date."
     end
   end
 

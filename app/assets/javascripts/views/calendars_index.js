@@ -81,7 +81,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var calendar = Cal.calendars.get(cls[0]);
     var event = calendar.get("events").get(cls[1]);
     
-    $("#content").append("<div class='lightbox'>" + JST['events/show']({ calendarId: cls[0], calendar: calendar, eventId: cls[1], event: event }) + "</div>")
+    $("#content").append("<div class='lightbox'>" + JST['events/show']({ calendarId: cls[0], calendar: calendar, eventId: cls[1], event: event }) + "</div>");
   },
 
   weekView: function () {

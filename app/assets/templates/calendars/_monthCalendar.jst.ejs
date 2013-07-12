@@ -41,12 +41,18 @@
     <% }); %>
   </div>
   
-  <% if (day === lastDayOfMonth) { %>
-    <% var index = Cal._dayNames.indexOf(lastWeekday) + 1; %>
+  
+  <% var today = new Date (); %>
+  <% var todayDay = today.getDate(); %>
+  <% var todayMonthNum = today.getMonth(); %>
+  <% var todayMonth = Cal._monthNames[todayMonthNum] %>
+  <% var todayYear = today.getFullYear(); %>
+  
+  <% if((day === todayDay)
+    && (month === todayMonth)
+    && (year === todayYear)) { %>
     
-    <% for (var i = index; i < 7; i++) { %>
-      <div class="calendar-day"></div>
-    <% } %>
+    <% $("#day-num").css("color", "red")%>
   <% } %>
   
 <% }); %>

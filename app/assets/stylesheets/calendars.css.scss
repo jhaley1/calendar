@@ -181,9 +181,8 @@ button {
   background-color: $dark-green;
 }
 
-
 .calendar-day:hover {
-  background-color: #E6E8FA;
+  background-color: #F2F2F2;
   border: 1px solid $grey;
 }
 
@@ -884,10 +883,33 @@ input[type=radio] {
   left: 0;
   right: 0;
   background-color: rgba(255, 255, 255, 0.7);
+  animation: fadein 1s;
+  -moz-animation: fadein 1s; /* Firefox */
+  -webkit-animation: fadein 1s; /* Safari and Chrome */
+  -o-animation: fadein 1s; /* Opera */
 }
 
+@keyframes fadein {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@-o-keyframes fadein { /* Opera */
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+
 .lightbox-content {
-  margin-left: 32.4%;
+  margin-left: 24.5%;
   margin-top: 14%;
   width: 23%;
   height: 400px;
@@ -897,6 +919,7 @@ input[type=radio] {
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 10px;
+  position: fixed;
   
   color: white;
   

@@ -54,12 +54,12 @@ Cal.Views.CalendarNew = Backbone.View.extend({
     var options = {
       success: function () {
         Backbone.history.navigate("#/", { trigger: true });
-      }// ,
-//       error: function (model, response) {
-//         $(function () {
-//           $(document).prepend("<div class='alert'><a class='close' data-dismiss='alert'>×</a><strong>" + response.responseText + "</div>")
-//         });
-//       }
+      },
+      error: function (model, response) {
+        $(function () {
+          $("#content").prepend("<div class='alert alert-error'><a class='close' data-dismiss='alert'>×</a>" + response.responseText + "</div>")
+        });
+      }
     };
 
     this.model.set(attrs);

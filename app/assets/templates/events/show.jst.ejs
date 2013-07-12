@@ -1,7 +1,48 @@
-<div class="lightbox">
-  <div class="lightbox-inner">
-    <div class="lightbox-inner-content">
-      hi
+<div class="lightbox-content event-info-id-<%= calendar.get('display_id') %>">
+  
+  
+  <div class="event-info">
+    <% var eventDate = new Date (event.get("start_date")); %>
+    <% var eventDay = eventDate.getDay(); %>
+    <% var eventMonthNum = eventDate.getMonth(); %>
+    <% var eventMonth = Cal._monthNames[eventMonthNum]; %>
+    <% var eventYear = eventDate.getFullYear(); %>
+    <% var dayOfWeek = Cal._dayNames[eventDay]; %>
+    <% var startHour = eventDate.getHours(); %>
+    <% var startMinutes = eventDate.getMinutes(); %>
+    <% var displayId = calendar.get("display_id"); %>
+
+    <% if (startMinutes < 10) { %>
+      <% startMinutes = startMinutes.toString() + 0; %>
+    <% } %>
+    
+    <div class="cancel-icon">
+      <a href="#" id="return-to-cal">
+        <i class="icon-remove icon-white"></i>
+      </a>
+      
+      <script>
+        $("#return-to-cal").click(function () {
+          $(".lightbox").remove();
+        }) 
+      </script>
+    </div>
+    
+    <h3><%= event.escape("title") %>&nbsp;&nbsp;<a href="#/calendars/<%= calendarId %>/events/<%= eventId %>/edit"><i class="icon-pencil icon-white"></i></a></h3>
+  
+    <h4>Start Date</h4>
+    <h5><%= dayOfWeek + " " + eventMonth + " " + eventDay + ", " + eventYear %></h5>
+    
+    <h4>Start Time</h4>
+    <h5><%= startHour %>:<%= startMinutes %></h5>
+    
+    <h4>Description</h4>
+    <h6><%= event.escape("description") %></h6>
+    
+    <div class="line-separator"></div>
+    
+    <div class="edit-link">
+      <a href="#/calendars/<%= calendarId %>/events/<%= eventId %>/edit"><h5>Edit event</h5></a>
     </div>
   </div>
 </div>

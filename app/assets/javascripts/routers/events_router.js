@@ -1,21 +1,12 @@
 Cal.Routers.Events = Backbone.Router.extend({
   routes: {
     "events": "index",
-    // "events/:id/edit": "eventEdit",
-    "events/new": "eventNew",
-    "events/:id": "eventShow",
+    // "events/new": "even// tNew",
+//     "events/:id": "eventShow",
   },
   
   initialize: function (options) {
     this.$rootEl = options.$rootEl;
-  },
-  
-  index: function () {
-    var indexView = new Cal.Views.EventsIndex ({
-      collection: Cal.events
-    });
-
-    this.$rootEl.html(indexView.render().$el);
   },
   
   eventNew: function () {

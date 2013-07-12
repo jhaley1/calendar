@@ -5,6 +5,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
     "calendars/new": "calendarNew",
     "calendars/:id": "calendarShow",
     "calendars/:id/events/:id/edit": "eventEdit",
+    "events/new": "eventNew",
     "weeks": "weeksIndex",
     "days": "daysIndex",
   },
@@ -64,12 +65,22 @@ Cal.Routers.Calendars = Backbone.Router.extend({
     var _calendar = Cal.calendars.get(calId);
     var _event = _calendar.get("events").get(id);
     
-    var editView = new Cal.Views.EventsForm ({
+    var editView = new Cal.Views.EventForm ({
       model: _event,
       collection: _calendar
     });
     
     this._swapView(editView);
+  },
+  
+  eventNew: function () {
+    var _event = new Cal.Models.Event ();
+    
+    var newView = new Cal.Views.EventForm ({
+      model: _event
+    });
+    
+    this._swapView(newView);
   },
   
   weeksIndex: function () {
@@ -86,7 +97,7 @@ Cal.Routers.Calendars = Backbone.Router.extend({
   
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
-    this._currenView = view;
+    this._currentView = view;
     this.$rootEl.html(view.render().$el);
   }
   

@@ -17,10 +17,10 @@ Cal.Views.DaysIndex = Backbone.View.extend({
     
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     
-    $(document).keypress(function (event) {
-      if (event.target.nodeName.toLowerCase() !== 'input') {
+    $(document).on('keypress', function(event) {
+      var tag = event.target.tagName.toLowerCase();
+      if (tag != 'input' && tag != 'textarea') 
         that.whichKey(event);
-      }     
     });
   },
   

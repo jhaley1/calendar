@@ -45,13 +45,14 @@ $dark-purple: darken(#DDABEB, 17%);
 }
 
 #test {
-  margin-top: 14px;
+  margin-top: 0px;
 }
 
 .char1 {
   color: #d980c8;
   font-weight: bold;
   font-size: 45px;
+  padding-left: 5px;
 }
 .char2 {
   color: #efcbe8;
@@ -127,4 +128,9 @@ $dark-purple: darken(#DDABEB, 17%);
   color: #efcbe8;
   font-weight: bold;
   font-size: 45px;
+}
+
+.logo {
+  width: 5.1%; 
+  height: 5.1%;
 }

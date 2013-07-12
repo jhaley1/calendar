@@ -1,17 +1,17 @@
-<!-- app/views/session/new.html.erb -->
+<!-- app/views/users/new.html.erb -->
 
 <div class="container">
   <div class="header">
     
     <div id="test">
       <span id="calendar-title">
-        <span class="char1"></span>
-        <span class="char2"></span>
-        <span class="char3"></span>
-        <span class="char4"></span>
-        <span class="char5"></span>
-        <span class="char6"></span>
-        <span class="char7"></span>
+        <span class="char1">S</span>
+        <span class="char2">E</span>
+        <span class="char3">A</span>
+        <span class="char4">G</span>
+        <span class="char5">U</span>
+        <span class="char6">L</span>
+        <span class="char7">L</span>
         <span class="char8"></span>
         <span class="char8"> </span>
         <span class="char9">&nbsp;C</span>
@@ -25,11 +25,11 @@
       </span>
     </div>
     
-    
     <div class="sign-up-region">
-      <font id="sign-up-text">New to Calendar?</font>
-      <%= button_to "Sign up", 
+      <font id="sign-up-text">Have an account?</font>
+      <%= button_to "Sign in", 
         new_session_url,
+        :method => "get",
         :class => "sign-up-button" %>
     </div>
   </div>

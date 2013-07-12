@@ -12,10 +12,10 @@ Cal.Views.CalendarNew = Backbone.View.extend({
   initialize: function () {
     var that = this;
     
-    $(document).keypress(function (event) {
-      if (event.target.nodeName.toLowerCase() !== 'input') {
+    $(document).on('keypress', function(event) {
+      var tag = event.target.tagName.toLowerCase();
+      if (tag != 'input' && tag != 'textarea') 
         that.whichKey(event);
-      }     
     });
   },
   
@@ -54,12 +54,12 @@ Cal.Views.CalendarNew = Backbone.View.extend({
     var options = {
       success: function () {
         Backbone.history.navigate("#/", { trigger: true });
-      },
-      error: function (model, response) {
-        // $(function () {
-        //   $(document).prepend("<a class='close' data-dismiss='alert' href='#'>" + response.responseText + "</a>")
-        // });
-      }
+      }// ,
+//       error: function (model, response) {
+//         $(function () {
+//           $(document).prepend("<div class='alert'><a class='close' data-dismiss='alert'>×</a><strong>" + response.responseText + "</div>")
+//         });
+//       }
     };
 
     this.model.set(attrs);

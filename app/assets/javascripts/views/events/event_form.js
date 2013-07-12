@@ -1,4 +1,4 @@
-Cal.Views.EventsForm = Backbone.View.extend({
+Cal.Views.EventForm = Backbone.View.extend({
 
   template: JST['events/form'],
   
@@ -11,12 +11,11 @@ Cal.Views.EventsForm = Backbone.View.extend({
   
   initialize: function () {
     var that = this;
-
-    $(document).keypress(function (event) {
-      if (event.target.nodeName.toLowerCase() != ('input') || 
-        event.target.nodeName.toLowerCase() != ('textarea')) {
+    
+    $(document).on('keypress', function(event) {
+      var tag = event.target.tagName.toLowerCase();
+      if (tag != 'input' && tag != 'textarea') 
         that.whichKey(event);
-      }     
     });
   },
   

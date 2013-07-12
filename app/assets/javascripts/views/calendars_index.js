@@ -1,7 +1,6 @@
 Cal.Views.CalendarsIndex = Backbone.View.extend({
 
   template: JST['calendars/index'],
-  showEventTemplate: JST['events/show'],
   
   events: {
     "click button#last-month": "lastMonth",
@@ -17,10 +16,10 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     this.listenTo(this.collection, "all", this.render);
     
-    $(document).keypress(function (event) {
-      if (event.target.nodeName.toLowerCase() !== 'input') {
+    $(document).on('keypress', function(event) {
+      var tag = event.target.tagName.toLowerCase();
+      if (tag != 'input' && tag != 'textarea') 
         that.whichKey(event);
-      }     
     });
   },
   
@@ -66,7 +65,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   monthView: function () {
-    Cal.router.navigate("", { trigger: true });
+    Backbone.history.navigate("", { trigger: true });
   },
   
   nextMonth: function () {
@@ -74,26 +73,19 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     this.render();
   },
   
-  renderShow: function () {
-    var renderedContent = this.showEventTemplate({
-      calendars: this.collection
-    });
-    
-    this.$el.html(renderedContent);
-    
-    return this;
-  },
-  
   showEvent: function (event) {
     event.preventDefault();
+
+    var cl = event.currentTarget.className;   
+    var cls = cl.split(' ');
+    var calendar = Cal.calendars.get(cls[0]);
+    var event = calendar.get("events").get(cls[1]);
     
-    console.log('hi')
-  
-    this.$el.html(this.renderShow().$el);
+    $("#content").append("<div class='lightbox'>" + JST['events/show']({ calendarId: cls[0], calendar: calendar, eventId: cls[1], event: event }) + "</div>")
   },
 
   weekView: function () {
-    Cal.router.navigate("weeks", { trigger: true });
+    Backbone.history.navigate("weeks", { trigger: true });
   },
   
   whichKey: function (event) {

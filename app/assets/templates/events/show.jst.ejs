@@ -1,11 +1,12 @@
 <div class="lightbox-content event-info-id-<%= calendar.get('display_id') %>">
   <div class="event-info">
     <% var eventDate = new Date (event.get("start_date")); %>
-    <% var eventDay = eventDate.getDay(); %>
+    <% var eventDay = eventDate.getUTCDate(); %>
+    <% var eventDayNum = eventDate.getUTCDay(); %>
     <% var eventMonthNum = eventDate.getMonth(); %>
     <% var eventMonth = Cal._monthNames[eventMonthNum]; %>
     <% var eventYear = eventDate.getFullYear(); %>
-    <% var dayOfWeek = Cal._dayNames[eventDay]; %>
+    <% var dayOfWeek = Cal._dayNames[eventDayNum]; %>
     <% var startHour = eventDate.getHours(); %>
     <% var startMinutes = eventDate.getMinutes(); %>
     <% var displayId = calendar.get("display_id"); %>

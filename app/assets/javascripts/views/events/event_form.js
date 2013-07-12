@@ -70,12 +70,6 @@ Cal.Views.EventForm = Backbone.View.extend({
           $("#content").prepend("<div class='alert alert-error'><a class='close' data-dismiss='alert'>×</a>" + response.responseText + "</div>")
         });
       }
-      
-      Cal.calendars.fetch({
-        success: function () {
-          Backbone.history.navigate("#/", { trigger: true });
-        }
-      });
     };
 
     this.model.set(attrs);
@@ -87,6 +81,12 @@ Cal.Views.EventForm = Backbone.View.extend({
       calendar.get("events").add(this.model);
       this.model.save({}, options);
     }
+    
+    Cal.calendars.fetch({
+      success: function () {
+        Backbone.history.navigate("#/", { trigger: true });
+      }
+    });
   },
   
   toggleRecurringField: function () {

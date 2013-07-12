@@ -487,7 +487,21 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   border: 1px solid $dark-purple;
 }
 
+.align-radio {
+  height: 13px;
+}
 
+.radio-selector {
+  display: inline-block;
+  padding-bottom: 3px;
+  height: 100%;
+}
+
+.radio-label {
+  display: inline-block;
+  padding-top: 8px;
+  height: 100%;
+}
 
 
 
@@ -658,7 +672,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   list-style: none;
 }
 
-input[type=radio] {
+.calendar-form input[type=radio] {
   display: none; 
   margin: 10px;
 }
@@ -739,9 +753,6 @@ input[type=radio] {
   
   @include highlighted;
 }
-
-
-
 
 
 

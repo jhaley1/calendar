@@ -64,11 +64,6 @@ Cal.Views.EventForm = Backbone.View.extend({
         } else {
           that.model.set(attrs);
         }
-      },
-      error: function (model, response) {
-        $(function () {
-          $("#content").prepend("<div class='alert alert-error'><a class='close' data-dismiss='alert'>×</a>" + response.responseText + "</div>")
-        });
       }
     };
 

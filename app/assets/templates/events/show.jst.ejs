@@ -7,7 +7,7 @@
     <% var eventMonth = Cal._monthNames[eventMonthNum]; %>
     <% var eventYear = eventDate.getFullYear(); %>
     <% var dayOfWeek = Cal._dayNames[eventDayNum]; %>
-    <% var startHour = eventDate.getHours(); %>
+    <% var startHour = eventDate.getUTCHours(); %>
     <% var startMinutes = eventDate.getMinutes(); %>
     <% var displayId = calendar.get("display_id"); %>
 

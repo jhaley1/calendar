@@ -373,7 +373,7 @@ button {
 
 #keyboard-shortcuts {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   
   font-size: 10px;
@@ -381,11 +381,16 @@ button {
 
 #keyboard-shortcut-info {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   width: 100%;
   visibility: hidden;
   
   font-size: 12px;
+}
+
+#keyboard-shortcut-link {
+  position: absolute;
+  bottom: 0;
 }
 
 .search-box {

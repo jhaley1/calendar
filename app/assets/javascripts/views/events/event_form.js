@@ -60,10 +60,27 @@ Cal.Views.EventForm = Backbone.View.extend({
           _(response).each(function(ev) {
             var eventModel = new Cal.Models.Event(ev);
             calendar.get("events").add(eventModel);
+            
+            Cal.calendars.fetch({
+              success: function () {
+                Backbone.history.navigate("#/", { trigger: true });
+              }
+            });
           });
         } else {
           that.model.set(attrs);
+          
+          Cal.calendars.fetch({
+            success: function () {
+              Backbone.history.navigate("#/", { trigger: true });
+            }
+          });
         }
+      },
+      error: function (model, response) {
+        $(function () {
+          $("#content").prepend("<div class='alert alert-error'><a class='close' data-dismiss='alert'>×</a>" + response.responseText + "</div>")
+        });
       }
     };
 
@@ -76,12 +93,6 @@ Cal.Views.EventForm = Backbone.View.extend({
       calendar.get("events").add(this.model);
       this.model.save({}, options);
     }
-    
-    Cal.calendars.fetch({
-      success: function () {
-        Backbone.history.navigate("#/", { trigger: true });
-      }
-    });
   },
   
   toggleRecurringField: function () {

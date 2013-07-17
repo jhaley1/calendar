@@ -9,8 +9,6 @@
 // blue #6F6FDF 0 % darker
 //#FF9A58
 
-
-
 // COLORS
 $grey: #CDCDCD;
 $red: lighten(#FF5A4B, 5%);
@@ -206,6 +204,7 @@ button {
   width: 30px;
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
+  border-radius: 15px;
   
   background-color: $purple;
   color: white;
@@ -273,6 +272,7 @@ button {
     padding: 2px;
     -moz-border-radius: 3px;
     -webkit-border-radius: 3px;
+    border-radius: 3px;
     
     @include no-wrap
   }
@@ -299,6 +299,7 @@ button {
   width: 60px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
   
   background-color: $purple;
   color: white;
@@ -337,6 +338,7 @@ button {
   padding: 2px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 #new-event:hover, #new-calendar:hover {
@@ -354,6 +356,7 @@ button {
   padding: 2px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
   
   @include no-wrap;
 }
@@ -369,6 +372,7 @@ button {
   padding: 2px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 #keyboard-shortcuts {
@@ -420,6 +424,7 @@ button {
   height: 100%;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .search-submit:hover {
@@ -449,6 +454,7 @@ button#back-to-cal, button#discard, #save {
   padding: 2px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 button#back-to-cal:hover, button#discard:hover, #save:hover {
@@ -565,6 +571,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   width: 100%;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
   
   @include no-wrap;
 }
@@ -667,6 +674,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   height: 30px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 .friend-search-submit:hover {
@@ -711,6 +719,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   background-color: $green;
   -moz-border-radius: 0px 5px 5px 0px;
   -webkit-border-radius: 0px 5px 5px 0px;
+  border-radius: 0px 5px 5px 0px;
   
   @include replacement-radio-properties
 }
@@ -725,6 +734,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   background-color: $yellow;
   -moz-border-radius: 5px 0px 0px 5px;
   -webkit-border-radius: 5px 0px 0px 5px;
+  border-radius: 5px 0px 0px 5px;
   
   @include replacement-radio-properties
 }
@@ -809,6 +819,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   width: 100%;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
   float: left;
   
   @include no-wrap;
@@ -872,6 +883,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   width: 96%;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
   
   @include no-wrap;
 }
@@ -931,6 +943,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   height: 400px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
+  border-radius: 7px;
   padding-top: 10px;
   padding-right: 20px;
   padding-left: 20px;

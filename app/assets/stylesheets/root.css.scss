@@ -7,7 +7,9 @@
 $purple: darken(#DDABEB, 12%);
 $dark-purple: darken(#DDABEB, 17%);
 
-
+* {
+  -moz-font-family: "Helvetica";
+}
 
 
 
@@ -31,6 +33,7 @@ $dark-purple: darken(#DDABEB, 17%);
   font-weight: bold;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
   padding: 2px;
   min-width: 90px;
   height: 30px;

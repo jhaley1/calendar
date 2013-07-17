@@ -13,7 +13,8 @@ $dark-purple: darken(#DDABEB, 17%);
 // HEADER
 
 * {
-  font-family: "HelveticaNeue";
+  -webkit-font-family: "HelveticaNeue";
+  -moz-font-family: "Helvetica";
 }
 
 #container {
@@ -46,8 +47,8 @@ $dark-purple: darken(#DDABEB, 17%);
 }
 
 #cal-info {
-  margin-left: 20%;
-  margin-top: 42%;
+  margin-left: 26%;
+  margin-top: 38%;
 }
 
 #left-half {
@@ -73,6 +74,7 @@ $dark-purple: darken(#DDABEB, 17%);
   align: center;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
 }
 
 #info-entry {
@@ -94,6 +96,7 @@ $dark-purple: darken(#DDABEB, 17%);
   font-weight: bold;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
   padding: 2px;
   min-width: 90px;
   height: 30px;
@@ -109,12 +112,13 @@ $dark-purple: darken(#DDABEB, 17%);
   align: left;
 }
 
-#log-in-button {
+#log-in-button, #demo-button {
   border: none;
   height: 30px;
   width: 80px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
+  border-radius: 3px;
   
   background-color: $purple;
   color: white;
@@ -122,7 +126,11 @@ $dark-purple: darken(#DDABEB, 17%);
   font-weight: bold;
 }
 
-#log-in-button:hover {
+#demo-button {
+  width: 100px;
+}
+
+#log-in-button:hover, #demo-button:hover {
   background-color: $dark-purple;
 }
 

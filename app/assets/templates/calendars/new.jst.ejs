@@ -83,16 +83,16 @@
   
     	$(".typeahead").typeahead({
         source: function (query, process) {
-            userObjs = {};
-            userEmails = [];
+          userObjs = {};
+          userEmails = [];
 
-            _.each(dataset, function(item, ix, list) {
-              userEmails.push(item.email);
-          
-              userObjs[item.email] = item;
-            });
+          _.each(dataset, function(item, ix, list) {
+            userEmails.push(item.email);
         
-            process(userEmails);
+            userObjs[item.email] = item;
+          });
+      
+          process(userEmails);
         }
     	});
     });

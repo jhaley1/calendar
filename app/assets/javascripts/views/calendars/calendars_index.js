@@ -110,7 +110,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
             
             Cal.calendars.fetch({
               success: function () {
-                Backbone.history.navigate("#/", { trigger: true });
+                this.render();
               }
             });
           });
@@ -119,7 +119,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
           
           Cal.calendars.fetch({
             success: function () {
-              Backbone.history.navigate("#/", { trigger: true });
+              this.render();
             }
           });
         }

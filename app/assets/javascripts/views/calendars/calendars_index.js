@@ -91,6 +91,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   save: function (event) {
+    console.log('dfajksldfjaklsdjfkasldjfakls;djfkals;djfl;a')
     event.preventDefault();
     var that = this;
 
@@ -112,7 +113,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       }
     };
     
-    _model.set(attrs, options);
+    _model.set(attrs);
 
     _model.save({}, options);
   },

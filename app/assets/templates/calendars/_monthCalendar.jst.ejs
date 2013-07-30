@@ -57,10 +57,56 @@
 <% }); %>
 
 <form class="dragged-event-updater">
-  
+  <input type="submit" id="dragged-event-update-button">
 </form>
 
+<div class="dragged-event-info">
+  
+</div>
 
+<script>
+  $(function() {
+    $( "#event" ).draggable({ revert: "invalid" });
+    $( ".calendar-day" ).droppable({
+      drop: function( event, ui ) {
+        var newDay = $(event.target).find('#day-num').html();
+        var sub = ui.draggable.attr('class');
+        var stop = sub.indexOf(' ');
+        var start2 = sub.indexOf('-') + 1;
+        var stop2 = sub.indexOf(' $');
 
+        var thisEventId = sub.slice(0, stop);
+        var thisCalId = sub.slice(start2, stop2);
+        var thisCal = Cal.calendars.get(thisCalId);
+        var theseEvents = thisCal.get('events');
+        var thisEvent = theseEvents.get(thisEventId);
 
+        var thisEventStartDate = new Date (thisEvent.get('start_date'));
+        var thisEventEndDate = thisEvent.get('endDate');
+        var thisEventMonthNum = thisEventStartDate.getMonth();
+        var thisEventYear = thisEventStartDate.getFullYear();
+        var thisEventStartDay = thisEventStartDate.getUTCDate();
+        
+        var startUTCstring = (new Date(thisEvent.get('start_date'))).toUTCString();
+        var endUTCstring = (new Date(thisEvent.get('end_date'))).toUTCString();
+        var newStartDate = startUTCstring.replace(thisEventStartDay, newDay);
+        var newEndDate = endUTCstring.replace(thisEventStartDay, newDay);
+        
+        var resetStartDate = new Date (newStartDate);
+        var resetEndDate = new Date (newEndDate);
+        
+        
+        $('.dragged-event-updater').append("<input type='hidden' value='" + resetStartDate + "' name='event[start_date]'>");
+        $('.dragged-event-updater').append("<input type='hidden' value='" + resetEndDate + "' name='event[end_date]'>");
+        $('.dragged-event-info').append("<span class='dragged-cal-id'>" +  thisCalId + "</span>");
+        $('.dragged-event-info').append("<span class='dragged-event-id'>" +  thisEventId + "</span>");
+        
+        $("#dragged-event-update-button").trigger('click');
+        
+        console.log(resetStartDate);
+        console.log(resetEndDate);
+      }
+    });
+  });
+</script>
 

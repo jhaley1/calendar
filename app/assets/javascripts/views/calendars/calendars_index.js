@@ -9,6 +9,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#week-view": "weekView",
     "click button#day-view": "dayView",
     "click a#event-link": "showEvent",
+    "click #dragged-event-update-button": "save",
   },
   
   initialize: function () {
@@ -72,6 +73,57 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     Cal._currentDate.setMonth(Cal._currentDate.getMonth() + 1);
     this.render();
   },
+  
+  save: function (event) {
+    event.preventDefault();
+    
+    var _calId = $('.dragged-cal-id').html();
+    var _eventId = $('.dragged-event-id').html();
+    
+    var _calendar = Cal.calendars.get(_calId);
+    var _events = _calendar.get('events');
+    var _model = _events.get(_eventId);
+    
+    console.log(_calendar);
+    console.log(_events);
+    console.log(_events.get(_eventId));
+    
+    var attrs = $(".dragged-event-updater").serializeJSON();
+    console.log(attrs);
+    var options = {
+      success: function (model, response) {
+        if (_(response).length > 1) {
+          _(response).each(function(ev) {
+            var eventModel = new Cal.Models.Event(ev);
+            _calendar.get("events").add(eventModel);
+            
+            Cal.calendars.fetch({
+              success: function () {
+                Backbone.history.navigate("#/", { trigger: true });
+              }
+            });
+          });
+        } else {
+          _model.set(attrs);
+          
+          Cal.calendars.fetch({
+            success: function () {
+              Backbone.history.navigate("#/", { trigger: true });
+            }
+          });
+        }
+      }
+    };
+    
+    _calendar.get("events").add(_model);
+    _model.save({}, options);
+
+
+    _model.set(attrs);
+    
+    _model.save({}, options);
+  },
+
   
   showEvent: function (event) {
     event.preventDefault();

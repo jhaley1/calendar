@@ -1022,3 +1022,12 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   text-align: right;
   height: 1px;
 }
+
+
+#dragged-event-update-button {
+  visibility: hidden;
+}
+
+.dragged-event-info {
+  visibility: hidden;
+}

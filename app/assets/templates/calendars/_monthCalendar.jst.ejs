@@ -51,7 +51,7 @@
   <% if((day === todayDay)
     && (month === todayMonth)
     && (year === todayYear)) { %>
-    <% $("#day-num").css("color", "red") %>
+    <% $('#day-num').attr('id', 'today-font'); %>
   <% } %>
   
 <% }); %>

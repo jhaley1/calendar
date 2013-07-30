@@ -10,6 +10,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#day-view": "dayView",
     "click a#event-link": "showEvent",
     "click #dragged-event-update-button": "save",
+    "click .calendar-day": "createEvent",
   },
   
   initialize: function () {
@@ -54,6 +55,21 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     this.$el.html(renderedContent);
     
     return this;
+  },
+  
+  closeModal: function () {
+    $('.lightbox').remove();
+  },
+  
+  createEvent: function (event) {
+    var target  = $(event.target);
+    
+    if (target.not('a')) {
+      var thisDay = target.find('#day-num').html();
+      var thisMonthNum = Cal._currentDate.getMonth();
+      var thisYear = Cal._currentDate.getFullYear();
+      
+    }
   },
   
   dayView: function () {
@@ -111,8 +127,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     };
     
     _calendar.get("events").add(_model);
-    _model.save({}, options);
-
 
     _model.set(attrs);
     
@@ -137,6 +151,10 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
+      case 27: // esc
+      console.log(27)
+        this.closeModal();
+        break;
       case 106: // j
         this.lastMonth();
         break;

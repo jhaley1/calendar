@@ -22,8 +22,9 @@ Cal.Views.EventsForm = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 98:
-        Backbone.history.navigate("#/", { trigger: true });
+      case 27:
+        console.log('hi')
+        $('lightbox').remove();
         break;
     }
   }

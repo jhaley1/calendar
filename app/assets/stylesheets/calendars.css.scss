@@ -4,11 +4,6 @@
 
 @import "bootstrap";
 
-
-//blue #C8C8FF 15% darker
-// blue #6F6FDF 0 % darker
-//#FF9A58
-
 // COLORS
 $grey: #CDCDCD;
 $red: lighten(#FF5A4B, 5%);
@@ -279,6 +274,9 @@ button {
   }
 }
 
+#today-font {
+  color: red;
+}
 
 
 
@@ -935,8 +933,6 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
     to {opacity: 1;}
 }
 
-
-
 .lightbox-content {
   margin-left: 24.5%;
   margin-top: 14%;
@@ -966,16 +962,18 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 .event-info {
   height: 100%;
   
-  .line-separator {
-    height: 1px;
-    border-bottom: 1px solid white;
-    margin-top: 138px;
-  }
+
+}
+
+.line-separator {
+  height: 1px;
+  border-bottom: 1px solid white;
+  margin-top: 110px;
 }
 
 .edit-link {
   text-align: right;
-  margin-bottom: 2%;
+  margin-bottom: 10px;
 }
 
 .event-info-id-1 {

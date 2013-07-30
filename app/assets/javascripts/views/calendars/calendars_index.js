@@ -93,7 +93,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   save: function (event) {
     event.preventDefault();
     var that = this;
-    
+
     var _calId = $('.dragged-cal-id').html();
     var _eventId = $('.dragged-event-id').html();
     
@@ -104,8 +104,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var attrs = $(".dragged-event-updater").serializeJSON();
     var options = {
       success: function (model, response) {
-        model.set(attrs);
-        console.log(attrs)
         Cal.calendars.fetch({
           success: function () {
             that.render();

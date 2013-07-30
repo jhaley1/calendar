@@ -70,6 +70,8 @@
     $( ".calendar-day-drop" ).droppable({
       hoverClass: "drag-over-highlight",
       drop: function( event, ui ) {
+        event.preventDefault();
+        
         var newDay = $(event.target).find('#day-num').html();
         var sub = ui.draggable.attr('class');
         var stop = sub.indexOf(' ');

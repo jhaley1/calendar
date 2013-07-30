@@ -112,10 +112,8 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       }
     };
     
-    _calendar.get("events").add(_model);
+    _model.set(attrs, options);
 
-    _model.set(attrs);
-    console.log('down here')
     _model.save({}, options);
   },
 

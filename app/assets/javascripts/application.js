@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require jquery.serializeJSON
 //= require jquery.lettering
 //= require underscore

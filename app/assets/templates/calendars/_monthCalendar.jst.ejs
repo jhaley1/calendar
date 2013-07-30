@@ -56,3 +56,16 @@
   <% } %>
   
 <% }); %>
+
+
+
+<script>
+  $(function() {
+    $( "#event" ).draggable({ revert: "invalid" });
+    $( ".calendar-day" ).droppable({
+      drop: function( event, ui ) {
+        console.log($(event.target).find('#day-num').html())
+      }
+    });
+  });
+</script>

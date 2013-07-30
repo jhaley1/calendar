@@ -5,7 +5,7 @@
 @import "bootstrap";
 
 // COLORS
-$grey: lighten(#CDCDCD, 10%);
+$grey: lighten(#CDCDCD, 12%);
 $red: lighten(#FF5A4B, 5%);
 $dark-red: darken(#FF5A4B, 5%);
 $yellow: darken(#FEBF83, 5%);
@@ -20,8 +20,13 @@ $dark-green: darken(#A2EC8F, 18%);
 
 
 
+body {
+  color: #2D2D2D;
+}
 
-
+h1, h2, h3, h4 {
+  color: #2D2D2D;
+}
 
 
 
@@ -274,8 +279,42 @@ button {
   }
 }
 
+.calendar-day-drop {
+  height: 120px;
+  width: 12%;
+  float: left;
+  padding: 5px;
+  
+  text-align: left;
+  font-size: 12px;
+  border: 1px solid $grey;
+  
+  #day-num {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  // single event
+  
+  #event {
+    margin-top: 1px;
+    text-indent: 5%;
+    width: 98%;
+    padding: 2px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    
+    @include no-wrap
+  }
+}
+
 #today-font {
   color: red;
+}
+
+.calendar-day-drop:hover {
+  background-color: $grey;
 }
 
 

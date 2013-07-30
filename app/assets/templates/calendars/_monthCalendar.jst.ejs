@@ -8,7 +8,7 @@
   <% } %>
   
   
-  <div class="calendar-day">
+  <div class="calendar-day-drop">
     <font id="day-num"><%= day %></font>
     
     <% calendars.each(function (calendar) { %>
@@ -72,7 +72,7 @@
 <script>
   $(function() {
     $( ".draggable-event" ).draggable({ revert: "invalid" });
-    $( ".calendar-day" ).droppable({
+    $( ".calendar-day-drop" ).droppable({
       hoverClass: "drag-over-highlight",
       drop: function( event, ui ) {
         var newDay = $(event.target).find('#day-num').html();

@@ -9,7 +9,7 @@
   
   
   <div class="calendar-day">
-    <font id="day-num"><strong><%= day %></strong></font>
+    <font id="day-num"><%= day %></font>
     
     <% calendars.each(function (calendar) { %>
       <% calendar.get("events").each(function (event) { %>
@@ -17,7 +17,7 @@
           <% var eventDate = new Date (event.get("start_date")); %>
           <% var eventDay = eventDate.getUTCDate(); %>
           <% var eventMonthNum = eventDate.getMonth(); %>
-          <% var eventMonth = Cal._monthNames[eventMonthNum] %>
+          <% var eventMonth = Cal._monthNames[eventMonthNum]; %>
           <% var eventYear = eventDate.getFullYear(); %>
       
           <% if ((eventDay === day) 
@@ -31,7 +31,7 @@
               class="<%= cId %> <%= eId %>"
               id="event-link">
               <div id="event" 
-                class="cal-<%= calendar.get("id") %> display-id-<%= calendar.get("display_id") %>">
+                class="<%= eId %> cal-<%= calendar.get("id") %> $ display-id-<%= calendar.get("display_id") %>">
                 <%= event.escape("title") %>
               </div>
             </a>
@@ -51,21 +51,16 @@
   <% if((day === todayDay)
     && (month === todayMonth)
     && (year === todayYear)) { %>
-    
-    <% $("#day-num").css("color", "red")%>
+    <% $("#day-num").css("color", "red") %>
   <% } %>
   
 <% }); %>
 
+<form class="dragged-event-updater">
+  
+</form>
 
 
-<script>
-  $(function() {
-    $( "#event" ).draggable({ revert: "invalid" });
-    $( ".calendar-day" ).droppable({
-      drop: function( event, ui ) {
-        console.log($(event.target).find('#day-num').html())
-      }
-    });
-  });
-</script>
+
+
+

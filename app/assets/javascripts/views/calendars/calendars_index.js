@@ -32,12 +32,12 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var _firstOfMonth = new Date(_currentYear, _currentMonth, 1); 
     var _dayOfWeek = _firstOfMonth.getDay(); 
     var _lastOfMonth = new Date(_currentYear, _currentMonth + 1, 0); 
-    var _lastDayOfWeek = _lastOfMonth.getDay(); 
+    var _lastDayOfWeek = _lastOfMonth.getDay();
     var _daysInMonth = _lastOfMonth.getDate(); 
    
     var _daysArr = []; 
 
-    for(var i = 0; i < _daysInMonth; i++) { 
+    for (var i = 0; i < _daysInMonth; i++) { 
       _daysArr.push(i + 1); 
     }
 
@@ -49,6 +49,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       dayOfWeek: Cal._dayNames[_dayOfWeek],
       daysInMonth: _daysArr,
       lastWeekday: Cal._dayNames[_lastDayOfWeek],
+      lastWeekdayNum: _lastDayOfWeek,
       lastDayOfMonth: _daysInMonth
     });
     

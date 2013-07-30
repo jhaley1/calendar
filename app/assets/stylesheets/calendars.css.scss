@@ -5,7 +5,7 @@
 @import "bootstrap";
 
 // COLORS
-$grey: #CDCDCD;
+$grey: lighten(#CDCDCD, 10%);
 $red: lighten(#FF5A4B, 5%);
 $dark-red: darken(#FF5A4B, 5%);
 $yellow: darken(#FEBF83, 5%);
@@ -1020,6 +1020,17 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   text-align: right;
   height: 1px;
 }
+
+
+
+
+
+
+
+
+
+
+// DRAGGING EVENT CSS
 
 
 #dragged-event-update-button {

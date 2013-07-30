@@ -31,7 +31,7 @@
               class="<%= cId %> <%= eId %>"
               id="event-link">
               <div id="event" 
-                class="<%= eId %> cal-<%= calendar.get("id") %> $ display-id-<%= calendar.get("display_id") %>">
+                class="<%= eId %> cal-<%= calendar.get("id") %> $ display-id-<%= calendar.get("display_id") %> draggable-event">
                 <%= event.escape("title") %>
               </div>
             </a>
@@ -66,8 +66,9 @@
 
 <script>
   $(function() {
-    $( "#event" ).draggable({ revert: "invalid" });
+    $( ".draggable-event" ).draggable({ revert: "invalid" });
     $( ".calendar-day" ).droppable({
+      hoverClass: "drag-over-highlight",
       drop: function( event, ui ) {
         var newDay = $(event.target).find('#day-num').html();
         var sub = ui.draggable.attr('class');
@@ -102,9 +103,6 @@
         $('.dragged-event-info').append("<span class='dragged-event-id'>" +  thisEventId + "</span>");
         
         $("#dragged-event-update-button").trigger('click');
-        
-        console.log(resetStartDate);
-        console.log(resetEndDate);
       }
     });
   });

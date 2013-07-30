@@ -84,12 +84,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var _events = _calendar.get('events');
     var _model = _events.get(_eventId);
     
-    console.log(_calendar);
-    console.log(_events);
-    console.log(_events.get(_eventId));
-    
     var attrs = $(".dragged-event-updater").serializeJSON();
-    console.log(attrs);
     var options = {
       success: function (model, response) {
         if (_(response).length > 1) {

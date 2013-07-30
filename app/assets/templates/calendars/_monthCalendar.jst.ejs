@@ -55,11 +55,7 @@
   
 <% }); %>
 
-<% if (lastWeekdayNum < 6 ) { %>
-  <% for (var i = (6 - lastWeekdayNum); i < 6; i++) { %>
-    <div class="calendar-day"></div>
-  <% } %>
-<% } %>
+
 
 <form class="dragged-event-updater">
   <input type="submit" id="dragged-event-update-button">

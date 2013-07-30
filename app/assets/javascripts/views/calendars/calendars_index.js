@@ -105,7 +105,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var options = {
       success: function (model, response) {
         model.set(attrs);
-        
+        console.log(attrs)
         Cal.calendars.fetch({
           success: function () {
             that.render();

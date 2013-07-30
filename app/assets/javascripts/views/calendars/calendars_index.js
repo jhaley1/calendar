@@ -12,6 +12,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click #dragged-event-update-button": "save",
     "click .calendar-day": "createEvent",
     "submit .dragged-event-updater": "save",
+    "submit #dragged-event-update-button": "save",
   },
   
   initialize: function () {

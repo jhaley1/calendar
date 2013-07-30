@@ -14,8 +14,8 @@ $purple: darken(#DDABEB, 12%);
 $dark-purple: darken(#DDABEB, 17%);
 $blue: darken(#82B7E9, 5%);
 $dark-blue: darken(#82B7E9, 10%);
-$green: darken(#A2EC8F, 10%);
-$dark-green: darken(#A2EC8F, 18%);
+$green: darken(#9DDA96, 8%);
+$dark-green: darken(#9DDA96, 13%);
 
 
 
@@ -1052,7 +1052,7 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 }
 
 .event-info-id-5:hover {
-  background-color: $green;
+  background-color: $dark-green;
 }
 
 .cancel-icon {

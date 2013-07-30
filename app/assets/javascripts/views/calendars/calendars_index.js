@@ -92,6 +92,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   
   save: function (event) {
     event.preventDefault();
+    var that = this;
     
     var _calId = $('.dragged-cal-id').html();
     var _eventId = $('.dragged-event-id').html();
@@ -103,26 +104,13 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var attrs = $(".dragged-event-updater").serializeJSON();
     var options = {
       success: function (model, response) {
-        if (_(response).length > 1) {
-          _(response).each(function(ev) {
-            var eventModel = new Cal.Models.Event(ev);
-            _calendar.get("events").add(eventModel);
-            
-            Cal.calendars.fetch({
-              success: function () {
-                this.render();
-              }
-            });
-          });
-        } else {
-          _model.set(attrs);
-          
-          Cal.calendars.fetch({
-            success: function () {
-              this.render();
-            }
-          });
-        }
+        model.set(attrs);
+        
+        Cal.calendars.fetch({
+          success: function () {
+            that.render();
+          }
+        });
       }
     };
     

@@ -55,12 +55,6 @@
   
 <% }); %>
 
-<% if (lastWeekdayNum < 6 ) { %>
-  <% for (var i = (6 - lastWeekdayNum); i < 6; i++) { %>
-    <div class="calendar-day"></div>
-  <% } %>
-<% } %>
-
 
 <form class="dragged-event-updater">
   <input type="submit" id="dragged-event-update-button">
@@ -110,7 +104,7 @@
         $('.dragged-event-info').append("<span class='dragged-cal-id'>" +  thisCalId + "</span>");
         $('.dragged-event-info').append("<span class='dragged-event-id'>" +  thisEventId + "</span>");
         
-        $("#dragged-event-update-button").trigger('click');
+        $("#dragged-event-update-button").click();
       }
     });
   });

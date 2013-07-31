@@ -1076,6 +1076,10 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   visibility: hidden;
 }
 
+.dragged-event-info {
+  visibility: hidden;
+}
+
 .drag-over-highlight {
   background-color: lighten(#AA96A9, 18%);
 }

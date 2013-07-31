@@ -10,13 +10,20 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#day-view": "dayView",
     "click a#event-link": "showEvent",
     "click .calendar-day": "createEvent",
-    "click #dragged-event-update-button": "render",
+    "click #dragged-event-update-button": "save",
   },
   
   initialize: function () {
     var that = this;
+    
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
-    this.listenTo(this.collection, "drop", this.render);
+    this.listenTo(this.collection, "change:events", this.render);
+
+    (this.collection).each(function (calendar) {
+      calendar.get('events').each(function(event){
+          event.bind('change', that.render, that);
+      }, that);
+    });
     
     $(document).on('keypress', function(event) {
       var tag = event.target.tagName.toLowerCase();
@@ -26,6 +33,8 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   render: function () {
+    var that = this;
+    
     var _currentHour = Cal._currentDate.getHours(); 
     var _currentMonth = Cal._currentDate.getMonth(); 
     var _currentYear = Cal._currentDate.getFullYear(); 
@@ -92,8 +101,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   save: function (event) {
-    debugger;
-    console.log('jfaksdfjkalsdjfkasdfs');
     event.preventDefault();
     var that = this;
 
@@ -110,7 +117,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
         Cal.calendars.fetch({
           success: function () {
             that.render();
-            $('#content').location.reload();
           }
         });
       }

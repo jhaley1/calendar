@@ -55,8 +55,13 @@
   
 <% }); %>
 
+<form class="dragged-event-updater">
+  <button id="dragged-event-update-button"> </button>
+</form>
 
-<button id="dragged-event-update-button"> </button>
+<div class="dragged-event-info">
+  
+</div>
 
 <script>
   $(function() {
@@ -92,25 +97,12 @@
         var resetStartDate = new Date (newStartDate);
         var resetEndDate = new Date (newEndDate);
 
-        $.ajax({
-          type: 'PUT',
-          url: 'events/' + thisEventId,
-          data: {
-            event: {
-              start_date: resetStartDate,
-              end_date: resetEndDate 
-            }
-          },
-          success: function (html) {
-            console.log('success');
-            $(function () {
-              $('#dragged-event-update-button').click();
-            })
-          },
-          error: function () {
-            console.log('fuck you cj');
-          },
-        });
+        $('.dragged-event-updater').append("<input type='hidden' name='event[start_date]' value='" + resetStartDate + "'>");
+        $('.dragged-event-updater').append("<input type='hidden' name='event[end_date]' value='" + resetEndDate + "'>");
+        $('.dragged-event-info').append("<div class='dragged-cal-id'>" + thisCalId + "</div>");
+        $('.dragged-event-info').append("<div class='dragged-event-id'>" + thisEventId + "</div>");
+        
+        $('#dragged-event-update-button').trigger('click');
       }
     });
   });

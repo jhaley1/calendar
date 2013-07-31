@@ -59,7 +59,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       daysInMonth: _daysArr,
       lastWeekday: Cal._dayNames[_lastDayOfWeek],
       lastDayOfMonth: _daysInMonth,
-      view: this,
+      lastWeekdayNum: _lastOfMonth
     });
     
     this.$el.html(renderedContent);

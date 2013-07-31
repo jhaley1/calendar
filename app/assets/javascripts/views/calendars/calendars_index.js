@@ -93,6 +93,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   save: function (event) {
+    debugger;
     console.log('jfaksdfjkalsdjfkasdfs');
     event.preventDefault();
     var that = this;

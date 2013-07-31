@@ -18,7 +18,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   initialize: function () {
     var that = this;
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
-    this.listenTo(this.collection, "all", this.render);
+
     
     $(document).on('keypress', function(event) {
       var tag = event.target.tagName.toLowerCase();
@@ -93,6 +93,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   save: function (event) {
+    console.log('jfaksdfjkalsdjfkasdfs');
     event.preventDefault();
     var that = this;
 

@@ -17,13 +17,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var that = this;
     
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
-    this.listenTo(this.collection, "change:events", this.render);
-
-    (this.collection).each(function (calendar) {
-      calendar.get('events').each(function(event){
-          event.bind('change', that.render, that);
-      }, that);
-    });
+    this.listenTo(this.collection, "all", this.render);
     
     $(document).on('keypress', function(event) {
       var tag = event.target.tagName.toLowerCase();
@@ -43,7 +37,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     var _lastOfMonth = new Date(_currentYear, _currentMonth + 1, 0); 
     var _lastDayOfWeek = _lastOfMonth.getDay();
     var _daysInMonth = _lastOfMonth.getDate(); 
-   
+
     var _daysArr = []; 
 
     for (var i = 0; i < _daysInMonth; i++) { 
@@ -59,7 +53,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       daysInMonth: _daysArr,
       lastWeekday: Cal._dayNames[_lastDayOfWeek],
       lastDayOfMonth: _daysInMonth,
-      lastWeekdayNum: _lastOfMonth
     });
     
     this.$el.html(renderedContent);
@@ -102,6 +95,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   
   save: function (event) {
     event.preventDefault();
+    
     var that = this;
 
     var _calId = $('.dragged-cal-id').html();

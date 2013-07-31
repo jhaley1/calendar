@@ -9,6 +9,23 @@
 <% }); %>
 <br><br><br>
 
+<% if (lastWeekday == 'Saturday') { %>
+  <% var lastWeekdayNum = 0; %>
+<% } else if (lastWeekday == 'Monday') { %>
+  <% var lastWeekdayNum = 1; %>
+<% } else if (lastWeekday == 'Tuesday') { %>
+  <% var lastWeekdayNum = 2; %>
+<% } else if (lastWeekday == 'Wednesday') { %>
+  <% var lastWeekdayNum = 3; %>
+<% } else if (lastWeekday == 'Thursday') { %>
+  <% var lastWeekdayNum = 4; %>
+<% } else if (lastWeekday == 'Friday') { %>
+  <% var lastWeekdayNum = 5; %>
+<% } else { %>
+  <% var lastWeekdayNum = 6; %>
+<% } %>
+  
+
 <%= JST["calendars/_monthCalendar"]({ calendars: calendars, 
   daysInMonth: daysInMonth, dayOfWeek: dayOfWeek,
   month: month, year: year, lastDayOfMonth: lastDayOfMonth,

@@ -9,16 +9,14 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#week-view": "weekView",
     "click button#day-view": "dayView",
     "click a#event-link": "showEvent",
-    "click #dragged-event-update-button": "save",
     "click .calendar-day": "createEvent",
-    "submit .dragged-event-updater": "save",
-    "submit #dragged-event-update-button": "save",
+    "click #dragged-event-update-button": "render",
   },
   
   initialize: function () {
     var that = this;
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
-    this.listenTo(this.collection, "all", this.render);
+    this.listenTo(this.collection, "drop", this.render);
     
     $(document).on('keypress', function(event) {
       var tag = event.target.tagName.toLowerCase();
@@ -112,6 +110,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
         Cal.calendars.fetch({
           success: function () {
             that.render();
+            $('#content').location.reload();
           }
         });
       }

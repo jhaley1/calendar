@@ -105,7 +105,18 @@
         $('.dragged-event-info').append("<span class='dragged-cal-id'>" +  thisCalId + "</span>");
         $('.dragged-event-info').append("<span class='dragged-event-id'>" +  thisEventId + "</span>");
         
-        $("#dragged-event-update-button").click();
+        $.ajax({
+          type: 'PUT',
+          url: 'events/' + thisEventid + '/edit',
+          data: { start_date: resetStartDate,
+            end_date: resetEndDate },
+          success: function () {
+            console.log('hi cj');
+          },
+          error: function () {
+            console.log('fuck you cj');
+          }
+        });
       }
     });
   });

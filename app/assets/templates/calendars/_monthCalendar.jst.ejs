@@ -98,8 +98,6 @@
         var resetStartDate = new Date (newStartDate);
         var resetEndDate = new Date (newEndDate);
         
-        debugger;
-        
         $('.dragged-event-updater').append("<input type='hidden' value='" + resetStartDate + "' name='event[start_date]'>");
         $('.dragged-event-updater').append("<input type='hidden' value='" + resetEndDate + "' name='event[end_date]'>");
         $('.dragged-event-info').append("<span class='dragged-cal-id'>" +  thisCalId + "</span>");

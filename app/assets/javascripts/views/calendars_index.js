@@ -52,6 +52,61 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     
     this.$el.html(renderedContent);
     
+    this.$el.find( ".draggable-event" ).draggable({ revert: "invalid" });
+    this.$el.find( ".calendar-day-drop" ).droppable({
+      hoverClass: "drag-over-highlight",
+      drop: function( event, ui ) {
+        event.preventDefault();
+        
+        var newDay = $(event.target).find('#day-num').html();
+        var sub = ui.draggable.attr('class');
+        var stop = sub.indexOf(' ');
+        var start2 = sub.indexOf('-') + 1;
+        var stop2 = sub.indexOf(' $');
+
+        var thisEventId = sub.slice(0, stop);
+        var thisCalId = sub.slice(start2, stop2);
+        var thisCal = Cal.calendars.get(thisCalId);
+        var theseEvents = thisCal.get('events');
+        var thisEvent = theseEvents.get(thisEventId);
+
+        var thisEventStartDate = new Date (thisEvent.get('start_date'));
+        var thisEventEndDate = thisEvent.get('endDate');
+        var thisEventMonthNum = thisEventStartDate.getMonth();
+        var thisEventYear = thisEventStartDate.getFullYear();
+        var thisEventStartDay = thisEventStartDate.getUTCDate();
+        
+        var startUTCstring = (new Date(thisEvent.get('start_date'))).toUTCString();
+        var endUTCstring = (new Date(thisEvent.get('end_date'))).toUTCString();
+        var newStartDate = startUTCstring.replace(thisEventStartDay, newDay);
+        var newEndDate = endUTCstring.replace(thisEventStartDay, newDay);
+        
+        var resetStartDate = new Date (newStartDate);
+        var resetEndDate = new Date (newEndDate);
+        				
+		    var _calendar = Cal.calendars.get(thisCalId);
+		    var _events = _calendar.get('events');
+		    var _model = _events.get(thisEventId);
+				
+		    var options = {
+		      success: function (model, response) {
+		        Cal.calendars.fetch({
+		          success: function () {
+		            that.render();
+		          }
+		        });
+		      }
+		    };
+    
+		    _model.set({ 
+					start_date: resetStartDate,
+					end_date: resetEndDate 
+				});
+
+		    _model.save({}, options);
+      }
+    });
+    
     return this;
   },
   

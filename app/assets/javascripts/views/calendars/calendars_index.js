@@ -9,21 +9,30 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#week-view": "weekView",
     "click button#day-view": "dayView",
     "click a#event-link": "showEvent",
+    "click .calendar-day-drop": "quickCreate",
+    "click a#quick-event-save": "quickSave",
   },
   
   initialize: function () {
     var that = this;
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     this.listenTo(this.collection, "all", this.render);
+    this.listenTo(this.collection, "add", this.render);
     
-    $(document).on('keypress', function(event) {
+    $(document).on('keypress', function (event) {
       var tag = event.target.tagName.toLowerCase();
       if (tag != 'input' && tag != 'textarea') 
         that.whichKey(event);
     });
+    
+    (this.collection).each(function (calendar) {
+        calendar.bind('add', that.render, that);
+    }, this);
   },
   
   render: function () {
+    var that = this;
+    
     var _currentHour = Cal._currentDate.getHours(); 
     var _currentMonth = Cal._currentDate.getMonth(); 
     var _currentYear = Cal._currentDate.getFullYear(); 
@@ -128,6 +137,45 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     this.render();
   },
   
+  quickCreate: function (event) {
+    event.preventDefault();
+    
+    var target = $(event.target);
+    var targetClass = target.attr('class');
+
+    if(targetClass === 'calendar-day-drop ui-droppable') {
+      var _thisDay = target.find('font').html();
+      var _currentMonth = Cal._currentDate.getMonth() + 1; 
+      var _currentYear = Cal._currentDate.getFullYear();
+      var _currentHour = Cal._currentDate.getHours() + 1;
+      
+      if ((_currentHour.toString().length) == 1) {
+        _currentHour = '0' + _currentHour;
+      }
+      
+      if ((_currentMonth.toString().length) == 1) {
+        _currentMonth = '0' + _currentMonth;
+      }
+      
+      if ((_thisDay.toString().length) == 1) {
+        _thisDay = '0' + _thisDay;
+      }
+      
+      var startDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + _currentHour + ':00:00';
+      var endDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + (_currentHour + 1) + ':00:00';
+      
+      var _event = new Cal.Models.Event ();
+
+     $("#content").append("<div class='lightbox'>" + JST['events/quick_form']({ startDateFormatted: startDateFormatted, endDateFormatted: endDateFormatted, event: _event }) + "</div>");
+      
+    }
+  },
+  
+  quickSave: function (event) {
+    event.preventDefault();
+    console.log('saving quick event');
+  },
+  
   showEvent: function (event) {
     event.preventDefault();
 
@@ -145,12 +193,12 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 106: // j
-        this.lastMonth();
-        break;
-      case 107: // k
-        this.nextMonth();
-        break;
+    case 106: // j
+      this.lastMonth();
+      break;
+    case 107: // k
+      this.nextMonth();
+      break;
     }
   }
 

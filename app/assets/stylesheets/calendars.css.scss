@@ -536,6 +536,10 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
   border: 1px solid $purple;
 }
 
+textarea {
+  resize: none;
+}
+
 #event_title:hover, #event_start_date:hover, #event_end_date:hover, #event_calendar_id:hover, #event_description:hover {
   border: 1px solid $dark-purple;
 }
@@ -1073,7 +1077,6 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 
 // DRAGGING EVENT CSS
 
-
 #dragged-event-update-button {
   visibility: hidden;
 }
@@ -1084,4 +1087,66 @@ button#back-to-cal:hover, button#discard:hover, #save:hover {
 
 .drag-over-highlight {
   background-color: lighten(#AA96A9, 18%);
+}
+
+
+
+
+
+
+
+
+
+
+// QUICK FORM
+
+.quick-form {
+  margin-left: 26%;
+  margin-top: 11%;
+  width: 19.3%;
+  height: 505px;
+  -moz-border-radius: 7px;
+  -webkit-border-radius: 7px;
+  border-radius: 7px;
+  padding-top: 10px;
+  padding-right: 20px;
+  padding-left: 20px;
+  padding-bottom: 10px;
+  position: fixed;
+  background-color: $purple;
+  
+  color: white;
+  
+  a {
+    color: white;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    color: darken(white, 5%);
+  }
+}
+
+.quick-event-form {
+  margin-left: 10%;
+}
+
+.organize-qf-buttons {
+  width: 100%;
+}
+
+.qf-back {
+  float: left;
+}
+
+.qf-save {
+  float: left;
+  margin-left: 150px;
+}
+
+.qf-line-separator {
+  height: 1px;
+  width: 88%;
+  border-bottom: 1px solid white;
+  margin-bottom: 5px;
 }

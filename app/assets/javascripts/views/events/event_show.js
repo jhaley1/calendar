@@ -16,16 +16,13 @@ Cal.Views.EventsForm = Backbone.View.extend({
   
   backToCal: function (event) {
     event.preventDefault();
-    
-    console.log('hi');
   },
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 27:
-        console.log('hi')
-        $('lightbox').remove();
-        break;
+    case 27:
+      $('lightbox').remove();
+      break;
     }
   }
   

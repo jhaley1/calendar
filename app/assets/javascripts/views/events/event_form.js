@@ -105,9 +105,9 @@ Cal.Views.EventForm = Backbone.View.extend({
   
   whichKey: function (event) {
     switch (event.keyCode) {
-      case 98:
-        Backbone.history.navigate("#/", { trigger: true });
-        break;
+    case 98:
+      Backbone.history.navigate("#/", { trigger: true });
+      break;
     }
   }
 });

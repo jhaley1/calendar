@@ -1,0 +1,86 @@
+<div class="quick-form">
+  <form class="quick-event-form">
+    <input
+      type="hidden"
+      name="event[id]"
+      value="<%= event.id %>">
+  
+    <label for="event_title"><h4>Title*</h4></label>
+    <input type="text" 
+      id="event_title" 
+      name="event[title]" 
+      placeholder="Untitled event"
+      size="60"
+      class="accepts-data"
+      value="<%= event.escape("title") %>">
+    <br>
+
+    <label for="event_start_date"><h4>Start*</h4></label>
+    <input id="event_start_date" 
+      name="event[start_date]" 
+      type="datetime-local" 
+      class="accepts-data" 
+      value="<%= startDateFormatted %>" />
+    
+    <label for="event_end_date"><h4>End*</h4></label>
+    <input id="event_end_date" 
+      name="event[end_date]" 
+      type="datetime-local" 
+      class="accepts-data" 
+      value="<%= endDateFormatted %>" />
+    <br>
+  
+    <label for="event_calendar_id"><h4>Calendar*</h4></label>
+    <select name="event[calendar_id]" id="event_calendar_id">
+      <% Cal.calendars.each(function (calendar) { %>
+        <option value="<%= calendar.get("id") %>"><%= calendar.get("name")%></option>
+      <% }); %>
+    </select>
+    <br>
+  
+    <label for="event_description"><h4>Description*</h4></label>
+    <textarea id="event_description" 
+      name="event[description]" 
+      placeholder="Describe the event..."
+      rows="3"
+      cols="40" 
+      class="accepts-data"></textarea>
+    <br><br>
+    
+    <div class="qf-line-separator"></div>
+  
+    <div class="organize-qf-buttons">
+      <div class="qf-back">
+        <a href="#" id="quick-back-to-cal">Back</a>
+      </div>
+      <div class="qf-save">
+        <a href="#" id="quick-save">Save</a>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script>
+  $("#quick-back-to-cal").click(function () {
+    $(".lightbox").remove();
+  }) 
+</script>
+
+<script>
+  $( "#quick-save" ).on( "click", function( event ) {
+    event.preventDefault();
+    
+    var data = $('form').serialize() + "&_method=post";  
+    
+    $.ajax({
+      type: "POST",
+      url: "/events",
+      data: data,
+      success: function(data) {
+        $(".lightbox").remove();
+      }
+    });
+     
+    return false;
+  });
+</script>

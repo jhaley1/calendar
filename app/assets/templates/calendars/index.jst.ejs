@@ -1,5 +1,5 @@
 <!-- app/assets/templates/calendars/index.jst.ejs -->
-
+<div id="calendar-container">
 <h1>
   <%= JST["calendars/_indexHeader"]({ month: month, year: year }) %>
 </h1>
@@ -30,3 +30,4 @@
   daysInMonth: daysInMonth, dayOfWeek: dayOfWeek,
   month: month, year: year, lastDayOfMonth: lastDayOfMonth,
   lastWeekday: lastWeekday, lastWeekdayNum: lastWeekdayNum }) %>
+</div>

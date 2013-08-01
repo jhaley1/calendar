@@ -10,11 +10,12 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#day-view": "dayView",
     "click a#event-link": "showEvent",
     "click .calendar-day-drop": "quickCreate",
-    "click a#quick-event-save": "quickSave",
+    "click a#quick-save": "quickSave",
   },
   
   initialize: function () {
     var that = this;
+    
     this.listenTo(this.collection, "change:Cal._currentDate", this.render);
     this.listenTo(this.collection, "all", this.render);
     this.listenTo(this.collection, "add", this.render);
@@ -163,17 +164,51 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       
       var startDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + _currentHour + ':00:00';
       var endDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + (_currentHour + 1) + ':00:00';
-      
-      var _event = new Cal.Models.Event ();
 
-     $("#content").append("<div class='lightbox'>" + JST['events/quick_form']({ startDateFormatted: startDateFormatted, endDateFormatted: endDateFormatted, event: _event }) + "</div>");
-      
+     $("#calendar-container").append("<div class='lightbox'>" + JST['events/quick_form']({ startDateFormatted: startDateFormatted, endDateFormatted: endDateFormatted, event: this.model }) + "</div>");
     }
   },
   
   quickSave: function (event) {
     event.preventDefault();
-    console.log('saving quick event');
+
+    var attrs = $('form').serializeJSON();
+    var calendar = Cal.calendars.get(attrs.event.calendar_id);
+
+    var options = {
+      success: function (model, response) {
+        if (_(response).length > 1) {
+          _(response).each(function(ev) {
+            var eventModel = new Cal.Models.Event(ev);
+            calendar.get("events").add(eventModel);
+            
+            Cal.calendars.fetch({
+              success: function () {
+                Backbone.history.navigate("#/", { trigger: true });
+              }
+            });
+          });
+        } else {
+          that.model.set(attrs);
+          
+          Cal.calendars.fetch({
+            success: function () {
+              Backbone.history.navigate("#/", { trigger: true });
+            }
+          });
+        }
+      },
+      error: function (model, response) {
+        $(function () {
+          $("#content").prepend("<div class='alert alert-error'><a class='close' data-dismiss='alert'>×</a>" + response.responseText + "</div>")
+        });
+      }
+    };
+
+    this.model.set(attrs.event);
+
+    calendar.get("events").add(this.model);
+    this.model.save({}, options);
   },
   
   showEvent: function (event) {

@@ -16,8 +16,11 @@ Cal.Routers.Calendars = Backbone.Router.extend({
   },
   
   index: function () {
+    var _event = new Cal.Models.Event ();
+    
     var indexView = new Cal.Views.CalendarsIndex ({
-      collection: Cal.calendars
+      collection: Cal.calendars,
+      model: _event
     });
 
     var sidebarView = new Cal.Views.Sidebar ({

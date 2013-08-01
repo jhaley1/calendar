@@ -63,24 +63,5 @@
 <script>
   $("#quick-back-to-cal").click(function () {
     $(".lightbox").remove();
-  }) 
-</script>
-
-<script>
-  $( "#quick-save" ).on( "click", function( event ) {
-    event.preventDefault();
-    
-    var data = $('form').serialize() + "&_method=post";  
-    
-    $.ajax({
-      type: "POST",
-      url: "/events",
-      data: data,
-      success: function(data) {
-        $(".lightbox").remove();
-      }
-    });
-     
-    return false;
   });
 </script>

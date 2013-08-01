@@ -11,6 +11,8 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click a#event-link": "showEvent",
     "click .calendar-day": "createEvent",
     "click #dragged-event-update-button": "save",
+    "submit .dragged-event-updater": "save",
+    "submit #dragged-event-update-button": "save",
   },
   
   initialize: function () {
@@ -95,7 +97,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   
   save: function (event) {
     event.preventDefault();
-    
     var that = this;
 
     var _calId = $('.dragged-cal-id').html();
@@ -120,7 +121,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
 
     _model.save({}, options);
   },
-
   
   showEvent: function (event) {
     event.preventDefault();

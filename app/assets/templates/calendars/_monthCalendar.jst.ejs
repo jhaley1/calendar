@@ -102,15 +102,15 @@
         
         var resetStartDate = new Date (newStartDate);
         var resetEndDate = new Date (newEndDate);
-
-        $('.dragged-event-updater').append("<input type='hidden' name='event[start_date]' value='" + resetStartDate + "'>");
-        $('.dragged-event-updater').append("<input type='hidden' name='event[end_date]' value='" + resetEndDate + "'>");
-        $('.dragged-event-info').append("<div class='dragged-cal-id'>" + thisCalId + "</div>");
-        $('.dragged-event-info').append("<div class='dragged-event-id'>" + thisEventId + "</div>");
         
-        $('#dragged-event-update-button').trigger('click');
+        
+        $('.dragged-event-updater').append("<input type='hidden' value='" + resetStartDate + "' name='event[start_date]'>");
+        $('.dragged-event-updater').append("<input type='hidden' value='" + resetEndDate + "' name='event[end_date]'>");
+        $('.dragged-event-info').append("<span class='dragged-cal-id'>" +  thisCalId + "</span>");
+        $('.dragged-event-info').append("<span class='dragged-event-id'>" +  thisEventId + "</span>");
+        
+        $("#dragged-event-update-button").click();
       }
     });
   });
 </script>
-

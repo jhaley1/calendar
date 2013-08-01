@@ -56,7 +56,10 @@ Cal.Views.CalendarEdit = Backbone.View.extend({
         Backbone.history.navigate("#/", { trigger: true });
       }
     };
+    
+    console.log(event.target.form);
 
+    console.log(attrs);
     this.model.set(attrs);
 
     if (this.model.isNew()) {

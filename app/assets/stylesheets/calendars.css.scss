@@ -1007,13 +1007,13 @@ textarea {
 }
 
 .event-info {
-  height: 100%;
+  height: 350px;
 }
 
 .line-separator {
   height: 1px;
   border-bottom: 1px solid white;
-  margin-top: 100px;
+  margin-top: 136px;
 }
 
 .edit-link {
@@ -1103,8 +1103,8 @@ textarea {
 .quick-form {
   margin-left: 26%;
   margin-top: 11%;
-  width: 19.3%;
-  height: 500px;
+  width: 310px;
+  height: 496px;
   -moz-border-radius: 7px;
   -webkit-border-radius: 7px;
   border-radius: 7px;
@@ -1112,7 +1112,7 @@ textarea {
   padding-right: 20px;
   padding-left: 20px;
   padding-bottom: 10px;
-  position: fixed;
+  position: relative;
   background-color: $purple;
   
   color: white;
@@ -1125,10 +1125,14 @@ textarea {
   a:hover {
     color: darken(white, 5%);
   }
+  
+  select {
+    width: 93%;
+  }
 }
 
 .quick-event-form {
-  margin-left: 10%;
+  margin-left: 22px;
 }
 
 .organize-qf-buttons {
@@ -1141,12 +1145,20 @@ textarea {
 
 .qf-save {
   float: left;
-  margin-left: 150px;
+  margin-left: 202px;
 }
 
 .qf-line-separator {
   height: 1px;
-  width: 88%;
+  width: 93%;
   border-bottom: 1px solid white;
   margin-bottom: 5px;
+}
+
+.quick-accepts-data {
+  width: 88%;
+}
+
+#qf-select {
+  background-color: white;
 }

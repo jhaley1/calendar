@@ -1,17 +1,24 @@
 <div class="quick-form">
-  <form class="quick-event-form">
-    <!--input
-      type="hidden"
-      name="event[id]"
-      value="<%= event.id %>"-->
+  <div class="cancel-icon">
+    <a href="#" id="return-to-cal">
+      <i class="icon-remove icon-white"></i>
+    </a>
+    
+    <script>
+      $("#return-to-cal").click(function () {
+        $(".lightbox").remove();
+      }) 
+    </script>
+  </div>
   
+  <form class="quick-event-form">
     <label for="event_title"><h4>Title*</h4></label>
     <input type="text" 
       id="event_title" 
       name="event[title]" 
       placeholder="Untitled event"
       size="60"
-      class="accepts-data"
+      class="quick-accepts-data"
       value="<%= event.escape("title") %>">
     <br>
 
@@ -19,14 +26,14 @@
     <input id="event_start_date" 
       name="event[start_date]" 
       type="datetime-local" 
-      class="accepts-data" 
+      class="quick-accepts-data" 
       value="<%= startDateFormatted %>" />
     
     <label for="event_end_date"><h4>End*</h4></label>
     <input id="event_end_date" 
       name="event[end_date]" 
       type="datetime-local" 
-      class="accepts-data" 
+      class="quick-accepts-data" 
       value="<%= endDateFormatted %>" />
     <br>
   
@@ -44,7 +51,7 @@
       placeholder="Describe the event..."
       rows="3"
       cols="40" 
-      class="accepts-data"></textarea>
+      class="quick-accepts-data"></textarea>
     <br><br>
     
     <div class="qf-line-separator"></div>

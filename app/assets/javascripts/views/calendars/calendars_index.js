@@ -25,10 +25,6 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       if (tag != 'input' && tag != 'textarea') 
         that.whichKey(event);
     });
-    
-    (this.collection).each(function (calendar) {
-        calendar.bind('add', that.render, that);
-    }, this);
   },
   
   render: function () {

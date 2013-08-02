@@ -149,9 +149,14 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       var _currentMonth = Cal._currentDate.getMonth() + 1; 
       var _currentYear = Cal._currentDate.getFullYear();
       var _currentHour = Cal._currentDate.getHours() + 1;
+      var _endHour = _currentHour + 1;
       
       if ((_currentHour.toString().length) == 1) {
         _currentHour = '0' + _currentHour;
+      }
+      
+      if ((_endHour.toString().length == 1)) {
+        _endHour = '0' + _endHour;
       }
       
       if ((_currentMonth.toString().length) == 1) {
@@ -163,50 +168,32 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
       }
       
       var startDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + _currentHour + ':00:00';
-      var endDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + (_currentHour + 1) + ':00:00';
+      var endDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + (_endHour) + ':00:00';
 
-     $("#calendar-container").append("<div class='lightbox'>" + JST['events/quick_form']({ startDateFormatted: startDateFormatted, endDateFormatted: endDateFormatted, event: this.model }) + "</div>");
+     $("#calendar-container").append("<div class='lightbox'>" + JST['events/quick_form']({ 
+       startDateFormatted: startDateFormatted, 
+       endDateFormatted: endDateFormatted, 
+       event: this.model }) + "</div>");
     }
   },
   
   quickSave: function (event) {
     event.preventDefault();
 
-    var attrs = $('form').serializeJSON();
+    var attrs = $('.quick-event-form').serializeJSON();
     var calendar = Cal.calendars.get(attrs.event.calendar_id);
 
     var options = {
       success: function (model, response) {
-        if (_(response).length > 1) {
-          _(response).each(function(ev) {
-            var eventModel = new Cal.Models.Event(ev);
-            calendar.get("events").add(eventModel);
-            
-            Cal.calendars.fetch({
-              success: function () {
-                Backbone.history.navigate("#/", { trigger: true });
-              }
-            });
-          });
-        } else {
-          that.model.set(attrs);
-          
-          Cal.calendars.fetch({
-            success: function () {
-              Backbone.history.navigate("#/", { trigger: true });
-            }
-          });
-        }
-      },
-      error: function (model, response) {
-        $(function () {
-          $("#content").prepend("<div class='alert alert-error'><a class='close' data-dismiss='alert'>×</a>" + response.responseText + "</div>")
+        Cal.calendars.fetch({
+          success: function () {
+            Backbone.history.navigate("#/", { trigger: true });
+          }
         });
       }
     };
 
-    this.model.set(attrs.event);
-
+    this.model.set(attrs);
     calendar.get("events").add(this.model);
     this.model.save({}, options);
   },

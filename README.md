@@ -1,6 +1,4 @@
-#Seagull Calendar App:
-
-##App Academy May 2013 - July 2013 Final Project
+#Seagull Calendar App
 
 by James Haley
 

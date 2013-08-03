@@ -20,7 +20,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     this.listenTo(this.collection, "all", this.render);
     this.listenTo(this.collection, "add", this.render);
     
-    $(document).on('keypress', function (event) {
+    $(document).on('keypress', function(event) {
       var tag = event.target.tagName.toLowerCase();
       if (tag != 'input' && tag != 'textarea') 
         that.whichKey(event);

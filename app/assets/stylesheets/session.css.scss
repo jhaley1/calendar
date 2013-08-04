@@ -77,7 +77,7 @@ $dark-purple: darken(#DDABEB, 17%);
   border-radius: 3px;
 }
 
-#info-entry {
+#info-field {
   width: 250px;
   border: 1px solid $purple;
 }
@@ -112,7 +112,7 @@ $dark-purple: darken(#DDABEB, 17%);
   align: left;
 }
 
-#log-in-button, #demo-button {
+#sign-up-button, #demo-sign-in-button {
   border: none;
   height: 30px;
   width: 80px;
@@ -126,11 +126,11 @@ $dark-purple: darken(#DDABEB, 17%);
   font-weight: bold;
 }
 
-#demo-button {
+#demo-sign-in-button {
   width: 100px;
 }
 
-#log-in-button:hover, #demo-button:hover {
+#sign-up-button:hover, #demo-sign-in-button:hover {
   background-color: $dark-purple;
 }
 

@@ -38,7 +38,7 @@
         <%= button_to "Sign in", 
           new_session_url,
           :method => "get",
-          :class => "sign-up-button" %>
+          :id => "sign-up-button" %>
       </div>
     </div>
   </div>
@@ -65,7 +65,7 @@
             name="user[password]" 
             value="password">
           
-          <input type="submit" value="View Demo" id="demo-button">
+          <input type="submit" value="View Demo" id="demo-sign-in-button">
         </form>
         
         <a href=""><h5>Learn more about Calendar</h5></a>
@@ -83,13 +83,14 @@
             <%= f.text_field :email, 
               :placeholder => "email", 
               :value => @user.email,
-              :id => "info-entry" %>
+              :id => "info-field" %>
+              <br>
             <%= f.password_field :password, 
               :placeholder => "password",
-              :id => "info-entry" %>
+              :id => "info-field" %>
             <br>
           
-            <%= f.submit :value => "Sign up", :id => "log-in-button" %>
+            <%= f.submit :value => "Sign up", :id => "sign-up-button" %>
           <% end %> 
         </div>       
       </div>

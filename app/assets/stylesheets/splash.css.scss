@@ -1,0 +1,206 @@
+$orange: darken(#FF9A2E, 0%);
+$dark-orange: darken(#FF9A2E, 10%);
+$black: #2D2D2D;
+$white: darken(white, 60%);
+$purple: #58488A;
+$light-purple: #C7C0DE;
+$grey: darken(white, 10%);
+
+@mixin splash-button-style {
+  border: none;
+  color: $purple;
+  background-color: lighten($light-purple, 12%);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.9);
+  border-radius: 4px;
+}
+
+.splash-container {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.splash-header {
+  left: 0;
+}
+
+.splash-header-menu {
+  height: 10px;
+  text-align: center;
+  margin-top: 10px;
+  color: $light-purple;
+  font-size: 20px;
+}
+
+.header-links, .header-log-in {
+  float: left;
+}
+
+#separator {
+  color: $light-purple;
+  font-size: 18px;
+}
+
+#log-in-fields {
+  height: 20px;
+}
+
+#password-field, #email-field {
+  border: none;
+  height: 16px;
+  width: 10%;
+}
+
+#info-entry {
+  border: none;
+  width: 30%;
+  height: 20px;
+  padding: 2px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#log-in-button {
+  @include splash-button-style;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 10px;
+  height: 24px;
+}
+
+#log-in-button:hover {
+  background-color: white;
+}
+
+.header-link {
+  padding-right: 20px;
+  padding-left: 20px;
+  color: $light-purple;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.header-link:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.splash-header {
+  height: 540px;
+  background-color: $purple;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.splash-header-logo {
+  text-align: center;
+  margin-top: 140px;
+}
+
+.logo {
+  height: 60px;
+  width: 90px;
+}
+
+.splash-header-subtitle {
+  text-align: center;
+  margin-top: 20px;
+}
+
+#cal-title {
+  color: white;
+  font-size: 45px;
+}
+
+#cal-subtitle {
+  color: $light-purple;
+  font-size: 25px;
+}
+
+.splash-header-sign-up {
+  text-align: center;
+  width: 100%;
+  margin-top: 25px;
+  padding-bottom: 0px;
+  height: 40px;
+}
+
+.sign-up-button {
+  width: 300px;
+  padding-left: 60px;
+  font-weight: 500;
+  font-size: 15px;
+  padding-right: 60px;
+  height: 40px;
+  @include splash-button-style;
+}
+
+.sign-up-button:hover {
+  background-color: white;
+}
+
+.demo-account-link {
+  text-align: center;
+}
+
+#demo-button {
+  color: $light-purple;
+  font-size: 12px;
+  font-weight: 200;
+  border: none;
+  height: 18px;
+  padding: none;
+  width: 110px;
+  background-color: $purple;
+}
+
+#demo-button:hover {
+  color: white;
+  background-color: $purple;
+}
+
+.splash-body {
+  width: 100%;
+  margin-top: 600px;
+  color: $black;
+  font-weight: 200;
+  text-align: center;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+
+@for $j from 1 through 6 {
+  .splash-row-#{$j} {
+    height: 250px;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@for $i from 1 through 6 {
+  .sr#{$i}-text {
+    float: left;
+    width: 30%;
+    height: 250px;
+    padding-bottom: 10px;
+    padding-left: 10%;
+    text-align: left;
+  }
+  
+  .sr#{$i}-img {
+    float: left;
+    width: 30%;
+    padding-bottom: 150px;
+    text-align: center;
+    margin-right: 15%;
+  }
+}
+
+.screenshot {
+  max-height: 250px;
+  border: 1px solid $grey;
+}

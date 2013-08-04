@@ -1,115 +1,156 @@
 <!-- app/views/session/new.html.erb -->
 
-<div class="container">
-  <div class="header">
-    
-    <div id="test">
-      <div class="logo-holder">
-        <img src="/assets/gull.png" class="logo" />
-      </div>
-      <div class="title-holder">
-        <span id="calendar-title">
-          <span class="char1">S</span>
-          <span class="char2">E</span>
-          <span class="char3">A</span>
-          <span class="char4">G</span>
-          <span class="char5">U</span>
-          <span class="char6">L</span>
-          <span class="char7">L</span>
-          <span class="char8"></span>
-          <span class="char8"> </span>
-          <span class="char9">&nbsp;C</span>
-          <span class="char10">A</span>
-          <span class="char11">L</span>
-          <span class="char12">E</span>
-          <span class="char13">N</span>
-          <span class="char14">D</span>
-          <span class="char15">A</span>
-          <span class="char16">R</span>
+<script>
+  $(function(){
+  	$(window).load(function(){ // On load
+  		$('.splash-container').css({'width':(($(window).width()))+'px'});
+  	});
+  	$(window).resize(function(){ // On resize
+  		$('.splash-container').css({'width':(($(window).width()))+'px'});
+  	});
+  });
+</script>
+
+<div class="splash-container">
+  <div class="splash-header">
+    <div class="splash-header-menu">
+      <div class="header-links">
+        <span class="header-menu-link">
+          <a href="http://www.github.com/jhaley1" class="header-link">Github</a>
         </span>
+        <span id="separator">|</span> 
+        <span class="header-menu-link">
+          <a href="http://jhaley1.github.io" class="header-link">Projects</a>
+        </span>
+        <span id="separator">|</span> 
+        <span class="header-menu-link">
+          <a href="http://www.linkedin.com/in/jhaley1" class="header-link">LinkedIn</a>
+        </span>
+        <span id="separator">|</span>
       </div>
-    </div>
-    
-    <div class="sign-up-region">
-      <div id="signuptext">
-        <font id="sign-up-text">New to Calendar?</font>
-      </div>
-      <div id="signupbutton">
-        <%= button_to "Sign up", 
-          new_user_url,
-          :method => "get",
-          :class => "sign-up-button" %>
-      </div>
-    </div>
-  </div>
-  <div id="session-content">
-  
-    <div id="left-half">
-      <div id="cal-info">
-        <h1 id="header-text">Seagull Calendar</h1>
+      
+      <div class="header-log-in">
         
-        <h3>Share your schedule.</h3>
-        Let your family and friends see your calendar, and view calendars that others have shared with you.
-        <br>
-          
-        <h3>Never forget another event.</h3>
-        Get event reminders via email.
-        <br>
-        
-        <h3>Try it out first.</h3>
-        <form action="<%= session_url %>" method="post">
-          <input type="hidden" 
-            name="user[email]" 
-            value="demo@demo.com">
-          <input type="hidden" 
-            name="user[password]" 
-            value="password">
-          
-          <input type="submit" value="View Demo" id="demo-button">
-        </form>
-        
-        <a href=""><h5>Learn more about Calendar</h5></a>
-      </div>
-    </div>
-
-
-    <div id="right-half">
-      <div id="log-in-box">
         <form action="<%= session_url %>" method="post" id="entry-form">
-          <div id="log-in-info">
-            <h1 id="header-text">Sign In</h1>
-            <br>
-            
             <input type="text" 
               name="user[email]" 
               placeholder="email" 
               id="info-entry">
-            <br>
             <input type="password" 
               name="user[password]" 
               placeholder="password" 
               id="info-entry">
-            <br>
           
             <input type="submit" value="Sign in" id="log-in-button">
-          </div>
         </form>
       </div>
     </div>
-  
+
+    <div class="splash-header-logo">
+      <img src="/assets/gull.png" class="logo" /> <div id="cal-title">Calendar</div>
+    </div>
+    
+    <div class="splash-header-subtitle">
+      <span id="cal-subtitle">Free online calendar app.</span>
+    </div>
+    
+    <div class="splash-header-sign-up">
+      <%= button_to "Sign up", 
+        new_user_url,
+        :method => "get", 
+        :class => "sign-up-button" %>
+    </div>
+    
+    <div class="demo-account-link">
+      <form action="<%= session_url %>" method="post">
+        <input type="hidden" 
+          name="user[email]" 
+          value="demo@demo.com">
+        <input type="hidden" 
+          name="user[password]" 
+          value="password">
+        
+        <input type="submit" value="Click to view demo" id="demo-button">
+      </form>
+    </div>
+
   </div>
   
-</div>
-
-<div id="session-footer">
-  <div id="footer-content">
-    <font id="header-text"><strong>&#169; Seagull</strong></font>
-    &emsp;&emsp;&emsp;
-    <a href="">Terms & Conditions</a>
-    &emsp;
-    <a href="">Privacy Policy</a>
+  <div class="splash-body">
+    <div class="splash-row-1">
+      <div class="sr1-text">
+        <h3>Email Reminders & Recurring Events</h3>
+        Check the box to receive an email reminder 24 hours prior to the start of the event. Set up events to reoccur on a daily, weekly, bi-weekly, monthly, or yearly basis.
+      </div>
+    
+      <div class="sr1-img">
+        <img src="/assets/recur.jpg" class="screenshot">
+      </div>
+    </div>
+  
+    <div class="splash-row-2">
+      <div class="sr2-img">
+        <img src="/assets/share-cal.jpg" class="screenshot">
+      </div>
+      
+      <div class="sr2-text">
+        <h3>Share your calendars</h3>
+        Easily share calendars with your friends and family, just type in their email address, click the "+" button, save your calendar, and that calendar will now be synced across multiple accounts.
+      </div>
+    </div>
+    
+    <div class="splash-row-3">
+      <div class="sr3-text">
+        <h3>Drag & Drop Events</h3>
+        An event got moved? Don't bother editing it, just drag it and drop it to the new location.
+      </div>
+    
+      <div class="sr3-img">
+        <img src="/assets/drag-drop.jpg" class="screenshot">
+      </div>
+    </div>
+    
+    <div class="splash-row-4">
+      <div class="sr4-img">
+        <img src="/assets/quick-create.jpg" class="screenshot">
+      </div>
+      
+      <div class="sr4-text">
+        <h3>Quickly Create Events</h3>
+        If you need to quickly create an event, just click on the day you want to create the event. The date will be automatically populated, and the event start hour will be the following hour by default.
+      </div>
+    </div>
+    
+    <div class="splash-row-5">
+      <div class="sr5-text">
+        <h3>Multiple Views</h3>
+        Monthly views are for offline calendars. If you're using the internet, you want options. Need options. Must have options. Why? Because that's why Al Gore invented the internet. For Democracy. Let's have week and day views!
+      </div>
+    
+      <div class="sr5-img">
+        asdf
+      </div>
+    </div>
+    
+    <div class="splash-row-6">
+      <div class="sr6-img">
+        asdfa
+      </div>
+      
+      <div class="sr6-text">
+        <h3>Search Your Calendars</h3>
+        Where's my event? Did you lose it again? <a href="">Stupid, forgetful Michael</a>. Use a custom Bootstrap typeahead search to quickly find and edit an event.
+      </div>
+    </div>
+    
   </div>
+  
+  <div class="splash-contact">
+    contact me
+  </div>
+  
+  <div class="splash-footer">
+    footer
+  </div>
+
 </div>
-
-
-

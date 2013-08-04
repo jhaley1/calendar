@@ -39,7 +39,7 @@
     Cal.calendars.each(function (calendar) {
       calendar.get("events").each( function (event) {
         var startDate = new Date (event.get("start_date"));
-        var startMonth = startDate.getMonth();
+        var startMonth = startDate.getMonth() + 1;
         var startDay = startDate.getUTCDate();
         var startYear = startDate.getFullYear();
       

@@ -167,7 +167,7 @@ $border-grey: darken(#EBE8F3, 8%);
 
 .splash-body {
   width: 87.5%;
-  margin-top: 600px;
+  margin-top: 700px;
   color: $black;
   font-weight: 200;
   margin-left: 12.5%;
@@ -211,5 +211,18 @@ $border-grey: darken(#EBE8F3, 8%);
   border-top: 2px solid $border-grey;
   width: 96%;
   right: 0;
-  padding: 2%;
+  padding: 1%;
+  text-align: center;
+  
+  .footer-title {
+    padding-right: 50px;
+  }
+  
+  a {
+    color: $purple;
+  }
+  
+  .footer-link {
+    padding-right: 50px;
+  }
 }

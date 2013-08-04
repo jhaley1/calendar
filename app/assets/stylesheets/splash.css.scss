@@ -4,7 +4,8 @@ $black: #2D2D2D;
 $white: darken(white, 60%);
 $purple: #58488A;
 $light-purple: #C7C0DE;
-$grey: darken(white, 10%);
+$grey: #EBE8F3;
+$border-grey: darken(#EBE8F3, 8%);
 
 @mixin splash-button-style {
   border: none;
@@ -164,43 +165,41 @@ $grey: darken(white, 10%);
 }
 
 .splash-body {
-  width: 100%;
+  width: 87.5%;
   margin-top: 600px;
   color: $black;
   font-weight: 200;
-  text-align: center;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-left: 12.5%;
 }
 
-@for $j from 1 through 6 {
+@for $j from 1 through 7 {
   .splash-row-#{$j} {
-    height: 250px;
     width: 100%;
-    text-align: center;
   }
 }
 
-@for $i from 1 through 6 {
+@for $i from 1 through 7 {
   .sr#{$i}-text {
-    float: left;
-    width: 30%;
-    height: 250px;
-    padding-bottom: 10px;
-    padding-left: 10%;
+    width: 35%;
+    display: inline-block;
+    margin-left: 5%;
+    height: 300px;
     text-align: left;
   }
   
   .sr#{$i}-img {
-    float: left;
-    width: 30%;
-    padding-bottom: 150px;
-    text-align: center;
-    margin-right: 15%;
+    width: 35%;
+    display: inline-block;
+    margin-left: 5%;
+    height: 300px;
   }
 }
 
-.screenshot {
-  max-height: 250px;
-  border: 1px solid $grey;
+.splash-footer {
+  background-color: $grey;
+  height: 200px;
+  border-top: 2px solid $border-grey;
+  width: 100%;
+  right: 0;
+  padding: 20px;
 }

@@ -32,6 +32,7 @@ $border-grey: darken(#EBE8F3, 8%);
   margin-top: 10px;
   color: $light-purple;
   font-size: 20px;
+  margin-left: 23%;
 }
 
 .header-links, .header-log-in {
@@ -195,11 +196,20 @@ $border-grey: darken(#EBE8F3, 8%);
   }
 }
 
+.splash-contact-container {
+  width: 100%;
+}
+
+.splash-contact-info, .splash-contact-fields {
+  width: 49%;
+  display: inline-block;
+}
+
 .splash-footer {
   background-color: $grey;
-  height: 200px;
+  height: 150px;
   border-top: 2px solid $border-grey;
-  width: 100%;
+  width: 96%;
   right: 0;
-  padding: 20px;
+  padding: 2%;
 }

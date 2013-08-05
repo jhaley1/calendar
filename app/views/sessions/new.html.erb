@@ -1,4 +1,13 @@
 <!-- app/views/session/new.html.erb -->
+<script>
+  $(function () {
+    $(window).scroll(function() {
+      var st = $(this).scrollTop();
+      var h = $(this).scrollHeight;
+      $('#fading').css({ 'opacity': 1 - st / h });
+    });
+  });
+</script>
 
 <div class="splash-container">
   <div class="splash-header">
@@ -34,35 +43,36 @@
         </form>
       </div>
     </div>
-
-    <div class="splash-header-logo">
-      <img src="/assets/gull.png" class="logo" /> <div id="cal-title">Calendar</div>
-    </div>
     
-    <div class="splash-header-subtitle">
-      <span id="cal-subtitle">Free online calendar app.</span>
-    </div>
+    <div id='fading'>
+      <div class="splash-header-logo">
+        <img src="/assets/gull.png" class="logo" /> <div id="cal-title">Calendar</div>
+      </div>
     
-    <div class="splash-header-sign-up">
-      <%= button_to "Sign up", 
-        new_user_url,
-        :method => "get", 
-        :class => "sign-up-button" %>
-    </div>
+      <div class="splash-header-subtitle">
+        <span id="cal-subtitle">Free online calendar app.</span>
+      </div>
     
-    <div class="demo-account-link">
-      <form action="<%= session_url %>" method="post">
-        <input type="hidden" 
-          name="user[email]" 
-          value="demo@demo.com">
-        <input type="hidden" 
-          name="user[password]" 
-          value="password">
+      <div class="splash-header-sign-up">
+        <%= button_to "Sign up", 
+          new_user_url,
+          :method => "get", 
+          :class => "sign-up-button" %>
+      </div>
+    
+      <div class="demo-account-link">
+        <form action="<%= session_url %>" method="post">
+          <input type="hidden" 
+            name="user[email]" 
+            value="demo@demo.com">
+          <input type="hidden" 
+            name="user[password]" 
+            value="password">
         
-        <input type="submit" value="Click to view demo" id="demo-button">
-      </form>
+          <input type="submit" value="Click to view demo" id="demo-button">
+        </form>
+      </div>
     </div>
-
   </div>
   
   <div class="splash-body">

@@ -3,12 +3,13 @@
   $(window).scroll(function () { 
     var st = $(this).scrollTop();
     $('#fading').each(function(index) {
-      var o = (($(this).offset().top - st) / 70);
+      var o = ((($(this).offset().top - st) - 20) / 70);
       $('#fading').css({ 'opacity': o });
       if (o > .2) {
         $('.splash-header')
-          .css({ 'height': 540 - $(this).offset().top / (o * 4) });
-        $('.splash-body').css({ 'margin-top': 700 - $(this).offset().top / (o * 3)});
+          .css({ 'height': 540 - ($(this).offset().top / ((o * 4)) + 27) });
+        $('.splash-body')
+          .css({ 'margin-top': 700 - ($(this).offset().top / (o * 3) + 20) });
       }
     })
   });

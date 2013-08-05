@@ -1,11 +1,12 @@
 <!-- app/views/session/new.html.erb -->
 <script>
-  $(function () {
-    $(window).scroll(function() {
-      var st = $(this).scrollTop();
-      var h = $(this).scrollHeight;
-      $('#fading').css({ 'opacity': 1 - st / h });
-    });
+  $(window).scroll(function () { 
+    var st = $(this).scrollTop();
+    $('#fading').each(function(index) {
+      var o = (($(this).offset().top - st) / 50);
+      $(this).css({ 'opacity': o });
+      $(this).css({ 'height': 100 - $(this).offset().top / o });
+    })
   });
 </script>
 

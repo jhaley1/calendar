@@ -135,42 +135,40 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
   },
   
   quickCreate: function (event) {
+    console.log('meowmeowmeow');
     event.preventDefault();
     
     var target = $(event.target);
-    var targetClass = target.attr('class');
 
-    if(targetClass === 'calendar-day-drop ui-droppable') {
-      var _thisDay = target.find('font').html();
-      var _currentMonth = Cal._currentDate.getMonth() + 1; 
-      var _currentYear = Cal._currentDate.getFullYear();
-      var _currentHour = Cal._currentDate.getHours() + 1;
-      var _endHour = _currentHour + 1;
-      
-      if ((_currentHour.toString().length) == 1) {
-        _currentHour = '0' + _currentHour;
-      }
-      
-      if ((_endHour.toString().length == 1)) {
-        _endHour = '0' + _endHour;
-      }
-      
-      if ((_currentMonth.toString().length) == 1) {
-        _currentMonth = '0' + _currentMonth;
-      }
-      
-      if ((_thisDay.toString().length) == 1) {
-        _thisDay = '0' + _thisDay;
-      }
-      
-      var startDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + _currentHour + ':00:00';
-      var endDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + (_endHour) + ':00:00';
-
-     $("#calendar-container").append("<div class='lightbox'>" + JST['events/quick_form']({ 
-       startDateFormatted: startDateFormatted, 
-       endDateFormatted: endDateFormatted, 
-       event: this.model }) + "</div>");
+    var _thisDay = target.find('font').html();
+    var _currentMonth = Cal._currentDate.getMonth() + 1; 
+    var _currentYear = Cal._currentDate.getFullYear();
+    var _currentHour = Cal._currentDate.getHours() + 1;
+    var _endHour = _currentHour + 1;
+    
+    if ((_currentHour.toString().length) == 1) {
+      _currentHour = '0' + _currentHour;
     }
+    
+    if ((_endHour.toString().length == 1)) {
+      _endHour = '0' + _endHour;
+    }
+    
+    if ((_currentMonth.toString().length) == 1) {
+      _currentMonth = '0' + _currentMonth;
+    }
+    
+    if ((_thisDay.toString().length) == 1) {
+      _thisDay = '0' + _thisDay;
+    }
+    
+    var startDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + _currentHour + ':00:00';
+    var endDateFormatted = _currentYear + '-' + _currentMonth + '-' + _thisDay + 'T' + (_endHour) + ':00:00';
+
+   $("#calendar-container").append("<div class='lightbox'>" + JST['events/quick_form']({ 
+     startDateFormatted: startDateFormatted, 
+     endDateFormatted: endDateFormatted, 
+     event: this.model }) + "</div>");
   },
   
   quickSave: function (event) {

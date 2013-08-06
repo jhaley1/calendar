@@ -9,7 +9,7 @@ Cal.Views.CalendarsIndex = Backbone.View.extend({
     "click button#week-view": "weekView",
     "click button#day-view": "dayView",
     "click a#event-link": "showEvent",
-    "click .calendar-day-drop": "quickCreate",
+    "click .calendar-day-drop.ui-droppable": "quickCreate",
     "click a#quick-save": "quickSave",
   },
   

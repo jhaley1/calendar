@@ -102,11 +102,12 @@ class EventsController < ApplicationController
   def send_at(date)
     time = DateTime.parse(date)
     minutes = distance_between(DateTime.now, time)
+    minutes
   end
   
   def distance_between(current_date, start_date)
-    difference = current_date - start_date
-    (difference * 24 * 60).to_i - (24 * 60).minutes
+    difference = start_date - current_date
+    (difference.to_i * 24 * 60 * 60) - 60.minutes
   end
     
 end

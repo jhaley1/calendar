@@ -1,9 +1,3 @@
-<% if (calendar.isNew()) { %>
-  <h1>Create a new calendar</h1>
-<% } else { %>
-  <h1>Edit <%= calendar.escape("name") %> calendar</h1>
-<% } %>
-
 <% var user_id = JSON.parse($("#user_id_json").html()); %>
 
 <form class="calendar-form" id="calendar-form">
@@ -11,18 +5,33 @@
     type="hidden"
     name="calendar[user_id]"
     value="<%= user_id %>">
+
+  <br>    
+  <button id="back-to-cal"><</button>
+  <input type="submit" id="save" value="SAVE" form="calendar-form">
+
+  <% if (!this.model.isNew()) { %>
+    <button id="discard">Discard</button>
+  <% } %>
   
-  <label for="calendar_name"><h4>Name*</h4></label>
+  <% if (calendar.isNew()) { %>
+    <h1>Create a new calendar</h1>
+  <% } else { %>
+    <h1>Edit <%= calendar.escape("name") %> calendar</h1>
+  <% } %>
+  
+  <label for="calendar_name"><h4>Name</h4></label>
   <input type="text" 
     id="calendar_name" 
     name="calendar[name]" 
     placeholder="Untitled calendar"
     size="60"
+    style="width: 202px"
     class="accepts-data"
     value="<%= calendar.escape("name") %>">
   <br>
   
-  <h4>Display Label Color*</h4>
+  <h4>Display Label Color</h4>
   <input type="radio"
     id="calendar_display_id_yellow"
     name="calendar[display_id]"
@@ -105,11 +114,4 @@
     </ul>
   </div>
   <br>
-  
-  <button id="back-to-cal"><</button>
-  <input type="submit" id="save" value="SAVE" form="calendar-form">
-  
-  <% if (!this.model.isNew()) { %>
-    <button id="discard">Discard</button>
-  <% } %>
 </form>

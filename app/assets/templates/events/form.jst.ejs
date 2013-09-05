@@ -9,8 +9,15 @@
     type="hidden"
     name="event[id]"
     value="<%= event.id %>">
+    
+  <button id="back-to-cal">Back</button>
+  <input type="submit" id="save" value="SAVE">
+
+  <% if (!this.model.isNew()) { %>
+    <button id="discard">Delete</button>
+  <% } %>
   
-  <label for="event_title"><h4>Title*</h4></label>
+  <label for="event_title"><h4>Title</h4></label>
   <input type="text" 
     id="event_title" 
     name="event[title]" 
@@ -25,14 +32,14 @@
   <% var endDate = event.escape("end_date") %>
   <% var endDateFormatted = endDate.substring(0, endDate.length - 1) %>
 
-  <label for="event_start_date"><h4>Start*</h4></label>
+  <label for="event_start_date"><h4>Start</h4></label>
   <input id="event_start_date" 
     name="event[start_date]" 
     type="datetime-local" 
     class="accepts-data" 
     value="<%= startDateFormatted %>" />
     
-  <label for="event_end_date"><h4>End*</h4></label>
+  <label for="event_end_date"><h4>End</h4></label>
   <input id="event_end_date" 
     name="event[end_date]" 
     type="datetime-local" 
@@ -40,8 +47,8 @@
     value="<%= endDateFormatted %>" />
   <br>
   
-  <label for="event_calendar_id"><h4>Calendar*</h4></label>
-  <select name="event[calendar_id]" id="event_calendar_id">
+  <label for="event_calendar_id"><h4>Calendar</h4></label>
+  <select name="event[calendar_id]" id="event_calendar_id" style="width: 364px">
     <% Cal.calendars.each(function (calendar) { %>
       <% if (calendar.get("id") === event.get("calendar_id")) { %>
         <% var selectStatus = 'selected="selected"' %>
@@ -55,7 +62,7 @@
   </select>
   <br>
   
-  <label for="event_description"><h4>Description*</h4></label>
+  <label for="event_description"><h4>Description</h4></label>
   <textarea id="event_description" 
     name="event[description]" 
     placeholder="Describe the event..."
@@ -178,10 +185,5 @@
   </div>
   <br><br>
   
-  <button id="back-to-cal"><</button>
-  <input type="submit" id="save" value="SAVE">
   
-  <% if (!this.model.isNew()) { %>
-    <button id="discard">Discard</button>
-  <% } %>
 </form>

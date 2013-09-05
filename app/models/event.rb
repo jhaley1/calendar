@@ -11,8 +11,7 @@ class Event < ActiveRecord::Base
 
   validate :ensure_end_date_is_after_start_date
   
-  validates :description, :title,
-    :start_date, :end_date, :presence => true
+  validates :title, :start_date, :end_date, :presence => true
     
   private
   
@@ -32,7 +31,7 @@ class Event < ActiveRecord::Base
   
   def ensure_end_date_is_after_start_date
     if (self.end_date || self.start_date) == nil
-      errors[:time] << "- must enter both start and end dates."
+      errors[:time] << "-d must enter both start and end dates."
     elsif self.end_date - self.start_date == 0
       errors[:same_time] << "- start date cannot be the same as end time."
     elsif self.end_date - self.start_date < 0
